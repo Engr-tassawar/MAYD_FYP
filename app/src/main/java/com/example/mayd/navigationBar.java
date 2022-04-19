@@ -11,6 +11,6 @@ public class navigationBar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_bar);
 
-        int x=3;
+        int x=4;
     }
 }
