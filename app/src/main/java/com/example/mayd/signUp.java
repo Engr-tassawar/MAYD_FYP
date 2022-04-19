@@ -25,7 +25,7 @@ public class signUp extends AppCompatActivity {
 
         account=findViewById(R.id.Account);
         sign=findViewById(R.id.signButton);
-       box1=findViewById(R.id.male);
+        box1=findViewById(R.id.male);
         box2=findViewById(R.id.female);
         firstName=findViewById(R.id.first);
         lastName=findViewById(R.id.last);
