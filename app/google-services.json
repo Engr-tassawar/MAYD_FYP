@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "201681702599",
+    "project_id": "mayd-535a0",
+    "storage_bucket": "mayd-535a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201681702599:android:745e0511171c3be3c838e2",
+        "android_client_info": {
+          "package_name": "com.example.mayd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201681702599-1cerjhbfgdi9tsohm7m02vps3a1vj1fq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9kfozb4yUCoVulgZf04VV8Wee0kNAUug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201681702599-1cerjhbfgdi9tsohm7m02vps3a1vj1fq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

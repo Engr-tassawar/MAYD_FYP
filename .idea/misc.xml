@@ -18,8 +18,18 @@
         <entry key="..\:/Users/DELL/AndroidStudioProjects/MAYD2/app/src/main/res/menu/threedot.xml" value="0.23854166666666668" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/MAYD2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.165" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/MAYD2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.165" />
+        <entry key="..\:/Users/Jawad/AndroidStudioProjects/MAYD_FYP/app/src/main/res/drawable/login.xml" value="0.1545" />
+        <entry key="..\:/Users/Jawad/AndroidStudioProjects/MAYD_FYP/app/src/main/res/layout/activity_alert_dialouge.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Jawad/AndroidStudioProjects/MAYD_FYP/app/src/main/res/layout/activity_customer.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Jawad/AndroidStudioProjects/MAYD_FYP/app/src/main/res/layout/activity_forget.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Jawad/AndroidStudioProjects/MAYD_FYP/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Jawad/AndroidStudioProjects/MAYD_FYP/app/src/main/res/layout/activity_home1.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Jawad/AndroidStudioProjects/MAYD_FYP/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/Jawad/AndroidStudioProjects/MAYD_FYP/app/src/main/res/layout/activity_service_provider_sign_up.xml" value="0.25" />
+        <entry key="..\:/Users/Jawad/AndroidStudioProjects/MAYD_FYP/app/src/main/res/layout/activity_service_providerlogin.xml" value="0.25" />
+        <entry key="..\:/Users/Jawad/AndroidStudioProjects/MAYD_FYP/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
+        <entry key="..\:/Users/Jawad/AndroidStudioProjects/MAYD_FYP/app/src/main/res/layout/activity_sign_up.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Jawad/AndroidStudioProjects/MAYD_FYP/app/src/main/res/layout/activity_start.xml" value="0.18854166666666666" />
       </map>
     </option>
   </component>

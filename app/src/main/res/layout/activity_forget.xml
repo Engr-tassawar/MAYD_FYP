@@ -16,7 +16,7 @@
 android:layout_marginTop="30dp"
         android:layout_gravity="center"
 
-        android:text="Forget Your Password"
+        android:text="@string/forget_your_password"
         android:textColor="@color/green"
         android:textSize="35sp" />
     <EditText
@@ -25,7 +25,7 @@ android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:paddingTop="20dp"
-        android:hint="Full Name"
+        android:hint="@string/full_name"
         android:inputType="text"
         />
     <EditText
@@ -33,7 +33,7 @@ android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="Enter your phone number"
+        android:hint="@string/enter_your_phone_number"
         android:paddingTop="20dp"
         android:inputType="phone"
         />

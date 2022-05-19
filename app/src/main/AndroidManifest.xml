@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAYD">
         <activity
+            android:name=".signIn"
+            android:exported="false" />
+        <activity
+            android:name=".serviceProviderSignUp"
+            android:exported="false" />
+        <activity
+            android:name=".serviceProviderlogin"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".customer"
+            android:exported="false" />
+        <activity
             android:name=".home1"
             android:exported="false" />
         <activity

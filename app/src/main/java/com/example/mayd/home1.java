@@ -14,6 +14,9 @@ TextView tvElectric,tvPlum,tvElder,tvBaby,tvCook,tvDrive;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_home1);
         imgElectric=findViewById(R.id.imgElectric);
         imgPlum=findViewById(R.id.imgPlum);

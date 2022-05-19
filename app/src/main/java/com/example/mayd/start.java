@@ -12,6 +12,7 @@ ImageView imgLogo;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        getSupportActionBar().hide();
         imgLogo =findViewById(R.id.logo);
 
 
@@ -22,7 +23,7 @@ ImageView imgLogo;
                 super.run();
                 try {
                     sleep(1000);
-                    Intent intent=new Intent(start.this,MainActivity.class);
+                    Intent intent=new Intent(start.this,customer.class);
                     startActivity(intent);
                     finish();
                 } catch (InterruptedException e) {

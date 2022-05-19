@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MAYD</string>
+    <string name="forget_your_password">Forget Your Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
 
 </resources>

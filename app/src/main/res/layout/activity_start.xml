@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="196dp"
-        android:layout_height="203dp"
+        android:layout_width="160dp"
+        android:layout_height="190dp"
 
         android:src="@drawable/bike"
         app:layout_constraintBottom_toBottomOf="parent"
