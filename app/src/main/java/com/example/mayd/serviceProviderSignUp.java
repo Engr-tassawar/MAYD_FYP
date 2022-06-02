@@ -23,7 +23,7 @@ TextView tvHeading,tvAlreadyAccount;
         edtPhone=findViewById(R.id.edtPhone);
         tvHeading=findViewById(R.id.tvHeading);
         btnPermanentAddress=findViewById(R.id.btnSelectAddress);
-        tvAlreadyAccount=findViewById(R.id.tvAlreadyAccount);
+        tvAlreadyAccount=findViewById(R.id.tvAlreadyAccountSignIn);
 
         tvAlreadyAccount.setOnClickListener(new View.OnClickListener() {
             @Override

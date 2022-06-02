@@ -9,7 +9,7 @@
     tools:context=".sign_in_ForCustomer">
 
     <ImageView
-        android:id="@+id/imgProfile"
+        android:id="@+id/temp_imgProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -18,7 +18,7 @@
         />
 
     <TextView
-        android:id="@+id/tvForCustomer"
+        android:id="@+id/temp_tvForCustomer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
@@ -33,7 +33,7 @@
 
 
     <EditText
-        android:id="@+id/edtEmail"
+        android:id="@+id/Customer_edtEmailSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -42,7 +42,7 @@
         />
 
     <EditText
-        android:id="@+id/edtPassword"
+        android:id="@+id/Customer_edtPasswordSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
@@ -54,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnSignIn"
+        android:id="@+id/Customer_btnSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
@@ -65,7 +65,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/tvSignUp"
+        android:id="@+id/Customer_tvSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
@@ -76,7 +76,7 @@
         android:textSize="20sp"
          />
     <TextView
-        android:id="@+id/tvForgotPassword"
+        android:id="@+id/Customer_tvForgotPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"

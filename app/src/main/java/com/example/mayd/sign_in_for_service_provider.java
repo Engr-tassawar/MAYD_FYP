@@ -11,20 +11,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class sign_in_for_service_provider extends AppCompatActivity {
-EditText edtPhone,edtPassword;
-Button btnSignIn;
-ImageView imgProfile;
-TextView tvSignIn,tvSignUp;
+EditText edtPhone;
+Button btnSendCode;
+TextView tvSignUp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_for_sevice_provider);
-        edtPhone=findViewById(R.id.edtPhone);
-        edtPassword=findViewById(R.id.edtPassword);
-        btnSignIn=findViewById(R.id.btnSignIn);
-        imgProfile=findViewById(R.id.imgProfile);
-        tvSignIn=findViewById(R.id.tvSignIn);
-        tvSignUp=findViewById(R.id.tvSignUp);
+
+        edtPhone=findViewById(R.id.Service_Provider_edtPhone);
+        btnSendCode=findViewById(R.id.Service_Provider_btnSendCode);
+        tvSignUp=findViewById(R.id.Service_Provider_tvSignUp);
 
         tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override

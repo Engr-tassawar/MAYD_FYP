@@ -3,5 +3,8 @@
     <string name="forget_your_password">Forget Your Password</string>
     <string name="full_name">Full Name</string>
     <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="send_code">Send Code</string>
 
 </resources>

@@ -12,12 +12,13 @@
         android:id="@+id/tvForServiceProvider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
-        android:text="For Service Provider"
+        android:layout_marginTop="50dp"
+        android:text="Service Provider Registration"
         android:textColor="@color/green"
         android:textStyle="bold"
+        android:textAlignment="center"
        android:layout_gravity="center"
-        android:textSize="33sp"
+        android:textSize="30sp"
         />
 
     <TextView
@@ -77,14 +78,13 @@
          />
 
     <TextView
-        android:id="@+id/tvAlreadyAccount"
+        android:id="@+id/tvAlreadyAccountSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an account?Click here to Login"
+        android:text="Already have an account? Click here to Sign In"
         android:textAlignment="center"
         android:textColor="@color/lightBlue"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp" />
 
 
 </LinearLayout>

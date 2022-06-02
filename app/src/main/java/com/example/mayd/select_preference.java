@@ -7,26 +7,30 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class customer_or_service_provider extends AppCompatActivity {
-Button btnCustomer,btnService;
+public class select_preference extends AppCompatActivity {
+    Button btnCustomer, btnService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_or_service_provider);
-        btnCustomer=findViewById(R.id.btnCustomer);
-        btnService=findViewById(R.id.btnServices);
+
+        setContentView(R.layout.select_preference);
+        btnCustomer = findViewById(R.id.btnCustomerPreference);
+        btnService = findViewById(R.id.btnServicesPreference);
+
         btnCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(customer_or_service_provider.this, sign_in_ForCustomer.class);
+                Intent intent = new Intent(select_preference.this, sign_in_ForCustomer.class);
                 startActivity(intent);
 
             }
         });
+
         btnService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(customer_or_service_provider.this, sign_in_for_service_provider.class);
+                Intent intent = new Intent(select_preference.this, sign_in_for_service_provider.class);
                 startActivity(intent);
 
             }

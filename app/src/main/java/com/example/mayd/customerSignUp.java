@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class customerSignUp extends AppCompatActivity {
-    EditText edtFullName,edtEmail,edtPhone,edtPassword;
+    EditText edtFullName,edtEmail,edtPhone,edtPassword,edtConfirmPassword;
     Button btnSignUp;
     TextView tvSignIn;
     @Override
@@ -21,13 +21,14 @@ public class customerSignUp extends AppCompatActivity {
         //For hiding Action Bar
         //getSupportActionBar().hide();
 
-        edtFullName=findViewById(R.id.edtFullName);
-        edtEmail=findViewById(R.id.edtEmail);
-        edtPassword=findViewById(R.id.edtPassword);
-        edtPhone=findViewById(R.id.edtPhone);
+        edtFullName=findViewById(R.id.edtFullNameSignUp);
+        edtEmail=findViewById(R.id.edtEmailSignUp);
+        edtPassword=findViewById(R.id.edtPasswordSignUp);
+        edtConfirmPassword=findViewById(R.id.edtConfirmPasswordSignUp);
+        edtPhone=findViewById(R.id.edtPhoneSignUp);
 
         btnSignUp=findViewById(R.id.btnSignup);
-        tvSignIn=findViewById(R.id.tvAlreadyAccount);
+        tvSignIn=findViewById(R.id.tvAlreadyAccountSignUp);
 
        tvSignIn.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -36,5 +37,20 @@ public class customerSignUp extends AppCompatActivity {
                startActivity(intent);
            }
        });
+
+      btnSignUp.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              String FullName=edtFullName.getText().toString().trim();
+              String Email=edtEmail.getText().toString().trim();
+              String Phone=edtPhone.getText().toString().trim();
+              String Password=edtPassword.getText().toString();
+              String ConfirmPassword=edtConfirmPassword.getText().toString();
+
+              if (FullName.equals("")){
+                  edtFullName.setError("This Place Cannot Be Empty");
+              }
+          }
+      });
 
 }}

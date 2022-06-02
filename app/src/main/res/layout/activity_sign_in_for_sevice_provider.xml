@@ -9,7 +9,7 @@
     tools:context=".sign_in_for_service_provider">
 
     <ImageView
-        android:id="@+id/imgProfile"
+        android:id="@+id/temp_imgProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -17,7 +17,7 @@
         android:src="@drawable/profile" />
 
     <TextView
-        android:id="@+id/tvSignIn"
+        android:id="@+id/temp_tvSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign In As Service Provider"
@@ -27,7 +27,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edtPhone"
+        android:id="@+id/Service_Provider_edtPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -35,25 +35,17 @@
         android:inputType="text"
         android:minHeight="48dp" />
 
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="Password"
-        android:inputType="numberPassword"
-        android:minHeight="48dp" />
 
     <Button
-        android:id="@+id/btnSignIn"
+        android:id="@+id/Service_Provider_btnSendCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/green"
-        android:text="Sign In" />
+        android:text="Send Code" />
 
     <TextView
-        android:id="@+id/tvSignUp"
+        android:id="@+id/Service_Provider_tvSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -61,15 +53,7 @@
         android:textAlignment="center"
         android:textColor="@color/lightBlue"
         android:textSize="20sp" />
-    <TextView
-        android:id="@+id/tvForgetPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Forget Password"
-       android:layout_gravity="center"
-        android:textColor="@color/lightBlue"
-        android:textSize="20sp" />
+
 
 
 </LinearLayout>

@@ -13,23 +13,34 @@ public class sign_in_ForCustomer extends AppCompatActivity {
     EditText edtEmail,edtPassword;
     Button btnSignIn;
     TextView tvSignUp;
+    TextView tvForgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_for_customer);
 
-        edtEmail=findViewById(R.id.edtEmail);
-        edtPassword=findViewById(R.id.edtPassword);
-        btnSignIn=findViewById(R.id.btnSignIn);
+        edtEmail=findViewById(R.id.Customer_edtEmailSignIn);
+        edtPassword=findViewById(R.id.Customer_edtPasswordSignIn);
+        btnSignIn=findViewById(R.id.Customer_btnSignIn);
 
-        tvSignUp=findViewById(R.id.tvSignUp);
+        tvSignUp=findViewById(R.id.Customer_tvSignUp);
+        tvForgotPassword=findViewById(R.id.Customer_tvForgotPassword);
 
 
         tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(sign_in_ForCustomer.this, customerSignUp.class);
+                startActivity(intent);
+
+            }
+        });
+
+        tvForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(sign_in_ForCustomer.this, Forget_password_customer.class);
                 startActivity(intent);
 
             }
