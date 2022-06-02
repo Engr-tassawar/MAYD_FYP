@@ -10,31 +10,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAYD">
         <activity
-            android:name=".signIn"
+            android:name=".Forget_password_serviceProvider"
+            android:exported="false" />
+        <activity
+            android:name=".Forget_password_customer"
+            android:exported="false" />
+        <activity
+            android:name=".sign_in_ForCustomer"
+            android:exported="false" />
+        <activity
+            android:name=".sign_in_for_service_provider"
             android:exported="false" />
         <activity
             android:name=".serviceProviderSignUp"
             android:exported="false" />
         <activity
-            android:name=".serviceProviderlogin"
+            android:name=".customer_or_service_provider"
             android:exported="false" />
         <activity
-            android:name=".Login"
-            android:exported="false" />
-        <activity
-            android:name=".customer"
+            android:name=".customerSignUp"
             android:exported="false" />
         <activity
             android:name=".home1"
             android:exported="false" />
         <activity
-            android:name=".alertDialouge"
-            android:exported="false" />
-        <activity
             android:name=".forget"
-            android:exported="false" />
-        <activity
-            android:name=".signUp"
             android:exported="false" />
         <activity
             android:name=".start"
@@ -47,9 +47,6 @@
         </activity>
         <activity
             android:name=".home"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="false" />
     </application>
 

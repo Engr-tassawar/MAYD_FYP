@@ -6,18 +6,18 @@
     android:layout_height="match_parent"
     android:padding="15dp"
     android:orientation="vertical"
-    tools:context=".serviceProviderSignUp">
-
+    tools:context=".customerSignUp">
     <TextView
-        android:id="@+id/tvForServiceProvider"
+        android:id="@+id/tvCustomer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
-        android:text="For Service Provider"
-        android:textColor="@color/green"
+        android:layout_marginTop="10dp"
+        android:text="For Registration of Customer"
+        android:gravity="center"
         android:textStyle="bold"
-       android:layout_gravity="center"
-        android:textSize="33sp"
+        android:textColor="@color/green"
+        android:layout_gravity="center"
+        android:textSize="28sp"
         />
 
     <TextView
@@ -37,50 +37,52 @@
         android:layout_marginTop="36dp"
         android:hint="Enter Full Name"
         android:inputType="text"
-         />
+        />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="Enter Your Email Address"
+        android:inputType="text"
+        />
 
     <EditText
         android:id="@+id/edtPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="15dp"
         android:hint="Enter Phone Number"
         android:inputType="number"
         />
 
-    <EditText
-        android:id="@+id/edtCNIC"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Enter CNIC"
-        android:inputType="number"
-        />
+
 
     <EditText
         android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="15dp"
         android:hint="Enter Password"
         android:inputType="numberPassword" />
 
     <Button
-        android:id="@+id/btnSelectAddress"
+        android:id="@+id/btnSignup"
         android:layout_width="match_parent"
         android:layout_height="60sp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:backgroundTint="@color/green"
-        android:text="Select Permanent Address"
+        android:text="Sign Up"
 
         android:textSize="15sp"
-         />
+        />
 
     <TextView
         android:id="@+id/tvAlreadyAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an account?Click here to Login"
+        android:text="Already have an account?Click here to Sign-In"
         android:textAlignment="center"
         android:textColor="@color/lightBlue"
         android:textSize="20sp"
