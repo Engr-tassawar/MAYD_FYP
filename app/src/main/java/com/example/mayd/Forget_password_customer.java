@@ -15,8 +15,8 @@ public class Forget_password_customer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password_customer);
 
-        edtEmail=findViewById(R.id.edtEmail);
-        btnSendCode=findViewById(R.id.btnSendCode);
+        edtEmail=findViewById(R.id.Customer_ForgotPassword_edtEmail);
+        btnSendCode=findViewById(R.id.Customer_ForgotPassword_btnSendCode);
 
 
 

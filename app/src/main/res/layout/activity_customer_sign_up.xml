@@ -30,7 +30,7 @@
         />
 
     <EditText
-        android:id="@+id/edtFullNameSignUp"
+        android:id="@+id/Customer_edtFullNameSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -39,7 +39,7 @@
         />
 
     <EditText
-        android:id="@+id/edtEmailSignUp"
+        android:id="@+id/Customer_edtEmailSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -48,7 +48,7 @@
         />
 
     <EditText
-        android:id="@+id/edtPhoneSignUp"
+        android:id="@+id/Customer_edtPhoneSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -59,7 +59,7 @@
 
 
     <EditText
-        android:id="@+id/edtPasswordSignUp"
+        android:id="@+id/Customer_edtPasswordSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -67,7 +67,7 @@
         android:inputType="numberPassword" />
 
     <EditText
-        android:id="@+id/edtConfirmPasswordSignUp"
+        android:id="@+id/Customer_edtConfirmPasswordSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -75,7 +75,7 @@
         android:inputType="numberPassword" />
 
     <Button
-        android:id="@+id/btnSignup"
+        android:id="@+id/Customer_btnSignup_P2"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_marginTop="15dp"
@@ -86,7 +86,7 @@
         />
 
     <TextView
-        android:id="@+id/tvAlreadyAccountSignUp"
+        android:id="@+id/tvAlreadyAccountSignUp_P2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Already have an account?Click here to Sign-In"

@@ -19,9 +19,9 @@ TextView tvSignUp;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_for_sevice_provider);
 
-        edtPhone=findViewById(R.id.Service_Provider_edtPhone);
-        btnSendCode=findViewById(R.id.Service_Provider_btnSendCode);
-        tvSignUp=findViewById(R.id.Service_Provider_tvSignUp);
+        edtPhone=findViewById(R.id.Service_Provider_edtPhone_SignIn);
+        btnSendCode=findViewById(R.id.Service_Provider_btnSendCode_SignIn);
+        tvSignUp=findViewById(R.id.Service_Provider_tvSignUp_SignIn_P1);
 
         tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override

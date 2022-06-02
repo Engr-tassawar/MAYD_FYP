@@ -21,14 +21,14 @@ public class customerSignUp extends AppCompatActivity {
         //For hiding Action Bar
         //getSupportActionBar().hide();
 
-        edtFullName=findViewById(R.id.edtFullNameSignUp);
-        edtEmail=findViewById(R.id.edtEmailSignUp);
-        edtPassword=findViewById(R.id.edtPasswordSignUp);
-        edtConfirmPassword=findViewById(R.id.edtConfirmPasswordSignUp);
-        edtPhone=findViewById(R.id.edtPhoneSignUp);
+        edtFullName=findViewById(R.id.Customer_edtFullNameSignUp);
+        edtEmail=findViewById(R.id.Customer_edtEmailSignUp);
+        edtPhone=findViewById(R.id.Customer_edtPhoneSignUp);
+        edtPassword=findViewById(R.id.Customer_edtPasswordSignUp);
+        edtConfirmPassword=findViewById(R.id.Customer_edtConfirmPasswordSignUp);
 
-        btnSignUp=findViewById(R.id.btnSignup);
-        tvSignIn=findViewById(R.id.tvAlreadyAccountSignUp);
+        btnSignUp=findViewById(R.id.Customer_btnSignup_P2);
+        tvSignIn=findViewById(R.id.tvAlreadyAccountSignUp_P2);
 
        tvSignIn.setOnClickListener(new View.OnClickListener() {
            @Override

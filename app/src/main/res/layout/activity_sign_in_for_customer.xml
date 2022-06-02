@@ -54,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/Customer_btnSignIn"
+        android:id="@+id/Customer_btnSignIn_P1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
@@ -65,7 +65,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/Customer_tvSignUp"
+        android:id="@+id/Customer_tvSignUp_SignIn_P1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
@@ -76,7 +76,7 @@
         android:textSize="20sp"
          />
     <TextView
-        android:id="@+id/Customer_tvForgotPassword"
+        android:id="@+id/Customer_tvForgotPassword_SignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"

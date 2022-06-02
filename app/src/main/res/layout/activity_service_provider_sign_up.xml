@@ -9,10 +9,10 @@
     tools:context=".serviceProviderSignUp">
 
     <TextView
-        android:id="@+id/tvForServiceProvider"
+        android:id="@+id/temp_tvForServiceProvider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:text="Service Provider Registration"
         android:textColor="@color/green"
         android:textStyle="bold"
@@ -22,7 +22,7 @@
         />
 
     <TextView
-        android:id="@+id/tvHeading"
+        android:id="@+id/temp_tvHeadingForServiceProvider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Please enter the correct details in the following fields to signup"
@@ -32,7 +32,7 @@
         />
 
     <EditText
-        android:id="@+id/edtFullName"
+        android:id="@+id/ServiceProvider_edtFullName_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -41,7 +41,7 @@
          />
 
     <EditText
-        android:id="@+id/edtPhone"
+        android:id="@+id/ServiceProvider_edtPhone_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -50,7 +50,7 @@
         />
 
     <EditText
-        android:id="@+id/edtCNIC"
+        android:id="@+id/ServiceProvider_edtCNIC_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -59,7 +59,7 @@
         />
 
     <EditText
-        android:id="@+id/edtPassword"
+        android:id="@+id/ServiceProvider_edtPassword_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -67,7 +67,7 @@
         android:inputType="numberPassword" />
 
     <Button
-        android:id="@+id/btnSelectAddress"
+        android:id="@+id/ServiceProvider_btnSelectAddress_SignUp"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_marginTop="8dp"
@@ -78,7 +78,7 @@
          />
 
     <TextView
-        android:id="@+id/tvAlreadyAccountSignIn"
+        android:id="@+id/ServiceProvider_tvAlreadyAccountSignIn_SignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Already have an account? Click here to Sign In"

@@ -22,10 +22,10 @@ public class sign_in_ForCustomer extends AppCompatActivity {
 
         edtEmail=findViewById(R.id.Customer_edtEmailSignIn);
         edtPassword=findViewById(R.id.Customer_edtPasswordSignIn);
-        btnSignIn=findViewById(R.id.Customer_btnSignIn);
+        btnSignIn=findViewById(R.id.Customer_btnSignIn_P1);
 
-        tvSignUp=findViewById(R.id.Customer_tvSignUp);
-        tvForgotPassword=findViewById(R.id.Customer_tvForgotPassword);
+        tvSignUp=findViewById(R.id.Customer_tvSignUp_SignIn_P1);
+        tvForgotPassword=findViewById(R.id.Customer_tvForgotPassword_SignIn);
 
 
         tvSignUp.setOnClickListener(new View.OnClickListener() {
