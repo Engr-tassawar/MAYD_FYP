@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:hint="Enter Password"
-        android:inputType="numberPassword" />
+        android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/Customer_edtConfirmPasswordSignUp"
@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:hint="Confirm Password"
-        android:inputType="numberPassword" />
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/Customer_btnSignup_P2"
