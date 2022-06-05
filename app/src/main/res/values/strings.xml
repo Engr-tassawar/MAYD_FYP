@@ -6,5 +6,15 @@
     <string name="forget_password">Forget Password</string>
     <string name="enter_your_email">Enter Your Email</string>
     <string name="send_code">Send Code</string>
+    <string name="service_provider_registration">Service Provider Registration</string>
+    <string name="please_enter_the_correct_details_in_the_following_fields_to_signup">Please enter the correct details in the following fields to signup</string>
+    <string name="enter_full_name">Enter Full Name</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="enter_cnic">Enter CNIC</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="confirm_password">Confirm_Password</string>
+    <string name="select_permanent_address">Select Permanent Address</string>
+    <string name="already_have_an_account_click_here_to_sign_in">Already have an account? Click here to Sign In</string>
+    <string name="todo">TODO</string>
 
 </resources>

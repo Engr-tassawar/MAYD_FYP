@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Service Provider Registration"
+        android:text="@string/service_provider_registration"
         android:textColor="@color/green"
         android:textStyle="bold"
         android:textAlignment="center"
@@ -25,7 +25,7 @@
         android:id="@+id/temp_tvHeadingForServiceProvider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please enter the correct details in the following fields to signup"
+        android:text="@string/please_enter_the_correct_details_in_the_following_fields_to_signup"
         android:textColor="@color/green"
         android:gravity="center"
         android:textSize="25sp"
@@ -36,35 +36,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:hint="Enter Full Name"
+        android:hint="@string/enter_full_name"
         android:inputType="text"
-         />
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/ServiceProvider_edtPhone_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:hint="Enter Phone Number"
-        android:inputType="number"
-        />
+        android:hint="@string/enter_phone_number"
+        android:inputType="phone"
+        android:importantForAutofill="no"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/ServiceProvider_edtCNIC_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="Enter CNIC"
-        android:inputType="number"
-        />
+        android:autofillHints=""
+        android:hint="@string/enter_cnic"
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/ServiceProvider_edtPassword_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:hint="Enter Password"
-        android:inputType="numberPassword" />
+        android:hint="@string/enter_password"
+        android:inputType="numberPassword"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/ServiceProvider_edtConfirmPassword_SignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/confirm_password"
+        android:inputType="numberPassword"
+        android:autofillHints="" />
+
 
     <Button
         android:id="@+id/ServiceProvider_btnSelectAddress_SignUp"
@@ -72,8 +84,7 @@
         android:layout_height="60sp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/green"
-        android:text="Select Permanent Address"
-
+        android:text="@string/select_permanent_address"
         android:textSize="15sp"
          />
 
@@ -81,7 +92,7 @@
         android:id="@+id/ServiceProvider_tvAlreadyAccountSignIn_SignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an account? Click here to Sign In"
+        android:text="@string/already_have_an_account_click_here_to_sign_in"
         android:textAlignment="center"
         android:textColor="@color/lightBlue"
         android:textSize="20sp" />
