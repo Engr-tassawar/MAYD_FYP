@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".serviceProviderSignUp">
 
+
     <TextView
         android:id="@+id/temp_tvForServiceProvider"
         android:layout_width="wrap_content"
@@ -79,14 +80,13 @@
 
 
     <Button
-        android:id="@+id/ServiceProvider_btnSelectAddress_SignUp"
+        android:id="@+id/ServiceProvider_btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/green"
-        android:text="@string/select_permanent_address"
-        android:textSize="15sp"
-         />
+        android:text="SignUp"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/ServiceProvider_tvAlreadyAccountSignIn_SignUp"

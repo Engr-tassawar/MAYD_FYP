@@ -18,6 +18,7 @@ TextView tvElectric,tvPlum,tvElder,tvBaby,tvCook,tvDrive;
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_home1);
+
         imgElectric=findViewById(R.id.imgElectric);
         imgPlum=findViewById(R.id.imgPlum);
         imgElder=findViewById(R.id.imgElder);
