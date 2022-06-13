@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +13,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Forget_password_customer extends AppCompatActivity {
     EditText edtEmail;
     Button btnSend;
+
+    String TAG="tag";
 
     private FirebaseAuth mAuth;
 
@@ -31,16 +36,13 @@ public class Forget_password_customer extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        /*btnSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(Forget_password_customer .this, sign_in_ForCustomer.class);
-                startActivity(intent);*/
-
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ValidateData();
+                Intent intent=new Intent(Forget_password_customer .this, sign_in_ForCustomer.class);
+                startActivity(intent);
+
             }
         });
 
@@ -60,17 +62,32 @@ public class Forget_password_customer extends AppCompatActivity {
     }
 
     void ForgetPassword() {
-        mAuth.sendPasswordResetEmail(edtEmail.getText().toString())
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
+        String email=edtEmail.getText().toString().trim();
+        FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(Forget_password_customer.this, "Verification Email Send", Toast.LENGTH_SHORT).show();
+                        //startActivity(new Intent(Forget_password_customer.this, sign_in_ForCustomer.class));
+                       // finish();
+                    }else{
+                        Log.d(TAG,  "Error : "+task.getException().getMessage());
+
+                        Toast.makeText(Forget_password_customer.this, "Error : "+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+
+                }).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(Forget_password_customer.this, "Verification Email Send", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Forget_password_customer.this, sign_in_ForCustomer.class));
-                            finish();
-                        }else{
-                            Toast.makeText(Forget_password_customer.this, "Error : "+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-                        }
+                    public void onSuccess(Void unused) {
+                        Log.d(TAG,  "Task Success");
+
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d(TAG,  "onFailure : "+e);
+                        Toast.makeText(Forget_password_customer.this, "Failed "+e,Toast.LENGTH_SHORT).show();
+
 
                     }
                 });
