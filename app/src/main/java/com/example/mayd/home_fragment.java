@@ -1,9 +1,11 @@
 package com.example.mayd;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +26,7 @@ public class home_fragment extends Fragment {
     Button btnSign;
     ImageView imgElectric,imgPlum,imgElder,imgBaby,imgCook,imgDrive;
     TextView tvElectric,tvPlum,tvElder,tvBaby,tvCook,tvDrive;
+    CardView driverCardView,plumberCardView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,6 +77,15 @@ public class home_fragment extends Fragment {
         tvDrive=getView().findViewById(R.id.tvDrive);
         btnSign=getView().findViewById(R.id.btnSign);
 
+        driverCardView=getView().findViewById(R.id.driverCardView);
+        plumberCardView=getView().findViewById(R.id.plumberCardView);
+        plumberCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), plumber_properties.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

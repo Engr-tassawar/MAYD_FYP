@@ -17,10 +17,9 @@ BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home1);
 
         getSupportActionBar().hide();
-
-        setContentView(R.layout.activity_home1);
 
         bottomNavigationView=findViewById(R.id.bottomNavigation);
         getSupportFragmentManager().beginTransaction().replace(R.id.myFrameLayout,new home_fragment()).commit();

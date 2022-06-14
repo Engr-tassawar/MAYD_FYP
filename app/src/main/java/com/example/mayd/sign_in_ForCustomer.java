@@ -64,7 +64,7 @@ public class sign_in_ForCustomer extends AppCompatActivity {
                 if (validateInput()) {
 
 
-                    mAuth.signInWithEmailAndPassword(edtEmail.getText().toString(), edtPassword.getText().toString())
+                    mAuth.signInWithEmailAndPassword(edtEmail.getText().toString().trim(), edtPassword.getText().toString())
                             .addOnCompleteListener(sign_in_ForCustomer.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
