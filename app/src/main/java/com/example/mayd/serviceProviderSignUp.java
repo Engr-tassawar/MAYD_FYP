@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +24,7 @@ public class serviceProviderSignUp extends AppCompatActivity {
     EditText edtFullName, edtPhone, edtCNIC, edtPassword, edtConfirmPassword;
     Button btnSignUp;
     TextView tvAlreadyAccount;
+    String OTP;
 
     private FirebaseAuth mAuth;
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
@@ -65,6 +67,7 @@ public class serviceProviderSignUp extends AppCompatActivity {
                             //     detect the incoming verification SMS and perform verification without
                             //     user action.
                             Log.d("tag", "onVerificationCompleted:" + credential);
+                            Toast.makeText(serviceProviderSignUp.this, "VerificationCompleted", Toast.LENGTH_SHORT).show();
 
                             //  signInWithPhoneAuthCredential(credential);
                         }
@@ -73,7 +76,8 @@ public class serviceProviderSignUp extends AppCompatActivity {
                         public void onVerificationFailed(FirebaseException e) {
                             // This callback is invoked in an invalid request for verification is made,
                             // for instance if the the phone number format is not valid.
-                            Log.w("tag", "onVerificationFailed", e);
+                            Toast.makeText(serviceProviderSignUp.this, "VerificationFailed"+e, Toast.LENGTH_SHORT).show();
+                            Log.d("tag", "onVerificationFailed", e);
 
                            /* if (e instanceof FirebaseAuthInvalidCredentialsException) {
                                 // Invalid request
@@ -90,8 +94,8 @@ public class serviceProviderSignUp extends AppCompatActivity {
                             // The SMS verification code has been sent to the provided phone number, we
                             // now need to ask the user to enter the code and then construct a credential
                             // by combining the code with a verification ID.
-                            Log.d("tag", "onCodeSent:" + verificationId);
 
+                            OTP=verificationId;
                             // Save verification ID and resending token so we can use them later
 //                            mVerificationId = verificationId;
 //                            mResendToken = token;
@@ -107,6 +111,9 @@ public class serviceProviderSignUp extends AppCompatActivity {
                                     .build();
 
                     PhoneAuthProvider.verifyPhoneNumber(options);
+                    Toast.makeText(serviceProviderSignUp.this, "OTP is"+ OTP, Toast.LENGTH_SHORT).show();
+
+
                 }
             }
         });
