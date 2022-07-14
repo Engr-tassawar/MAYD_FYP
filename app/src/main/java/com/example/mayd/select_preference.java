@@ -13,7 +13,7 @@ public class select_preference extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        //getSupportActionBar().hide();
         setContentView(R.layout.select_preference);
         btnCustomer = findViewById(R.id.btnCustomerPreference);
         btnService = findViewById(R.id.btnServicesPreference);

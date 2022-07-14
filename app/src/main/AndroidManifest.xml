@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAYD">
         <activity
+            android:name=".book_your_service"
+            android:exported="false" />
+        <activity
             android:name=".plumber_properties"
             android:exported="false" />
         <activity
@@ -34,7 +37,7 @@
             android:exported="false" />
         <activity
             android:name=".home1"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".splash_screen"
             android:exported="true">

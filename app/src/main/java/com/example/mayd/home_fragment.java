@@ -5,7 +5,10 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -15,6 +18,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +33,8 @@ public class home_fragment extends Fragment {
     TextView tvElectric,tvPlum,tvElder,tvBaby,tvCook,tvDrive;
     CardView driverCardView,plumberCardView;
 
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,6 +46,7 @@ public class home_fragment extends Fragment {
 
     public home_fragment() {
         // Required empty public constructor
+
     }
 
     /**
@@ -56,6 +64,7 @@ public class home_fragment extends Fragment {
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+
         return fragment;
     }
 
@@ -76,19 +85,20 @@ public class home_fragment extends Fragment {
         tvCook=getView().findViewById(R.id.tvCook);
         tvDrive=getView().findViewById(R.id.tvDrive);
         btnSign=getView().findViewById(R.id.btnSign);
-
         driverCardView=getView().findViewById(R.id.driverCardView);
+
+
         plumberCardView=getView().findViewById(R.id.plumberCardView);
         plumberCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), plumber_properties.class);
                 startActivity(intent);
+
             }
         });
 
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -106,5 +116,7 @@ public class home_fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home_fragment, container, false);
+
     }
+
 }

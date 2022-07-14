@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".sign_in_ForCustomer"
     android:orientation="vertical"
+    android:gravity="center"
 
     >
 
@@ -34,39 +35,46 @@
         />
 
 
-
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/Customer_edtEmailSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:drawableRight="@drawable/ic_baseline_email_24"
         android:hint="Enter Your Email Address"
         android:inputType="text"
+        android:background="@color/Cream"
         />
-
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:passwordToggleEnabled="true">
     <EditText
         android:id="@+id/Customer_edtPasswordSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
         android:hint="Enter Your Password"
-        android:layout_marginVertical="9dp"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        android:background="@color/Cream"
+         />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
         android:id="@+id/Customer_btnSignIn_P1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
         android:backgroundTint="@color/green"
         android:text="Sign In"
-        app:layout_constraintBottom_toTopOf="@+id/tvSignUp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+         />
 
     <TextView
         android:id="@+id/Customer_tvSignUp_SignIn_P1"

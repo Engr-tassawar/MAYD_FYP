@@ -18,7 +18,7 @@ TextView tvSignUp;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_for_sevice_provider);
-
+        //getSupportActionBar().hide();
         edtPhone=findViewById(R.id.Service_Provider_edtPhone_SignIn);
         btnSendCode=findViewById(R.id.Service_Provider_btnSendCode_SignIn);
         tvSignUp=findViewById(R.id.Service_Provider_tvSignUp_SignIn_P1);

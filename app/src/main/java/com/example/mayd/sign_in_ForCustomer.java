@@ -37,6 +37,7 @@ public class sign_in_ForCustomer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_for_customer);
 
+        //getSupportActionBar().hide();
         edtEmail = findViewById(R.id.Customer_edtEmailSignIn);
         edtPassword = findViewById(R.id.Customer_edtPasswordSignIn);
         btnSignIn = findViewById(R.id.Customer_btnSignIn_P1);

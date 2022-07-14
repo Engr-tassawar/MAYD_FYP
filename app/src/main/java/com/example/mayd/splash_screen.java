@@ -12,7 +12,7 @@ ImageView imgLogo;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         imgLogo =findViewById(R.id.logo);
 
 

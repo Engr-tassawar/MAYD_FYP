@@ -38,50 +38,12 @@
         />-->
 
 
-        <androidx.cardview.widget.CardView
+        <Button
+            android:id="@+id/halfHourBtn_Plumber"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            app:cardCornerRadius="5dp"
-            android:elevation="3dp"
-            android:backgroundTint="@color/green"
-            android:padding="10dp"
-
-            >
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="HALF HOUR BOOKING"
-                    android:layout_alignParentLeft="true"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:layout_margin="10dp"
-
-                    />
-                <TextView
-                    android:layout_margin="10dp"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rs 500/-"
-                    android:layout_alignParentRight="true"
-                    android:textColor="@color/white"
-
-
-                    />
-
-            </RelativeLayout>
-
-
-
-        </androidx.cardview.widget.CardView>
-
-
-
+            android:layout_height="wrap_content"
+            android:text="Half hour booking=/350.rs"
+            />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -100,6 +62,7 @@
 
         >
         <CheckBox
+            android:id="@+id/bathroomCheckBox"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Bathroom Fitting"
@@ -121,6 +84,7 @@
 
         >
         <CheckBox
+            android:id="@+id/gasLineIronCheckBox"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Gas LIne Service(iron)"
@@ -142,6 +106,7 @@
 
         >
         <CheckBox
+            android:id="@+id/gasLinePlasticCheckbox"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Gas LIne Service(plastic)"
@@ -163,6 +128,7 @@
 
         >
         <CheckBox
+            android:id="@+id/drainOpenerCheckBox"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Drain Opener and Repair"
@@ -177,6 +143,7 @@
             />
     </LinearLayout>
     <Button
+        android:id="@+id/plumberPackage"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="Proceed with Package"

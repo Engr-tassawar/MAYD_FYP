@@ -25,15 +25,21 @@
         android:textColor="@color/green"
         android:textSize="30sp"
         android:textStyle="bold" />
-
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
     <EditText
         android:id="@+id/Service_Provider_edtPhone_SignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
+        android:background="@color/Cream"
+        android:drawableRight="@drawable/ic_baseline_phone_24"
         android:hint="Enter Phone Number"
         android:inputType="text"
         android:minHeight="48dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button

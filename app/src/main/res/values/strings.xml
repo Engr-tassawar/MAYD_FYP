@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MAYD</string>
+    <string name="app_name">MAYD</string>-->
     <string name="forget_your_password">Forget Your Password</string>
     <string name="full_name">Full Name</string>
     <string name="enter_your_phone_number">Enter your phone number</string>
@@ -18,5 +18,9 @@
     <string name="todo">TODO</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="navigation_open">Open Navigation drawer</string>
+    <string name="navigation_close">Close Navigation drawer</string>
+
 
 </resources>

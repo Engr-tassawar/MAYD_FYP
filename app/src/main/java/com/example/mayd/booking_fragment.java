@@ -25,7 +25,7 @@ public class booking_fragment extends Fragment {
     private String mParam2;
 
     public booking_fragment() {
-        // Required empty public constructor
+        //  empty public constructor is Required
     }
 
     /**
