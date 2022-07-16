@@ -96,24 +96,25 @@
                />
 
        </LinearLayout>
+
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/categories"
-            android:padding="10dp"
             android:columnCount="2"
+            android:padding="10dp"
             android:rowCount="5">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/driverCardView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="50dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="5dp"
+                android:elevation="50dp"
                 app:cardCornerRadius="20dp">
 
                 <LinearLayout
@@ -225,6 +226,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/graphicCardView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
@@ -241,20 +243,20 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imgElder"
+                        android:id="@+id/imgGraphic"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/eldercare">
+                        android:src="@drawable/graphic">
 
                     </ImageView>
 
                     <TextView
-                        android:id="@+id/tvElder"
+                        android:id="@+id/tvGraphic"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Elder Care"
+                        android:text="Graphic designer"
                         android:textSize="18sp"
                         android:textStyle="bold">
 
@@ -301,6 +303,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/electricianCardView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
@@ -337,6 +340,7 @@
                     </TextView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -373,6 +377,7 @@
                     </TextView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -409,6 +414,7 @@
                     </TextView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

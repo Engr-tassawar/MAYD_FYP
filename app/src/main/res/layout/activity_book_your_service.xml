@@ -20,10 +20,10 @@
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:rowCount="2"
+        android:rowCount="1"
         android:columnCount="1"
         >
-   <androidx.cardview.widget.CardView
+   <!--<androidx.cardview.widget.CardView
        android:layout_width="350dp"
        android:layout_height="150dp"
      android:backgroundTint="@color/green"
@@ -58,8 +58,9 @@
 
        </LinearLayout>
 
-   </androidx.cardview.widget.CardView>
+   </androidx.cardview.widget.CardView>-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/schedule"
             android:layout_width="350dp"
             android:layout_height="150dp"
             app:cardCornerRadius="10dp"

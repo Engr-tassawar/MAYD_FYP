@@ -29,9 +29,9 @@ import com.google.android.material.navigation.NavigationView;
 public class home_fragment extends Fragment {
 
     Button btnSign;
-    ImageView imgElectric,imgPlum,imgElder,imgBaby,imgCook,imgDrive;
-    TextView tvElectric,tvPlum,tvElder,tvBaby,tvCook,tvDrive;
-    CardView driverCardView,plumberCardView;
+    ImageView imgElectric,imgPlum,imgGraphic,imgBaby,imgCook,imgDrive;
+    TextView tvElectric,tvPlum,tvGraphic,tvBaby,tvCook,tvDrive;
+    CardView driverCardView,plumberCardView,electricianCardView,graphicCardView;
 
 
 
@@ -74,20 +74,22 @@ public class home_fragment extends Fragment {
 
         imgElectric=getView().findViewById(R.id.imgElectric);
         imgPlum=getView().findViewById(R.id.imgPlum);
-        imgElder=getView().findViewById(R.id.imgElder);
+        imgGraphic=getView().findViewById(R.id.imgGraphic);
         imgBaby=getView().findViewById(R.id.imgBaby);
         imgCook=getView().findViewById(R.id.imgCook);
         imgDrive=getView().findViewById(R.id.imgDrive);
         tvElectric=getView().findViewById(R.id.tvElectric);
         tvPlum=getView().findViewById(R.id.tvPlum);
-        tvElder=getView().findViewById(R.id.tvElder);
+        tvGraphic=getView().findViewById(R.id.tvGraphic);
         tvBaby=getView().findViewById(R.id.tvBaby);
         tvCook=getView().findViewById(R.id.tvCook);
         tvDrive=getView().findViewById(R.id.tvDrive);
         btnSign=getView().findViewById(R.id.btnSign);
         driverCardView=getView().findViewById(R.id.driverCardView);
+        electricianCardView=getView().findViewById(R.id.electricianCardView);
 
 
+        graphicCardView=getView().findViewById(R.id.graphicCardView);
         plumberCardView=getView().findViewById(R.id.plumberCardView);
         plumberCardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +99,21 @@ public class home_fragment extends Fragment {
 
             }
         });
+        electricianCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), electrician_properties.class);
+                startActivity(intent);
+            }
+        });
+        graphicCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), graphic_designer.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 

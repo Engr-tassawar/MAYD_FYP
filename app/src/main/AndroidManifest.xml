@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAYD">
         <activity
+            android:name=".booking_schedule"
+            android:exported="false" />
+        <activity
+            android:name=".graphic_designer"
+            android:exported="false" />
+        <activity
+            android:name=".electrician_properties"
+            android:exported="false" />
+        <activity
             android:name=".book_your_service"
             android:exported="false" />
         <activity

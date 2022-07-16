@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".plumber_properties">
+    tools:context=".electrician_properties">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Plumber"
+        android:text="Electrician"
         android:layout_gravity="center"
         android:textSize="45sp"
         android:textColor="@color/green"
@@ -27,23 +27,12 @@
         android:textColor="@color/green"
         android:layout_marginTop="10dp"
         />
-   <!-- <Button
+    <Button
+        android:id="@+id/halfHourBtn_Electrician"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:text="Half Hour Booking"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:gravity="left|center"
-
-        />-->
-
-
-        <Button
-            android:id="@+id/halfHourBtn_Plumber"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:text="Half hour booking=/350.rs"
-            />
+        android:text="Half hour booking=/350.rs"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,79 +51,14 @@
 
         >
         <CheckBox
-            android:id="@+id/bathroomCheckBox"
+            android:id="@+id/generator_CheckBox"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Bathroom Fitting"
+            android:text="Generator Installation"
             android:layout_weight="4"
             />
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rs 8000/-"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="5"
-
-        >
-        <CheckBox
-            android:id="@+id/gasLineIronCheckBox"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Gas LIne Service(iron)"
-            android:layout_weight="4"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rs 6300/-"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="5"
-
-        >
-        <CheckBox
-            android:id="@+id/gasLinePlasticCheckbox"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Gas LIne Service(plastic)"
-            android:layout_weight="4"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rs 4000/-"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="5"
-
-        >
-        <CheckBox
-            android:id="@+id/drainOpenerCheckBox"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Drain Opener and Repair"
-            android:layout_weight="4"
-            />
-        <TextView
+            android:id="@+id/tvGenerator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rs 2000/-"
@@ -142,12 +66,36 @@
             android:layout_weight="1"
             />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+
+        >
+        <CheckBox
+            android:id="@+id/UPSCheckBox"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="UPS Installation"
+            android:layout_weight="4"
+            />
+        <TextView
+            android:id="@+id/tvUPS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs 1500/-"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
     <Button
-        android:id="@+id/plumberPackage"
+        android:id="@+id/electricianPackage"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="Proceed with Package"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         />
+
 </LinearLayout>
