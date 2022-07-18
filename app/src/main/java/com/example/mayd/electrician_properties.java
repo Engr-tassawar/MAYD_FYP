@@ -22,7 +22,7 @@ public class electrician_properties extends AppCompatActivity {
         halfHourBtn_Electrician=findViewById(R.id.halfHourBtn_Electrician);
         generator_CheckBox=findViewById(R.id.generator_CheckBox);
         UPSCheckBox=findViewById(R.id.UPSCheckBox);
-        tvGenerator=findViewById(R.id.halfHourBtn_Electrician);
+        tvGenerator=findViewById(R.id.tv_generator);
         tvUPS=findViewById(R.id.tvUPS);
         electricianPackage=findViewById(R.id.electricianPackage);
 

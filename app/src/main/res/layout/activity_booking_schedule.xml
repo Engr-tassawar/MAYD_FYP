@@ -98,11 +98,12 @@
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <Button
-        android:layout_width="200dp"
+        android:id="@+id/btn_proceed_schedule"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"

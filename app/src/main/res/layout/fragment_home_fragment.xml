@@ -99,8 +99,9 @@
 
         <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/categories"
+            android:columnOrderPreserved="false"
             android:columnCount="2"
             android:padding="10dp"
             android:rowCount="5">
@@ -146,7 +147,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+
             <androidx.cardview.widget.CardView
+                android:id="@+id/Ac_CardView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
@@ -163,22 +166,22 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imgBaby"
+                        android:id="@+id/imgAc"
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/babycare">
+                        android:src="@drawable/hvacr">
 
 
                     </ImageView>
 
                     <TextView
-                        android:id="@+id/tvBaby"
+                        android:id="@+id/tvAc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Baby Care"
+                        android:text="HVCR"
                         android:textSize="18sp"
                         android:textStyle="bold">
 
@@ -255,8 +258,7 @@
                         android:id="@+id/tvGraphic"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Graphic designer"
+                        android:text="Graphics"
                         android:textSize="18sp"
                         android:textStyle="bold">
 
@@ -265,6 +267,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cookCardView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
@@ -342,6 +345,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/painterCardView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
@@ -362,7 +366,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/babycare">
+                        android:src="@drawable/painter">
 
                     </ImageView>
 
@@ -370,7 +374,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Baby Care"
+                        android:text="Painter"
                         android:textSize="18sp"
                         android:textStyle="bold">
 

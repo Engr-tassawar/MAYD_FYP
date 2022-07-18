@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".electrician_properties">
+    tools:context=".painter">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Electrician"
+        android:text="Painter"
         android:layout_gravity="center"
         android:textSize="45sp"
         android:textColor="@color/green"
@@ -28,7 +28,7 @@
         android:layout_marginTop="10dp"
         />
     <Button
-        android:id="@+id/halfHourBtn_Electrician"
+        android:id="@+id/halfHourBtn_Painter"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="Half hour booking=/350.rs"
@@ -51,61 +51,29 @@
 
         >
         <CheckBox
-            android:id="@+id/generator_CheckBox"
+            android:id="@+id/painterPerDay_CheckBox"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Generator Installation"
+            android:text="Regular Monthly Cook"
             android:textStyle="bold"
             android:layout_weight="4"
             />
         <TextView
-            android:id="@+id/tv_generator"
+            android:id="@+id/tv_painterPerDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rs 2000/-"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="5"
-
-        >
-        <CheckBox
-            android:id="@+id/UPSCheckBox"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="UPS Installation"
-            android:layout_weight="4"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:id="@+id/tvUPS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rs 1500/-"
+            android:text="Rs 20000/-"
             android:textStyle="bold"
             android:layout_weight="1"
             />
     </LinearLayout>
     <Button
-        android:id="@+id/electricianPackage"
+        android:id="@+id/painterPackage"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="Proceed with Package"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textSize="15dp"
-        android:textColor="@color/green"
-        android:text="Technician will install,maintains and repair heating,air conditioning and refrigerator systems "
-        android:textAlignment="center"/>
 
 </LinearLayout>

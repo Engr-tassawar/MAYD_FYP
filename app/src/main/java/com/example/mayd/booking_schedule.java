@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
@@ -21,6 +23,7 @@ import java.util.Locale;
 import java.util.SimpleTimeZone;
 
 public class booking_schedule extends AppCompatActivity {
+    Button btn_proceed_schedule;
     TextInputEditText edtSelectDate,edtSelectTime;
     TimePickerDialog timePickerDialog;
     int year;
@@ -32,8 +35,16 @@ public class booking_schedule extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_schedule);
+        btn_proceed_schedule=findViewById(R.id.btn_proceed_schedule);
         edtSelectDate=findViewById(R.id.edtSelectDate);
         edtSelectTime=findViewById(R.id.edtSelectTime);
+       btn_proceed_schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(booking_schedule.this, booking_summary.class);
+                startActivity(intent);
+            }
+        });
         Calendar calender = Calendar.getInstance();
         edtSelectDate.setOnClickListener(new View.OnClickListener() {
             @Override

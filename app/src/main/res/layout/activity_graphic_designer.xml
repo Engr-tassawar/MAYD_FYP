@@ -57,6 +57,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Logo Design"
+            android:textStyle="bold"
             android:layout_weight="4"
             />
         <TextView
@@ -80,6 +81,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Monthly Posts Design"
+            android:textStyle="bold"
             android:layout_weight="4"
             />
         <TextView

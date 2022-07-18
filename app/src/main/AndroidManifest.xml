@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAYD">
         <activity
+            android:name=".painter"
+            android:exported="false" />
+        <activity
+            android:name=".cooker"
+            android:exported="false" />
+        <activity
+            android:name=".booking_summary"
+            android:exported="false" />
+        <activity
+            android:name=".hvacr"
+            android:exported="false" />
+        <activity
             android:name=".booking_schedule"
             android:exported="false" />
         <activity

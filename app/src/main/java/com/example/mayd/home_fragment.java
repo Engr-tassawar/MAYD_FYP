@@ -29,9 +29,9 @@ import com.google.android.material.navigation.NavigationView;
 public class home_fragment extends Fragment {
 
     Button btnSign;
-    ImageView imgElectric,imgPlum,imgGraphic,imgBaby,imgCook,imgDrive;
-    TextView tvElectric,tvPlum,tvGraphic,tvBaby,tvCook,tvDrive;
-    CardView driverCardView,plumberCardView,electricianCardView,graphicCardView;
+    ImageView imgElectric,imgPlum,imgGraphic,imgAc,imgCook,imgDrive;
+    TextView tvElectric,tvPlum,tvGraphic,tvAc,tvCook,tvDrive;
+    CardView driverCardView,plumberCardView,electricianCardView,graphicCardView,Ac_CardView,painterCardView,cookCardView;
 
 
 
@@ -75,20 +75,22 @@ public class home_fragment extends Fragment {
         imgElectric=getView().findViewById(R.id.imgElectric);
         imgPlum=getView().findViewById(R.id.imgPlum);
         imgGraphic=getView().findViewById(R.id.imgGraphic);
-        imgBaby=getView().findViewById(R.id.imgBaby);
+        imgAc=getView().findViewById(R.id.imgAc);
         imgCook=getView().findViewById(R.id.imgCook);
         imgDrive=getView().findViewById(R.id.imgDrive);
         tvElectric=getView().findViewById(R.id.tvElectric);
         tvPlum=getView().findViewById(R.id.tvPlum);
         tvGraphic=getView().findViewById(R.id.tvGraphic);
-        tvBaby=getView().findViewById(R.id.tvBaby);
+        tvAc=getView().findViewById(R.id.tvAc);
         tvCook=getView().findViewById(R.id.tvCook);
         tvDrive=getView().findViewById(R.id.tvDrive);
         btnSign=getView().findViewById(R.id.btnSign);
+
+        painterCardView=getView().findViewById(R.id.painterCardView);
+        cookCardView=getView().findViewById(R.id.cookCardView);
+        Ac_CardView=getView().findViewById(R.id.Ac_CardView);
         driverCardView=getView().findViewById(R.id.driverCardView);
         electricianCardView=getView().findViewById(R.id.electricianCardView);
-
-
         graphicCardView=getView().findViewById(R.id.graphicCardView);
         plumberCardView=getView().findViewById(R.id.plumberCardView);
         plumberCardView.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +115,30 @@ public class home_fragment extends Fragment {
                 startActivity(intent);
             }
         });
+        Ac_CardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), hvacr.class);
+                startActivity(intent);
 
+            }
+        });
+        cookCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), hvacr.class);
+                startActivity(intent);
+
+            }
+        });
+        painterCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), hvacr.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 
@@ -133,7 +158,7 @@ public class home_fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home_fragment, container, false);
-
     }
+
 
 }
