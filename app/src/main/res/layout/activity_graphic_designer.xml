@@ -33,7 +33,8 @@
         android:id="@+id/halfHourBtn_Graphic"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:text="Half hour booking=/600.rs"
+        android:textAllCaps="false"
+        android:text="Half hour booking=/600.Rs"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -99,6 +100,7 @@
         android:layout_height="55dp"
         android:text="Proceed with Package"
         android:layout_gravity="center"
+        android:textAllCaps="false"
         android:layout_marginTop="20dp"
         />
 </LinearLayout>

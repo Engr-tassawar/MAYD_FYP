@@ -31,7 +31,8 @@
         android:id="@+id/halfHourBtn_Hvacr"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:text="Half hour booking=/500.rs"
+        android:textAllCaps="false"
+        android:text="Half hour booking=/500.Rs"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -145,14 +146,7 @@
         android:layout_height="55dp"
         android:text="Proceed with Package"
         android:layout_gravity="center"
+        android:textAllCaps="false"
         android:layout_marginTop="20dp"
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textSize="15dp"
-        android:textColor="@color/green"
-        android:text="Technician will install,maintains and repair heating,air conditioning and refrigerator systems "
-        android:textAlignment="center"/>
 </LinearLayout>

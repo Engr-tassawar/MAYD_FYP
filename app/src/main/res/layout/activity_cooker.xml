@@ -31,7 +31,8 @@
         android:id="@+id/halfHourBtn_Cook"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:text="Half hour booking=/350.rs"
+        android:textAllCaps="false"
+        android:text="Half hour booking=/350.Rs"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -143,6 +144,7 @@
         android:id="@+id/cookPackage"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:textAllCaps="false"
         android:text="Proceed with Package"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"

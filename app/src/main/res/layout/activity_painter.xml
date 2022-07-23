@@ -31,6 +31,7 @@
         android:id="@+id/halfHourBtn_Painter"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:textAllCaps="false"
         android:text="Half hour booking=/350.rs"
         />
     <TextView
@@ -73,6 +74,7 @@
         android:layout_height="55dp"
         android:text="Proceed with Package"
         android:layout_gravity="center"
+        android:textAllCaps="false"
         android:layout_marginTop="20dp"
         />
 

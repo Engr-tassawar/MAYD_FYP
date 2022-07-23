@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAYD">
         <activity
+            android:name=".booking_details"
+            android:exported="false" />
+        <activity
             android:name=".painter"
             android:exported="false" />
         <activity
