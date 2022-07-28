@@ -26,7 +26,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class sign_in_ForCustomer extends AppCompatActivity {
     private static final String TAG = "tag";
     EditText edtEmail, edtPassword;
-    Button btnSignIn;
+    Button btnSignIn,btnService;
     TextView tvSignUp;
     TextView tvForgotPassword;
 
@@ -41,11 +41,18 @@ public class sign_in_ForCustomer extends AppCompatActivity {
         edtEmail = findViewById(R.id.Customer_edtEmailSignIn);
         edtPassword = findViewById(R.id.Customer_edtPasswordSignIn);
         btnSignIn = findViewById(R.id.Customer_btnSignIn_P1);
+        btnService = findViewById(R.id.btn_sign_in_ServicesPreference);
 
         mAuth = FirebaseAuth.getInstance();
 
         tvSignUp = findViewById(R.id.Customer_tvSignUp_SignIn_P1);
         tvForgotPassword = findViewById(R.id.Customer_tvForgotPassword_SignIn);
+
+
+        btnService.setOnClickListener(view -> {
+            Intent intent = new Intent(sign_in_ForCustomer.this, sign_in_for_service_provider.class);
+            startActivity(intent);
+        });
 
 
         tvSignUp.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +63,7 @@ public class sign_in_ForCustomer extends AppCompatActivity {
 
             }
         });
+
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +130,7 @@ public class sign_in_ForCustomer extends AppCompatActivity {
     public static boolean isValidEmail(CharSequence Email) {
         return (!TextUtils.isEmpty(Email) && Patterns.EMAIL_ADDRESS.matcher(Email).matches());
     }
+
 
 }
 

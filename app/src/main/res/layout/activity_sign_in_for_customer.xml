@@ -10,6 +10,20 @@
     android:gravity="center"
 
     >
+    <Button
+        android:id="@+id/btn_sign_in_ServicesPreference"
+
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:textAllCaps="false"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="6dp"
+
+        android:backgroundTint="@color/green"
+        android:text="Service Provider"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
 
     <ImageView
         android:id="@+id/temp_imgProfile"
