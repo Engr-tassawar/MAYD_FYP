@@ -16,7 +16,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:orientation="vertical"
-       android:layout_weight="0.2"
+       android:layout_weight="0.4"
        android:gravity="bottom">
     <TextView
     android:id="@+id/tv_Booking"
@@ -32,7 +32,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_weight="4.8"
+    android:layout_weight="4.6"
     android:layout_marginTop="10dp"
 
     >

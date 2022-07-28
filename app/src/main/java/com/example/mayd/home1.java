@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,30 +22,32 @@ public class home1 extends AppCompatActivity {
 
 BottomNavigationView bottomNavigationView;
     Toolbar toolbar;
- /*  NavigationView navigationView;
-
+ /* NavigationView navigationView;
    DrawerLayout drawerLayout;*/
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home1);
         bottomNavigationView=findViewById(R.id.bottomNavigation);
-        toolbar=findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
 
         //getSupportActionBar().hide();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.myFrameLayout,new home_fragment()).commit();
         //navigationView.setCheckedItem(R.id.home);
 
-     /* drawerLayout=findViewById(R.id.drawerLayout);
+
+       /*
+        drawerLayout = findViewById(R.id.drawerLayout);
         navigationView=findViewById(R.id.navigationView);
-
-
         setSupportActionBar(toolbar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_open,R.string.navigation_close);
-       drawerLayout.addDrawerListener(toggle);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(home1.this, drawerLayout, toolbar, R.string.navigation_open, R.string.navigation_close);
+        drawerLayout.addDrawerListener(toggle);
         toggle.syncState();*/
+
+
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -72,8 +75,6 @@ BottomNavigationView bottomNavigationView;
                 return false;
             }
         });
-
-
-
     }
+
 }

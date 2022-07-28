@@ -126,7 +126,7 @@ public class home_fragment extends Fragment {
         cookCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), hvacr.class);
+                Intent intent = new Intent(getContext(), cooker.class);
                 startActivity(intent);
 
             }
@@ -134,7 +134,7 @@ public class home_fragment extends Fragment {
         painterCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), hvacr.class);
+                Intent intent = new Intent(getContext(), painter.class);
                 startActivity(intent);
 
             }

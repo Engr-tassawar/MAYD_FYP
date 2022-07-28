@@ -55,7 +55,7 @@
             android:id="@+id/painterPerDay_CheckBox"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Regular Monthly Cook"
+            android:text="Painter Per Day Charges"
             android:textStyle="bold"
             android:layout_weight="4"
             />
@@ -63,7 +63,7 @@
             android:id="@+id/tv_painterPerDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rs 20000/-"
+            android:text="Rs 2000/-"
             android:textStyle="bold"
             android:layout_weight="1"
             />
