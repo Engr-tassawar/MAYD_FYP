@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/finishing_painter"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="10dp"
+            android:text="Finishing Up..."
+            android:textColor="@color/green"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/close_painter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_baseline_close_24" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:id="@+id/painter_alertDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey"
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+            android:textColor="@color/green"
+            android:text="At least one speciality is required"
+            />
+
+
+        <CheckBox
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wall Paint"
+            android:layout_marginLeft="20dp"
+
+            />
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Door Paint"
+            android:layout_marginLeft="20dp"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_signUp_painter"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
+            android:text="Sign Up"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_button2"
+            android:layout_marginBottom="20dp"
+            />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

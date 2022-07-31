@@ -383,6 +383,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/houseKeepingCardView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
@@ -403,7 +404,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/babycare">
+                        android:src="@drawable/house_keeping">
 
                     </ImageView>
 
@@ -411,7 +412,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Baby Care"
+                        android:text="Sweeper"
                         android:textSize="18sp"
                         android:textStyle="bold">
 

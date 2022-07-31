@@ -31,7 +31,7 @@ public class home_fragment extends Fragment {
     Button btnSign;
     ImageView imgElectric,imgPlum,imgGraphic,imgAc,imgCook,imgDrive;
     TextView tvElectric,tvPlum,tvGraphic,tvAc,tvCook,tvDrive;
-    CardView driverCardView,plumberCardView,electricianCardView,graphicCardView,Ac_CardView,painterCardView,cookCardView;
+    CardView driverCardView,plumberCardView,electricianCardView,houseKeepingCardView,graphicCardView,Ac_CardView,painterCardView,cookCardView;
 
 
 
@@ -86,6 +86,7 @@ public class home_fragment extends Fragment {
         tvDrive=getView().findViewById(R.id.tvDrive);
         btnSign=getView().findViewById(R.id.btnSign);
 
+        houseKeepingCardView=getView().findViewById(R.id.houseKeepingCardView);
         painterCardView=getView().findViewById(R.id.painterCardView);
         cookCardView=getView().findViewById(R.id.cookCardView);
         Ac_CardView=getView().findViewById(R.id.Ac_CardView);
@@ -135,6 +136,14 @@ public class home_fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), painter.class);
+                startActivity(intent);
+
+            }
+        });
+        houseKeepingCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), house_keeping.class);
                 startActivity(intent);
 
             }

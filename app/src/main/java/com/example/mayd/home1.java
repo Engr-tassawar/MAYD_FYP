@@ -2,11 +2,13 @@ package com.example.mayd;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -77,4 +79,20 @@ BottomNavigationView bottomNavigationView;
         });
     }
 
+    @Override
+    public void onBackPressed() {
+      new AlertDialog.Builder(this)
+              .setIcon(R.drawable.ic_baseline_warning_24)
+              .setTitle("Exit")
+              .setMessage(("Are you sure to want exit?"))
+              .setCancelable(false)
+              .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialogInterface, int i) {
+                      finish();
+                  }
+              })
+              .setNegativeButton("No",null)
+        .show();
+    }
 }

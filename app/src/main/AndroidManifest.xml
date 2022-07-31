@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAYD">
         <activity
+            android:name=".house_keeping"
+            android:exported="false" />
+        <activity
+            android:name=".selectService_for_ServiceProvider"
+            android:exported="false" />
+        <activity
             android:name=".booking_details"
             android:exported="false" />
         <activity

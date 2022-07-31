@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".house_keeping">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="House Keeping"
+        android:layout_gravity="center"
+        android:textSize="45sp"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Half Hour Booking"
+        android:layout_gravity="center"
+        android:textSize="30sp"
+        android:textColor="@color/green"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+        android:id="@+id/halfHourBtn_houseKeeping"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textAllCaps="false"
+        android:text="Half hour booking=/350.rs"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Packages"
+        android:layout_gravity="center"
+        android:textSize="30sp"
+        android:textColor="@color/green"
+        android:layout_marginTop="10dp"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+
+        >
+        <CheckBox
+            android:id="@+id/houseKeeping_allRoundMonthly_CheckBox"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="All Rounder Monthly(2.5 Hrs Daily)"
+            android:textStyle="bold"
+            android:layout_weight="4"
+            />
+        <TextView
+            android:id="@+id/tv_houseKeeping_allRoundMonthly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs 9000/-"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+
+        >
+        <CheckBox
+            android:id="@+id/basicMonthly_CheckBox"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Basic Monthly(1.5 Hrs Daily)"
+            android:textStyle="bold"
+            android:layout_weight="4"
+            />
+        <TextView
+            android:id="@+id/tv_basicMonthly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs 6000/-"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+
+        >
+        <CheckBox
+            android:id="@+id/officeCleaner_CheckBox"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Office Cleaner(6 Hrs Daily)"
+            android:textStyle="bold"
+            android:layout_weight="4"
+            />
+        <TextView
+            android:id="@+id/tv_officeCleaner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs 20000/-"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+
+        >
+        <CheckBox
+            android:id="@+id/fulTime_CheckBox"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Full Time"
+            android:textStyle="bold"
+            android:layout_weight="4"
+            />
+        <TextView
+            android:id="@+id/tv_fulTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs 26000/-"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+
+        >
+        <CheckBox
+            android:id="@+id/laundry_CheckBox"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Laundry(3 Hrs max)"
+            android:textStyle="bold"
+            android:layout_weight="4"
+            />
+        <TextView
+            android:id="@+id/tv_laundry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs 4000/-"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <Button
+        android:id="@+id/houseKeepingPackage"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Proceed with Package"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:layout_marginTop="20dp"
+        />
+
+</LinearLayout>

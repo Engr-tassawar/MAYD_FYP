@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class sign_in_for_service_provider extends AppCompatActivity {
 EditText edtPhone;
-Button btnSendCode,btnCustomer;
+Button Service_Provider_btnSendCode_SignIn,btnCustomer;
 TextView tvSignUp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ TextView tvSignUp;
         setContentView(R.layout.activity_sign_in_for_sevice_provider);
         //getSupportActionBar().hide();
         edtPhone=findViewById(R.id.Service_Provider_edtPhone_SignIn);
-        btnSendCode=findViewById(R.id.Service_Provider_btnSendCode_SignIn);
+        Service_Provider_btnSendCode_SignIn=findViewById(R.id.Service_Provider_btnSendCode_SignIn);
         btnCustomer=findViewById(R.id.btn_sign_in_CustomerPreference);
 
         tvSignUp=findViewById(R.id.Service_Provider_tvSignUp_SignIn_P1);
@@ -32,6 +32,13 @@ TextView tvSignUp;
                 startActivity(intent);
             }
             });
+        Service_Provider_btnSendCode_SignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(sign_in_for_service_provider.this, selectService_for_ServiceProvider.class);
+                startActivity(intent);
+            }
+        });
 
         tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override

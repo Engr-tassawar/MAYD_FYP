@@ -7,22 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".sign_in_ForCustomer"
     android:orientation="vertical"
-    android:gravity="center"
-
     >
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_sign_in_ServicesPreference"
-
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="6dp"
-
-        android:backgroundTint="@color/green"
+        android:textColor="@color/black"
+        android:layout_gravity="right"
+        android:background="@drawable/round_button"
         android:text="Service Provider"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="10sp"
         />
 
     <ImageView
@@ -59,6 +54,7 @@
         android:id="@+id/Customer_edtEmailSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:drawableRight="@drawable/ic_baseline_email_24"
         android:hint="Enter Your Email Address"
         android:inputType="text"
