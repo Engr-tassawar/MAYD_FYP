@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".plumber_properties">
+    tools:context=".driver">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Plumber"
+        android:text="Driver"
         android:layout_gravity="center"
         android:textSize="45sp"
         android:textColor="@color/green"
@@ -18,35 +18,12 @@
         android:layout_marginTop="40dp"
 
         />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/grey"
-        android:layout_marginTop="20dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Half Hour Booking"
-        android:layout_gravity="center"
-        android:textSize="25sp"
-        android:textColor="@color/green"
-        android:layout_marginTop="10dp"
-        />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/halfHourBtn_Plumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_button3"
-            android:textColor="@color/white"
-            android:textAllCaps="false"
-            android:layout_marginTop="10dp"
-            android:text="Half hour booking=/350.Rs"
-            />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/grey"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="10dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,28 +31,30 @@
         android:layout_gravity="center"
         android:textSize="30sp"
         android:textColor="@color/green"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
 
         />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="20dp"
         android:weightSum="5"
 
         >
         <CheckBox
-            android:id="@+id/bathroomCheckBox"
+            android:id="@+id/hireDriver_CheckBox"
             android:layout_width="100dp"
-            android:textStyle="bold"
             android:layout_height="wrap_content"
-            android:text="Bathroom Fitting"
+            android:text="Hire a Driver for 3-4 hours daily"
+            android:textStyle="bold"
             android:layout_weight="4"
             />
         <TextView
+            android:id="@+id/tv_hireDriver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rs 8000/-"
+            android:text="Rs 15000/-"
             android:textStyle="bold"
             android:layout_weight="1"
             />
@@ -88,17 +67,18 @@
 
         >
         <CheckBox
-            android:id="@+id/gasLineIronCheckBox"
+            android:id="@+id/chauffeur_CheckBox"
             android:layout_width="100dp"
-            android:textStyle="bold"
             android:layout_height="wrap_content"
-            android:text="Gas LIne Service(iron)"
+            android:text="Chauffeur(24/7)"
             android:layout_weight="4"
+            android:textStyle="bold"
             />
         <TextView
+            android:id="@+id/tv_chauffeur"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rs 6300/-"
+            android:text="Rs 35000/-"
             android:textStyle="bold"
             android:layout_weight="1"
             />
@@ -111,53 +91,55 @@
 
         >
         <CheckBox
-            android:id="@+id/gasLinePlasticCheckbox"
-            android:layout_width="100dp"
-            android:textStyle="bold"
-            android:layout_height="wrap_content"
-            android:text="Gas LIne Service(plastic)"
-            android:layout_weight="4"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rs 4000/-"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="5"
-
-        >
-        <CheckBox
-            android:id="@+id/drainOpenerCheckBox"
+            android:id="@+id/driver_cityToCity_CheckBox"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="Drain Opener and Repair"
+            android:text="Hire a Driver for 24/7"
             android:layout_weight="4"
+            android:textStyle="bold"
             />
         <TextView
+            android:id="@+id/tv_driver_cityToCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rs 2000/-"
             android:textStyle="bold"
             android:layout_weight="1"
             />
-    </LinearLayout>
+    </LinearLayout><LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="5"
+
+    >
+    <CheckBox
+        android:id="@+id/driver_withinCity_CheckBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Day Driver(within City)"
+        android:layout_weight="4"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/tv_driver_withinCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rs 1500/-"
+        android:textStyle="bold"
+        android:layout_weight="1"
+        />
+</LinearLayout>
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/plumberPackage"
+        android:id="@+id/driverPackage"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="Proceed with Package"
+        android:layout_gravity="center"
         android:background="@drawable/round_button3"
         android:textColor="@color/white"
-        android:layout_gravity="center"
         android:textAllCaps="false"
         android:layout_marginTop="20dp"
         />
+
 </LinearLayout>

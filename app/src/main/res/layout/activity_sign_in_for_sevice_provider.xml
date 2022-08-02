@@ -54,13 +54,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Service_Provider_btnSendCode_SignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:textAllCaps="false"
-        android:backgroundTint="@color/green"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button3"
         android:text="Send Code" />
 
     <TextView

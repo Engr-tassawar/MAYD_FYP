@@ -77,14 +77,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Customer_btnSignIn_P1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textColor="@color/white"
         android:textAllCaps="false"
         android:layout_marginBottom="30dp"
-        android:backgroundTint="@color/green"
+       android:background="@drawable/round_button3"
         android:text="Sign In"
          />
 

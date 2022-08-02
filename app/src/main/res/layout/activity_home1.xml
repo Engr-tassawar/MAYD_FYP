@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<androidx.drawerlayout.widget.DrawerLayout
 android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-   <!-- tools:openDrawer="start"
-    android:fitsSystemWindows="true"-->
-
-
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:openDrawer="start"
+    tools:context=".home1"
+    android:fitsSystemWindows="true"
+    >
     <FrameLayout
         android:id="@+id/myFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomNavigation"
-        android:layout_below="@+id/toolbar"
         tools:ignore="NotSibling" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar_RelativeLayout">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green"
+            app:title="Menu "
+            app:titleTextColor="@color/white" />
+    </RelativeLayout>
 
     <RelativeLayout
 
@@ -32,7 +43,7 @@ android:id="@+id/drawerLayout"
             android:layout_alignParentBottom="true"
             app:menu="@menu/navigations_items" />
 
-        <androidx.appcompat.widget.Toolbar
+        <!--<androidx.appcompat.widget.Toolbar
 
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -40,17 +51,19 @@ android:id="@+id/drawerLayout"
 
             android:background="@color/green"
             app:title="Menu"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="@color/white" />-->
     </RelativeLayout>
-   <!-- <com.google.android.material.navigation.NavigationView
+    <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginRight="130dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginBottom="56dp"
-
+        android:layout_gravity="start"
+        android:background="@color/white"
         app:headerLayout="@layout/navigation_header"
-        app:menu="@menu/threedot" />-->
+        app:menu="@menu/threedot" />
+       <!-- android:layout_marginRight="130dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="56dp"-->
 
-</RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -44,10 +44,10 @@
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="100sp"
+                android:layout_marginLeft="120sp"
                 android:layout_marginTop="50sp"
                 android:hint="Name"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -55,20 +55,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvName"
-                android:layout_marginLeft="100sp"
+                android:layout_marginLeft="120sp"
                 android:layout_marginTop="34dp"
                 android:hint="ID"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSign"
-                android:layout_width="95dp"
-                android:layout_height="55dp"
-                android:layout_marginHorizontal="250dp"
-                android:layout_marginTop="50dp"
-                android:backgroundTint="@color/green"
-                android:text="Sign Out" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="290dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/round_button"
+                android:text="Sign Out"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
 
         </RelativeLayout>
        <LinearLayout
@@ -90,7 +93,7 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:text="Categories"
-               android:textSize="28sp"
+               android:textSize="25sp"
                android:textStyle="bold"
                android:textColor="@color/green"
                />
@@ -101,15 +104,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/categories"
-            android:columnOrderPreserved="false"
-            android:columnCount="2"
             android:padding="10dp"
-            android:rowCount="5">
+            android:columnCount="3"
+            android:rowCount="6"
+           >
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/driverCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -126,8 +129,8 @@
 
                     <ImageView
                         android:id="@+id/imgDrive"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/car">
 
@@ -140,7 +143,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Driver"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold">
 
                     </TextView>
@@ -151,7 +154,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/Ac_CardView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -168,8 +171,8 @@
                     <ImageView
                         android:id="@+id/imgAc"
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/hvacr">
 
@@ -182,7 +185,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="HVCR"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold">
 
                     </TextView>
@@ -192,7 +195,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/plumberCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -208,8 +211,8 @@
 
                     <ImageView
                         android:id="@+id/imgPlum"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/plumber">
 
@@ -221,7 +224,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Plumber"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold">
 
                     </TextView>
@@ -231,7 +234,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/graphicCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -247,8 +250,8 @@
 
                     <ImageView
                         android:id="@+id/imgGraphic"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/graphic">
 
@@ -259,7 +262,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Graphics"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold">
 
                     </TextView>
@@ -269,7 +272,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cookCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -285,8 +288,8 @@
 
                     <ImageView
                         android:id="@+id/imgCook"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/cook">
 
@@ -298,7 +301,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Cook"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold">
 
                     </TextView>
@@ -308,7 +311,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/electricianCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -324,8 +327,8 @@
 
                     <ImageView
                         android:id="@+id/imgElectric"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/electric">
 
@@ -336,8 +339,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Electritian"
-                        android:textSize="18sp"
+                        android:text="Electrician"
+                        android:textSize="15sp"
                         android:textStyle="bold">
 
                     </TextView>
@@ -347,7 +350,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/painterCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -363,8 +366,8 @@
 
                     <ImageView
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/painter">
 
@@ -375,7 +378,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Painter"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold">
 
                     </TextView>
@@ -385,7 +388,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/houseKeepingCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -401,8 +404,8 @@
 
                     <ImageView
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/house_keeping">
 
@@ -413,7 +416,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Sweeper"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold">
 
                     </TextView>
@@ -422,7 +425,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -438,8 +441,8 @@
 
                     <ImageView
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/babycare">
 
@@ -450,12 +453,188 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Baby Care"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold">
 
                     </TextView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:orientation="vertical">
+
+                    <ImageView
+
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/babycare">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Baby Care"
+                        android:textSize="15sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
+
+                <ImageView
+
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/babycare">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Baby Care"
+                    android:textSize="15sp"
+                    android:textStyle="bold">
+
+                </TextView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
+
+                <ImageView
+
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/babycare">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Baby Care"
+                    android:textSize="15sp"
+                    android:textStyle="bold">
+
+                </TextView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
+
+                <ImageView
+
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/babycare">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Baby Care"
+                    android:textSize="15sp"
+                    android:textStyle="bold">
+
+                </TextView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
+
+                <ImageView
+
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/babycare">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Baby Care"
+                    android:textSize="15sp"
+                    android:textStyle="bold">
+
+                </TextView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
         </GridLayout>
 
 

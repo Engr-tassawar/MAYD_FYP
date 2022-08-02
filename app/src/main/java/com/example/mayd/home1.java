@@ -5,10 +5,12 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -23,9 +25,10 @@ import com.google.android.material.navigation.NavigationView;
 public class home1 extends AppCompatActivity {
 
 BottomNavigationView bottomNavigationView;
+ActionBarDrawerToggle toggle;
     Toolbar toolbar;
- /* NavigationView navigationView;
-   DrawerLayout drawerLayout;*/
+  NavigationView navigationView;
+   DrawerLayout drawerLayout;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -41,13 +44,33 @@ BottomNavigationView bottomNavigationView;
         //navigationView.setCheckedItem(R.id.home);
 
 
-       /*
+
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView=findViewById(R.id.navigationView);
         setSupportActionBar(toolbar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(home1.this, drawerLayout, toolbar, R.string.navigation_open, R.string.navigation_close);
+        toggle = new ActionBarDrawerToggle(home1.this, drawerLayout, toolbar, R.string.navigation_open, R.string.navigation_close);
         drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();*/
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.home_icon:
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.booking_icon:
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+                    case R.id.support_icon:
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+                }
+                return false;
+            }
+        });
 
 
 

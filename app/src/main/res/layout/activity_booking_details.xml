@@ -227,9 +227,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_weight="4">
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_homeBookingDetail"
             android:layout_width="match_parent"
+            android:background="@drawable/round_button3"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:text="Go to Home"

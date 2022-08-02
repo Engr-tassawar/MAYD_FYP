@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAYD">
         <activity
+            android:name=".driver"
+            android:exported="false" />
+        <activity
             android:name=".house_keeping"
             android:exported="false" />
         <activity

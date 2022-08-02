@@ -86,6 +86,7 @@ public class home_fragment extends Fragment {
         tvDrive=getView().findViewById(R.id.tvDrive);
         btnSign=getView().findViewById(R.id.btnSign);
 
+        driverCardView=getView().findViewById(R.id.driverCardView);
         houseKeepingCardView=getView().findViewById(R.id.houseKeepingCardView);
         painterCardView=getView().findViewById(R.id.painterCardView);
         cookCardView=getView().findViewById(R.id.cookCardView);
@@ -148,7 +149,14 @@ public class home_fragment extends Fragment {
 
             }
         });
+        driverCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),driver.class);
+                startActivity(intent);
 
+            }
+        });
     }
 
     @Override

@@ -79,12 +79,13 @@
         android:autofillHints="" />
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/ServiceProvider_btnSignUp"
         android:layout_width="match_parent"
-        android:layout_height="60sp"
+        android:layout_height="55sp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@color/green"
+        android:background="@drawable/round_button3"
+        android:textColor="@color/white"
         android:text="Sign Up"
         android:textAllCaps="false"
         android:textSize="20dp" />
