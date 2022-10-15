@@ -23,7 +23,7 @@ ImageView imgLogo;
                 super.run();
                 try {
                     sleep(1000);
-                    Intent intent=new Intent(splash_screen.this, select_preference.class);
+                    Intent intent=new Intent(splash_screen.this, home1.class);
                     startActivity(intent);
                     finish();
                 } catch (InterruptedException e) {

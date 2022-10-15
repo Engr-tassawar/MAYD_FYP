@@ -9,6 +9,18 @@
         android:icon="@drawable/wallet"
         android:title="Wallet"
         />
+    <item android:id="@+id/support"
+        android:icon="@drawable/ic_baseline_support_agent_24"
+        android:title="Support"
+        />
+    <item android:id="@+id/booking"
+        android:icon="@drawable/ic_baseline_book_online_24"
+        android:title="Booking"
+        />
+    <item android:id="@+id/terms"
+        android:icon="@drawable/ic_baseline_call_to_action_24"
+        android:title="Terms And Conditions"
+        />
     <item android:id="@+id/share"
         android:icon="@drawable/share"
         android:title="Share"

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context=".terms_fragment">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Terms and Conditions"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="@color/green"
+        android:layout_marginTop="55dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/grey"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+       >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:justificationMode="inter_word"
+    android:textSize="16sp"
+    android:gravity="center"
+    android:text="@string/terms_conditions"/>
+
+       <!-- <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Terms and Conditions of Use Notice
+WELCOME TO MAYD APP.MOBILE-OPTIMIZED DIGITAL APPLICATION (MOBILE APP) TO WHICH BELOW TERMS AND
+        CONDITIONS APPLIED. PLEASE READ CAREFULLY BEFORE ACCESSING OR OTHERWISE USING APPLICATION
+        SERVICES, YOU ARE AGREEING TO BE BOND BY THE FOLLOWING TERMS AND CONDITIONS (“TERMS OF USE”).
+
+Eligibility
+The Local Got Talent application intended user (customer/member) shall be 13 years or older.The intended user (service professional) shall be 18 years or older. General terms and conditions We reserve the right to change, modify or remove this terms and conditions (terms of use) any time by providing notice of such changes on our service platform. Your continued access and use following the posting of modifications makeup your acceptance to these changes. Therefore, you should frequently review the Terms of Use and applicable policies from time to time to understand the terms and conditions that apply to your use.
+You (customer/member and service provider) shall be solely liable User Created Contents (UCC) include any material you post, upload, transmit to, or your use of Interactive Areas (chat rooms, forums, SMS, verbal communications or any other interactive areas). Company takes no responsibility and assumes no liability for any material uploaded by you or any third party, or for any loss or damage.
+Local Got Talent shall take no responsibility and assumes no liability for any misconduct on part of customer/member and service provider or incorporation; while in material, communication, and onsite (premises) and for any loss or damage therein. Local Got Talent is merely a portal/platform that connects people (customer/member and service professionals/provider).
+In order to ensure a safe interaction and customer/member experience, you agree that we are not liable and reserve the right to do any of the following on or through the service application (website, mobile application, and other interactive platforms).
+1. We reserve the right to modify or terminate the Local Got Talent service for any reason, without prior notice, at any time.
+2. We assume the right to monitor all USER CREATED CONTENTS (UCC)./n
+3. We may, but not obligatory to change, modify, remove contents, profile or material, that we assume offensive or inappropriate, in our sole discretion that is offensive for general user (customer/member and service professionals) and throughout our service applications.
+4. We reserve the right to refuse Local Got Talent service to anyone for any reason at any time.
+5. We shall not be liable for any loss or damage of any kind you may claim was incurred as a result of services provided, the use of any contents you posted, emailed, transmitted or otherwise made available on or through this Site (web and mobile app) and does not necessarily reflect the views of Local Got Talent or any person or entity associated within.
+6. We reserve the right to reclaim usernames on behalf of businesses or individuals that hold legal claim or trademark on those usernames.
+7. You shall not modify, adapt or hack Local Got Talent or modify another website so as to falsely imply that it is associated with Local Got Talent.
+8. You shall not access MAYD private API by any other means other than the Local Got Talent application itself.
+9. You shall not transmit any worms or viruses or any code of a destructive nature.
+
+Basic Terms (Customer/Member)
+1. You must be 13 years or older to use this site.
+2. You shall be responsible for any activity that occurs under your screen name.
+3. You shall be solely responsible for your conduct and behavior (abuse, harass,
+threaten, impersonate or intimidate), offense or any action that is false, misleading or fraudulent; under your screen name.
+4. Local Got Talent takes no responsibility and assumes no liability for any misconduct on your part (customer/member); while in material, communication, and onsite (premises) and for any loss or damage therein. Local Got Talent is merely a portal/platform that connects people (customer/member and service professionals/provider)
+5. You shall be responsible for keeping your password secure.
+6. Local Got Talent shall not be responsible for any activity, related to conduct, financial aspect (credit card usage), damage, expenses or any matter of the sort; under your screen name; shall be solely your responsibility.
+7. The customer/member shall, as far it is reasonably possible to do, inspect the service provider work (immediately upon their completion) on date (job completion day). If the completed job or any part of it is not in accordance with the service sheet (service sheet signed with provider on premises). Local Got Talent shall be notified of the details in writing (complaint sheet/form filled) on date of inspection. Complaint sheet/form shall not imply rejection of the job/service. In the absence of any such notice, the job/service shall be conclusively presumed to be complete and free from any defect.
+8. The customer/member shall pay the service fee immediately after job completion (if not pre-paid at booking)
+
+Work Terms and Conditions
+1. All descriptions, illustrations etc. contained in any catalogues, price lists or advertisements, or otherwise communicated to the customer/member, are intended to present the official rate and general idea of the work and not part of the contract (job contract).
+2. The Contract between the customer/member and provider shall be expressed in writing on the site (premises) with details (work, price and estimated hours) on the service sheet, agreed by the parties, signed by the parties involved.
+3. The price of the services excludes cost incurred, on any parts and materials used, and are not included.
+4. The services and its rate schedule are available on Local Got Talent (application and premises) normal business hours. The Schedule of Rates specifies per job rates (hourly rates) which are exclusive of cost of parts. These fees must be pre-paid (at booking) or upon our service professional arrival (on delivery) and are not refundable.
+5. The customer/member pay the service fee (price), calculated (hourly rate * service hours) or monthly (recurring billing) and shall be stated on the invoice/service sheet presented by service professional on site (premises). The service sheet shall include only the service charges and cost of materials should be separate (customer/member discretion if they leave it to service provider or procure themselves).
+6. Price and Quotations shown on website and application, and on service sheet (signed at premises) are exclusive of any tax at the prevailing rate which will be payable in addition where properly chargeable.
+7. Payment by the customer/member is due on the completion of the work and must be made as such. Payment can be made by cash, or online transfer through Local Got Talent app. No fee transfer (online) shall be made to the service professional personal account.
+8. If the customer/member (site/premises owner) is represented by a third party (such as a managing agent, contractor or other representative), in the event of non-payment by the Customer, the third party will be responsible (individual or entity that booked the service).
+9. Our service professional after examining the work provide date and time of completion are estimates only. Service professionals will use all reasonable measures to ensure that it will attend on the date and time agreed. However, it accepts no liability in respect for the late delivery of materials.
+10. For monthly resource provision, 50% advance payment is applicable for the customers to pay and the remaining 50% payment will be charged at the end of the month.
+
+Terms and Conditions (Service Provider)
+1. You are responsible for User Created Contents (UCC) that you post. Under no circumstances Local Got Talent shall be liable in any way for any UCC.
+2. User Created Content includes data, digital material (audio and video clips), text, information, screen names, graphics, photos, and profiles, resume, chat material (communication with the customer/member) that you submit, post, and display on the Local Got Talent service.
+3. You must not create or submit unwanted video, email or comments, offensive to any Local Got Talent customer/members.
+4. If any part of the UCC - User Created Contents (that includes your profile, resume, work references and other details) you post, is not your original work, we reserve the right to remove it and penalize such inappropriate conduct.
+5. You shall not impersonate any individual, entity or incorporated, as you or your own; in any condition. Local Got Talent reserve the right to investigate and assert appropriate action in its sole discretion.
+6. You (incorporation/service provider) shall not be involved in misconduct and offence of any nature or any action that is false misleading or fraudulent on jobsite (customer/member premises) and before (communication lines). You shall be solely responsible for and shall bear legal repercussions (criminal and civil suits) thereafter. Local Got Talent shall not be liable in any way for any such actions.
+7. You shall not harm minors in any way.
+8. You shall not post any contents that reveals your own or supersede the Local Got Talent identity; in any form such as audio and video, trademark and logo, map, or any such kind. Local Got Talent reserve the right to remove those contents terminates the account and penalizes such individual, entity or incorporation for violating those conditions.
+9. You (incorporation/service provider) understand the legal and financial consequences of above stated; includes expenses, damage, suits (criminal or civil law) for any action and UCC posted from Local Got Talent platform; and shall be responsible for, thereafter. You understand and agree that exposed to such materials that you use on the Local Got Talent service at your own risk; and bear the consequences thereafter.
+10. You shall not, in the use of Local Got Talent, violate any laws in your jurisdiction (applicable to local law and not limited to copyright laws).
+11. You shall be liable to abide by the standards (price and quality) set by Local Got Talent on its platform (website and application) and shall not reframe from such and present customer/member with best of your abilities.
+12. You shall always obey the protocols set by Local Got Talent while performing the job. The protocol includes standard service sheet (job details, service charges excluding material cost in any) provided by company and signed agreement (service provider and customer/member). And present invoice after completion of the job.
+13. You shall post the due charges (as per your online wallet) to the company immediately after the job done (in case its ‘cash on delivery’) or in 2 days period. Your acceptance to a service request, booking method as ‘cash on delivery’ is subjected to your wallet credit. You shall credit the empty wallet, before acceptance of any service with the method as ‘cash on delivery’. Local Got Talent hereby reserve the right to restrain the service provider, of acceptance of any such service with the method as ‘cash on delivery’; if the wallet shows no credit.
+
+Liability
+Above mentioned terms exclude Local Got Talent of entire liability in respect of the User Created
+Contents (UCC), job/service and exclusion of all other warranties, conditions, terms and liabilities, expressed or implied, in respect of the job/service and the quality thereof.
+Local Got Talent shall not take any responsibility and liability for any action on the part of the general user, includes, customer/member and service professional.
+The Incorporation/Service Provider is solely responsible and liable against all actions, suits, claims, demand, loses, charges, cost and expenses in connection with a claim by customer/member as a result of breach of contract. The Local Got Talent is not and shall not be responsible for any action, behavior, misconduct, criminal offense, law suits and all financial cost and expenses; and incorporation/service provider is the sole responsible and bearer of such liability.
+
+Indemnity
+In essence of terms and conditions mentioned the customer/member shall indemnify Local Got Talent against all actions, suits, claims, demands, losses, charges, costs and expenses which Local Got Talent may suffer or incur in connection with a claim by any third party resulting from a breach of the Customers obligations, undertakings, representations and warranties in connection with this Contract.
+
+Usability
+You (customer/member and service professionals/provider) shall not use the Local Got Talent platform/portal (website and mobile app), if you do not agree to the above terms and conditions."
+            android:textAlignment="center"
+
+            android:textSize="19sp"
+            android:textColor="@color/grey"
+            android:layout_marginTop="20dp"/>-->
+
+    </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

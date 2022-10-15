@@ -24,11 +24,11 @@ import com.google.android.material.navigation.NavigationView;
 
 public class home1 extends AppCompatActivity {
 
-BottomNavigationView bottomNavigationView;
-ActionBarDrawerToggle toggle;
+    BottomNavigationView bottomNavigationView;
+    ActionBarDrawerToggle toggle;
     Toolbar toolbar;
-  NavigationView navigationView;
-   DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    DrawerLayout drawerLayout;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -51,24 +51,36 @@ ActionBarDrawerToggle toggle;
         toggle = new ActionBarDrawerToggle(home1.this, drawerLayout, toolbar, R.string.navigation_open, R.string.navigation_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.home_icon:
-                        drawerLayout.closeDrawer(GravityCompat.START);
+                    case R.id.home:
+                        getSupportFragmentManager().beginTransaction()
+                                        .replace(R.id.myFrameLayout,new home_fragment())
+                                                .commit();
+
                         break;
-                    case R.id.booking_icon:
-                        drawerLayout.closeDrawer(GravityCompat.START);
+                    case R.id.booking:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.myFrameLayout,new booking_fragment())
+                                .commit();
                         break;
 
-                    case R.id.support_icon:
-                        drawerLayout.closeDrawer(GravityCompat.START);
+                    case R.id.support:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.myFrameLayout,new support_fragment())
+                                .commit();
+                        break;
+                    case R.id.terms:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.myFrameLayout,new terms_fragment())
+                                .commit();
                         break;
 
                 }
-                return false;
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
             }
         });
 
