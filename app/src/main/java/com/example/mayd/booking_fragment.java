@@ -4,35 +4,48 @@ import android.content.Intent;
 import android.icu.text.Replaceable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.android.material.tabs.TabLayout;
+
 
 public class booking_fragment extends Fragment {
 
+    public booking_fragment() {
+        // Required empty public constructor
+    }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        TabLayout customer_tabLayout;
+        ViewPager customer_viewpager;
+
+        customer_viewpager = getView().findViewById(R.id.customer_viewpager);
+        customer_tabLayout = getView().findViewById(R.id.customer_tabLayout);
+
+        customer_tabLayout.setupWithViewPager(customer_viewpager);
+        customer_viewPager_adapter adapter=new customer_viewPager_adapter(getFragmentManager());
+        customer_viewpager.setAdapter(adapter);
+    }
+
+    /* fragmentAdapter adapter=new fragmentAdapter(getSupportFragmentManager());*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-      /*  on_Going=getView().findViewById(R.id.btn_onGoing);
-        completed=getView().findViewById(R.id.btn_completed);
 
-        on_Going.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment complete=new completed_fragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.bottomNavigation,complete).commit();
+        View view =inflater.inflate(R.layout.fragment_booking_fagment, container, false);
 
-            }
-        });*/
-        // Inflate the layout for this fragment
-        return  inflater.inflate(R.layout.fragment_booking_fagment, container, false);
+return view;
 
     }
 }

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="15dp"
     android:orientation="vertical"
     tools:context=".customerSignUp">
@@ -10,7 +11,7 @@
         android:id="@+id/temp_tvCustomer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:text="Customer Registration"
         android:gravity="center"
         android:textStyle="bold"
@@ -26,53 +27,124 @@
         android:text="Please enter the correct details in the following fields to signup"
         android:textColor="@color/green"
         android:gravity="center"
-        android:textSize="25sp"
+        android:textSize="20sp"
         />
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Customer_edtFullNameSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Full Name"
+            android:inputType="text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
+
+    <!--<EditText
         android:id="@+id/Customer_edtFullNameSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:hint="Enter Full Name"
         android:inputType="text"
-        />
-
-    <EditText
+        />-->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Customer_edtEmailSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_email_24"
+            android:hint="Enter Your Email Address"
+            android:inputType="textEmailAddress"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--<EditText
         android:id="@+id/Customer_edtEmailSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:hint="Enter Your Email Address"
         android:inputType="text"
-        />
-
-    <EditText
+        />-->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Customer_edtPhoneSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Phone Number"
+            android:drawableRight="@drawable/ic_baseline_phone_24"
+            android:inputType="phone"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--<EditText
         android:id="@+id/Customer_edtPhoneSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:hint="Enter Phone Number"
         android:inputType="phone"
-        />
+        />-->
 
 
-
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:passwordToggleEnabled="true"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Customer_edtPasswordSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Password"
+            android:inputType="textPassword"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--<EditText
         android:id="@+id/Customer_edtPasswordSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:hint="Enter Password"
-        android:inputType="textPassword" />
-
-    <EditText
+        android:inputType="textPassword" />-->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:passwordToggleEnabled="true"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Customer_edtConfirmPasswordSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--<EditText
         android:id="@+id/Customer_edtConfirmPasswordSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:hint="Confirm Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword" />-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Customer_btnSignup_P2"
@@ -86,15 +158,32 @@
         android:textSize="15sp"
         />
 
-    <TextView
-        android:id="@+id/tvAlreadyAccountSignUp_P2"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an account?Click here to Sign-In"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account?"
         android:textAlignment="center"
+        android:layout_marginLeft="60dp"
         android:textColor="@color/lightBlue"
-        android:textSize="20sp"
+        android:textSize="16sp"
         />
-
+        <TextView
+            android:id="@+id/tvAlreadyAccountSignUp_P2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            android:text="Sign-In"
+            android:textAlignment="center"
+            android:textColor="@color/lightBlue"
+            android:textSize="16sp"
+            />
+    </LinearLayout>
 
 </LinearLayout>

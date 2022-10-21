@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".on_goingFragment"
-    android:background="@color/grey"
-    android:id="@+id/on_goingFragment">
+    tools:context=".on_going_fragment">
+
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+      android:hint="On-going"
+        android:textSize="35sp"
+        android:gravity="center"
+        android:textStyle="bold"/>
 
 </FrameLayout>

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "201681702599",
+    "firebase_url": "https://mayd-535a0-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "mayd-535a0",
     "storage_bucket": "mayd-535a0.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "201681702599-mf3ru7auspbilcd6q29tcn20sld0mnqs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mayd",
+            "certificate_hash": "fd9f5e811c6a1775256bf0fd784ebfff0315f197"
+          }
+        },
         {
           "client_id": "201681702599-1cerjhbfgdi9tsohm7m02vps3a1vj1fq.apps.googleusercontent.com",
           "client_type": 3

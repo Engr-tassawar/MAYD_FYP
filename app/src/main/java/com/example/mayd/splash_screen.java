@@ -23,9 +23,10 @@ ImageView imgLogo;
                 super.run();
                 try {
                     sleep(1000);
-                    Intent intent=new Intent(splash_screen.this, home1.class);
+                   Intent intent=new Intent(splash_screen.this, sign_in_ForCustomer.class);
                     startActivity(intent);
                     finish();
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

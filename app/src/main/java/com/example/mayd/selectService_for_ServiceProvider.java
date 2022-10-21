@@ -1,18 +1,13 @@
 package com.example.mayd;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class selectService_for_ServiceProvider extends AppCompatActivity {
@@ -36,7 +31,7 @@ public class selectService_for_ServiceProvider extends AppCompatActivity {
             public void onClick(View view) {
 
                 Dialog dialog = new Dialog(selectService_for_ServiceProvider.this);
-                dialog.setContentView(R.layout.dialog_for_select_service);
+                dialog.setContentView(R.layout.dialog_for_select_service_food);
                 AppCompatButton btn_signUp_driver = dialog.findViewById(R.id.btn_signUp_driver);
                 ImageView close = dialog.findViewById(R.id.close);
                 dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimationReport;
@@ -52,8 +47,9 @@ public class selectService_for_ServiceProvider extends AppCompatActivity {
                 btn_signUp_driver.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(selectService_for_ServiceProvider.this, sign_in_for_service_provider.class);
+                        Intent intent = new Intent(selectService_for_ServiceProvider.this, service_provider_home.class);
                         startActivity(intent);
+
                     }
 
                 });
@@ -82,7 +78,7 @@ public class selectService_for_ServiceProvider extends AppCompatActivity {
                 btn_signUp_plumber.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(selectService_for_ServiceProvider.this, sign_in_for_service_provider.class);
+                        Intent intent = new Intent(selectService_for_ServiceProvider.this, service_provider_home.class);
                         startActivity(intent);
                     }
 
@@ -112,7 +108,7 @@ public class selectService_for_ServiceProvider extends AppCompatActivity {
                 btn_signUp_electrician.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(selectService_for_ServiceProvider.this, sign_in_for_service_provider.class);
+                        Intent intent = new Intent(selectService_for_ServiceProvider.this, service_provider_home.class);
                         startActivity(intent);
                     }
 
@@ -142,7 +138,7 @@ public class selectService_for_ServiceProvider extends AppCompatActivity {
                 btn_signUp_hvcr.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(selectService_for_ServiceProvider.this, sign_in_for_service_provider.class);
+                        Intent intent = new Intent(selectService_for_ServiceProvider.this, service_provider_home.class);
                         startActivity(intent);
                     }
 
@@ -172,7 +168,7 @@ public class selectService_for_ServiceProvider extends AppCompatActivity {
                 btn_signUp_painter.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(selectService_for_ServiceProvider.this, sign_in_for_service_provider.class);
+                        Intent intent = new Intent(selectService_for_ServiceProvider.this, service_provider_home.class);
                         startActivity(intent);
                     }
 
@@ -202,7 +198,7 @@ public class selectService_for_ServiceProvider extends AppCompatActivity {
                 btn_signUp_houseKeeping.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(selectService_for_ServiceProvider.this, sign_in_for_service_provider.class);
+                        Intent intent = new Intent(selectService_for_ServiceProvider.this, service_provider_home.class);
                         startActivity(intent);
                     }
 

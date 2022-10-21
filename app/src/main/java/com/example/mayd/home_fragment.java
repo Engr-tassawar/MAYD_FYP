@@ -21,11 +21,6 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link home_fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class home_fragment extends Fragment {
 
     Button btnSign;

@@ -5,42 +5,38 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:id="@+id/onGoing_complete_cancelled"
-    android:padding="10dp"
-    tools:context=".booking_fragment">
+    tools:context=".service_provider_profile_fragment">
     <!-- TODO: Update blank fragment layout -->
-
-
-
-
-    <TextView
-    android:id="@+id/tv_Booking"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Booking"
-        android:gravity="center"
-    android:textColor="@color/green"
-        android:layout_marginTop="55dp"
-    android:textSize="25sp"
-    android:textStyle="bold" />
-
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/grey"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:layout_marginTop="65dp"
+        android:background="@color/green"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="380dp"
+            android:layout_height="130dp"
+            android:id="@+id/Sservice_provider_cardView"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="20dp"
+            >
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:id="@+id/customer_tabLayout"
+        android:id="@+id/S_Provider_tabLayout"
+        app:tabIndicatorColor="@color/lightGreen"
         app:tabTextColor="@color/grey"
         app:tabSelectedTextColor="@color/green"
-        app:tabIndicatorColor="@color/lightGreen"
         android:elevation="12dp"/>
+
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/customer_viewpager"
+        android:id="@+id/S_Provider_viewpager"
         />
 
 </LinearLayout>
