@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -27,13 +28,15 @@ public class service_provider_profile_fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         TabLayout S_Provider_tabLayout;
         ViewPager S_Provider_viewpager;
-
+        EditText Service_Provider_edtPhone_SignIn;
+                Service_Provider_edtPhone_SignIn = getView().findViewById(R.id.Service_Provider_edtPhone_SignIn);
         S_Provider_viewpager = getView().findViewById(R.id.S_Provider_viewpager);
         S_Provider_tabLayout = getView().findViewById(R.id.S_Provider_tabLayout);
 
         S_Provider_tabLayout.setupWithViewPager(S_Provider_viewpager);
         fragmentAdapter adapter=new fragmentAdapter(getFragmentManager());
         S_Provider_viewpager.setAdapter(adapter);
+
        /* fragmentAdapter adapter=new fragmentAdapter(getSupportFragmentManager());*/
     }
 

@@ -114,7 +114,7 @@ public class home1 extends AppCompatActivity {
         });
     }
 
-    @Override
+   /* @Override
     public void onBackPressed() {
       new AlertDialog.Builder(this)
               .setIcon(R.drawable.ic_baseline_warning_24)
@@ -129,5 +129,5 @@ public class home1 extends AppCompatActivity {
               })
               .setNegativeButton("No",null)
         .show();
-    }
+    }*/
 }

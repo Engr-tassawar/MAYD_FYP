@@ -171,6 +171,21 @@ public class home_fragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home_fragment, container, false);
     }
-
+ /* @Override
+    public void onBackPressed() {
+      new AlertDialog.Builder(this)
+              .setIcon(R.drawable.ic_baseline_warning_24)
+              .setTitle("Exit")
+              .setMessage(("Are you sure to want exit?"))
+              .setCancelable(false)
+              .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialogInterface, int i) {
+                      finish();
+                  }
+              })
+              .setNegativeButton("No",null)
+        .show();
+    }*/
 
 }

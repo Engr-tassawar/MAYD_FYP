@@ -17,42 +17,107 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.DatabaseRegistrar;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 
 public class serviceProviderSignUp extends AppCompatActivity {
-    EditText edtFullName, edtPhone, edtCNIC, edtPassword, edtConfirmPassword;
-    Button btnSignUp;
+    EditText ServiceProvider_edtFullName_SignUp, ServiceProvider_edtPhone_SignUp, ServiceProvider_edtPassword_SignUp, ServiceProvider_edtConfirmPassword_SignUp;
+    Button ServiceProvider_btnSignUp;
     TextView tvAlreadyAccount;
-    String OTP;
-
+    DatabaseReference databaseReference= FirebaseDatabase.getInstance().
+            getReferenceFromUrl("https://mayd-535a0-default-rtdb.asia-southeast1.firebasedatabase.app/");
+   /* String OTP;
     private FirebaseAuth mAuth;
-    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
+    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_provider_sign_up);
 
-        mAuth = FirebaseAuth.getInstance();
+       /* mAuth = FirebaseAuth.getInstance();*/
 
-        edtFullName = findViewById(R.id.ServiceProvider_edtFullName_SignUp);
-        edtPhone = findViewById(R.id.ServiceProvider_edtPhone_SignUp);
-        edtCNIC = findViewById(R.id.ServiceProvider_edtCNIC_SignUp);
-        edtPassword = findViewById(R.id.ServiceProvider_edtPassword_SignUp);
-        edtConfirmPassword = findViewById(R.id.ServiceProvider_edtConfirmPassword_SignUp);
-        btnSignUp = findViewById(R.id.ServiceProvider_btnSignUp);
+        ServiceProvider_edtFullName_SignUp = findViewById(R.id.ServiceProvider_edtFullName_SignUp);
+        ServiceProvider_edtPhone_SignUp = findViewById(R.id.ServiceProvider_edtPhone_SignUp);
+        /*edtCNIC = findViewById(R.id.ServiceProvider_edtCNIC_SignUp);*/
+        ServiceProvider_edtPassword_SignUp = findViewById(R.id.ServiceProvider_edtPassword_SignUp);
+        ServiceProvider_edtConfirmPassword_SignUp = findViewById(R.id.ServiceProvider_edtConfirmPassword_SignUp);
+        ServiceProvider_btnSignUp = findViewById(R.id.ServiceProvider_btnSignUp);
 
         tvAlreadyAccount = findViewById(R.id.ServiceProvider_tvAlreadyAccountSignIn_SignUp);
 
 
+        ServiceProvider_btnSignUp.setOnClickListener(new View.OnClickListener() {
+                                 @Override
+                                 public void onClick(View view) {
+                                     //get data from editText into string variable
+
+                                     String fullName=ServiceProvider_edtFullName_SignUp.getText().toString();
+                                     String phoneNumber=ServiceProvider_edtPhone_SignUp.getText().toString();
+                                     String password=ServiceProvider_edtConfirmPassword_SignUp.getText().toString();
+                                     String confirmPassword=ServiceProvider_edtConfirmPassword_SignUp.getText().toString();
+
+                                     ///check if user fill all fields before sending data to firebase
+                                     if(fullName.isEmpty()||phoneNumber.isEmpty()
+                                             ||password.isEmpty()||confirmPassword.isEmpty())
+                                     {
+                                         Toast.makeText(serviceProviderSignUp.this,
+                                                 "Please fill all fields",Toast.LENGTH_SHORT).show();
+                                     }
+                                     //check if password are matching with each other
+                                      else if(!password.equals(confirmPassword))
+                                     {
+                                         Toast.makeText(serviceProviderSignUp.this,
+                                                 "Password are not matching",Toast.LENGTH_SHORT).show();
+                                     }
+                                     //sending data to firebase realtimedarabase
+                                     //we are using phone number as unique identity of every user
+                                     //so all the other details of user comes under phone number
+
+                                      else
+                                      {
+
+                                          databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+                                              @Override
+                                              public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                  //check if phone number is not register before
+                                                  if(snapshot.hasChild(phoneNumber))
+                                                  {
+                                                      Toast.makeText(serviceProviderSignUp.this,
+                                                              "Phone number is already registered",Toast.LENGTH_SHORT).show();
+                                                  }
+                                                  else
+                                                  {
+                                                      databaseReference.child("users").child(phoneNumber).child("fullname").setValue(fullName);
+                                                      databaseReference.child("users").child(phoneNumber).child("password").setValue(password);
+                                                      Toast.makeText(serviceProviderSignUp.this,
+                                                              "User register successfully",Toast.LENGTH_SHORT).show();
+                                                      finish();
+                                                  }
+                                              }
+
+                                              @Override
+                                              public void onCancelled(@NonNull DatabaseError error) {
+
+                                              }
+                                          });
+
+                                      }
+                                 }
+                             });
 
         tvAlreadyAccount.setOnClickListener(view -> {
             Intent intent = new Intent(serviceProviderSignUp.this, sign_in_for_service_provider.class);
             startActivity(intent);
         });
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        /*btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (validateInput()){
@@ -79,11 +144,11 @@ public class serviceProviderSignUp extends AppCompatActivity {
                             Toast.makeText(serviceProviderSignUp.this, "VerificationFailed"+e, Toast.LENGTH_SHORT).show();
                             Log.d("tag", "onVerificationFailed", e);
 
-                           /* if (e instanceof FirebaseAuthInvalidCredentialsException) {
+                           *//* if (e instanceof FirebaseAuthInvalidCredentialsException) {
                                 // Invalid request
                             } else if (e instanceof FirebaseTooManyRequestsException) {
                                 // The SMS quota for the project has been exceeded
-                            }*/
+                            }*//*
 
                             // Show a message and update the UI
                         }
@@ -117,11 +182,11 @@ public class serviceProviderSignUp extends AppCompatActivity {
                 }
             }
         });
-    }
+    }*/
 
-    boolean validateInput() {
+   /* boolean validateInput() {
         return true;
-        /*String FullName = edtFullName.getText().toString().trim();
+        String FullName = edtFullName.getText().toString().trim();
         String Phone = edtPhone.getText().toString().trim();
         String CNIC = edtCNIC.getText().toString().trim();
         String Password = edtPassword.getText().toString();
@@ -144,6 +209,7 @@ public class serviceProviderSignUp extends AppCompatActivity {
             return false;
         } else {
             return true;
-        }*/
-    }
+        }
+    }*/
+}
 }
