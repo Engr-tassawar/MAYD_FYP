@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:padding="15dp"
 
-    tools:context=".select_preference">
+    tools:context="simpleActivity.select_preference">
 
     <TextView
         android:layout_width="wrap_content"

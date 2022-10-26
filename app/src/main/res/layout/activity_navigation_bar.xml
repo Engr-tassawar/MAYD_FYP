@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawyer"
     tools:openDrawer="start"
-    tools:context=".navigationBar">
+    tools:context="simpleActivity.navigationBar">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

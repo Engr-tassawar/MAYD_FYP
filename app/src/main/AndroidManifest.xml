@@ -12,46 +12,46 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAYD">
         <activity
-            android:name=".service_provider_home"
+            android:name="simpleActivity.service_provider_home"
             android:exported="false" />
         <activity
-            android:name=".driver"
+            android:name="simpleActivity.driver"
             android:exported="false" />
         <activity
-            android:name=".house_keeping"
+            android:name="simpleActivity.house_keeping"
             android:exported="false" />
         <activity
-            android:name=".selectService_for_ServiceProvider"
+            android:name="simpleActivity.selectService_for_ServiceProvider"
             android:exported="false" />
         <activity
-            android:name=".booking_details"
+            android:name="simpleActivity.booking_details"
             android:exported="false" />
         <activity
-            android:name=".painter"
+            android:name="simpleActivity.painter"
             android:exported="false" />
         <activity
-            android:name=".cooker"
+            android:name="simpleActivity.cooker"
             android:exported="false" />
         <activity
-            android:name=".booking_summary"
+            android:name="simpleActivity.booking_summary"
             android:exported="false" />
         <activity
-            android:name=".hvacr"
+            android:name="simpleActivity.hvacr"
             android:exported="false" />
         <activity
-            android:name=".booking_schedule"
+            android:name="simpleActivity.booking_schedule"
             android:exported="false" />
         <activity
-            android:name=".graphic_designer"
+            android:name="simpleActivity.graphic_designer"
             android:exported="false" />
         <activity
-            android:name=".electrician_properties"
+            android:name="simpleActivity.electrician_properties"
             android:exported="false" />
         <activity
-            android:name=".book_your_service"
+            android:name="simpleActivity.book_your_service"
             android:exported="false" />
         <activity
-            android:name=".plumber_properties"
+            android:name="simpleActivity.plumber_properties"
             android:exported="false" />
         <activity
             android:name=".Forget_password_customer"
@@ -60,19 +60,19 @@
             android:name=".sign_in_ForCustomer"
             android:exported="false" />
         <activity
-            android:name=".sign_in_for_service_provider"
+            android:name="simpleActivity.sign_in_for_service_provider"
             android:exported="false" />
         <activity
-            android:name=".serviceProviderSignUp"
+            android:name="simpleActivity.serviceProviderSignUp"
             android:exported="false" />
         <activity
-            android:name=".select_preference"
+            android:name="simpleActivity.select_preference"
             android:exported="false" />
         <activity
             android:name=".customerSignUp"
             android:exported="false" />
         <activity
-            android:name=".home1"
+            android:name="simpleActivity.home1"
             android:exported="true" />
         <activity
             android:name=".splash_screen"

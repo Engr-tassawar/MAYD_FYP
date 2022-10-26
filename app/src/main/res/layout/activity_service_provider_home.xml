@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/service_provider_drawerLayout"
-    tools:context=".service_provider_home"
+    tools:context="simpleActivity.service_provider_home"
     tools:openDrawer="start"
     android:fitsSystemWindows="true">
     <FrameLayout

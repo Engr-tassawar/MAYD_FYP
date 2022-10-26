@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".sign_in_for_service_provider">
+    tools:context="simpleActivity.sign_in_for_service_provider">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_sign_in_CustomerPreference"
+        android:id="@+id/btnCustomer"
         android:textAllCaps="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,11 +22,11 @@
         />
 
     <ImageView
-        android:id="@+id/temp_imgProfile"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/profile" />
 
     <TextView
@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         android:text="Sign In As Service Provider"
         android:textAlignment="center"
+        android:layout_marginVertical="8dp"
         android:textColor="@color/green"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -41,31 +42,33 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         >
     <EditText
         android:id="@+id/Service_Provider_edtPhone_SignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
         android:drawableRight="@drawable/ic_baseline_phone_24"
         android:hint="Phone Number"
         android:inputType="phone"
-        android:minHeight="48dp" />
+         />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:passwordToggleEnabled="true"
+
         >
         <EditText
             android:id="@+id/Service_Provider_edtPassword_SignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+
             android:hint="Password"
             android:inputType="text"
-            android:minHeight="48dp" />
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -103,17 +106,5 @@
             android:textColor="@color/lightBlue"
             android:textStyle="bold"/>
     </LinearLayout>
-
-   <!-- <TextView
-        android:id="@+id/Service_Provider_tvSignUp_SignIn_P1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Do not have any account? Click here to Sign Up"
-        android:textAlignment="center"
-        android:textColor="@color/lightBlue"
-        android:textSize="20sp" />-->
-
-
 
 </LinearLayout>

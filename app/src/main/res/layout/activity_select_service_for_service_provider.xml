@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/parent_selectService"
     android:padding="20dp"
-    tools:context=".selectService_for_ServiceProvider">
+    tools:context="simpleActivity.selectService_for_ServiceProvider">
     <TextView
         android:layout_marginTop="20dp"
         android:id="@+id/tv_selectService"

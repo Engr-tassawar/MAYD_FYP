@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:weightSum="10"
     android:padding="20dp"
-    tools:context=".booking_summary">
+    tools:context="simpleActivity.booking_summary">
    <TextView
        android:layout_width="match_parent"
        android:layout_height="wrap_content"

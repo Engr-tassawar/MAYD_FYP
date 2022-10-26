@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="15dp"
     android:orientation="vertical"
-    tools:context=".serviceProviderSignUp">
+    tools:context="simpleActivity.serviceProviderSignUp">
 
 
     <TextView
@@ -62,9 +62,10 @@
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ServiceProvider_edtPhone_SignUp"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Phone Number"
+            android:hint="Enter phone"
             android:drawableRight="@drawable/ic_baseline_phone_24"
             android:inputType="phone"
             />
@@ -109,9 +110,10 @@
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ServiceProvider_edtPassword_SignUp"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Password"
+            android:hint="Password"
             android:inputType="textPassword"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -119,15 +121,13 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="10dp"
         app:passwordToggleEnabled="true"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ServiceProvider_edtConfirmPassword_SignUp"
-
+            android:id="@+id/ServiceProvider_confirmPassword_SignUp"
             android:hint="Confirm Password"
             android:inputType="textPassword"
             />

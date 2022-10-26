@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:id="@+id/onGoing_complete_cancelled"
     android:padding="10dp"
-    tools:context=".booking_fragment">
+    tools:context="fragments.booking_fragment">
     <!-- TODO: Update blank fragment layout -->
 
 
