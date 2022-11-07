@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import simpleActivity.customer_login;
+
 public class splash_screen extends AppCompatActivity {
 ImageView imgLogo;
     @Override
@@ -15,15 +17,13 @@ ImageView imgLogo;
         //getSupportActionBar().hide();
         imgLogo =findViewById(R.id.logo);
 
-
-
         Thread thread = new Thread(){
             @Override
             public void run() {
                 super.run();
                 try {
                     sleep(1000);
-                   Intent intent=new Intent(splash_screen.this, sign_in_ForCustomer.class);
+                   Intent intent=new Intent(splash_screen.this, customer_login.class);
                     startActivity(intent);
                     finish();
 

@@ -26,7 +26,7 @@
         android:title="Share"
 
         />
-    <item android:id="@+id/login"
+    <item android:id="@+id/logOut"
         android:icon="@drawable/login"
         android:title="Log Out"
         />

@@ -41,13 +41,31 @@
 
                 android:src="@drawable/ic_baseline_add_circle_24"
 />
+
             <TextView
+                android:id="@+id/service_provider_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/service_provider_number"
                 android:layout_marginLeft="100dp"
+                android:text="nothing"
+                android:layout_marginTop="20dp" />
+            <TextView
+                android:id="@+id/service_provider_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="40dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/ServiceProvider_btnSignOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="270dp"
                 android:layout_marginTop="20dp"
-                />
+                android:background="@drawable/round_button"
+                android:text="Sign Out"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
     <com.google.android.material.tabs.TabLayout

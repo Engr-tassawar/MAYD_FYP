@@ -2,53 +2,34 @@
 package Model;
 
 public class User {
-    private String profile;
+    String fullName;
+    String phoneNumber,email,password;
+    public User()
+    {
 
-    public String getPhone() {
-        return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    private String phone;
-
-    public User(String profile) {
-        this.profile = profile;
-    }
-
-    public String getProfile() {
-        return profile;
-    }
-
-    public void setProfile(String profile) {
-        this.profile = profile;
-    }
-}
-   /* private String phone, email, password;
-
-    public User(String name, String phone, String email, String password) {
-        this.name = name;
-        this.phone = phone;
+    public User(String fullName, String phoneNumber, String email, String password) {
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -66,7 +47,51 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+   /* public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public User(String city) {
+
+        this.city = city;
+    }
+
+    String city;
+    String providerProfilePhoto;
+
+    public User(String fullName, String city, String phoneNumber) {
+
+    }
+
+    public User(String fullName, String phoneNumber) {
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getProviderProfilePhoto() {
+        return providerProfilePhoto;
+    }
+
+    public void setProviderProfilePhoto(String providerProfilePhoto) {
+        this.providerProfilePhoto = providerProfilePhoto;
+    }*/
 }
-
-
-*/

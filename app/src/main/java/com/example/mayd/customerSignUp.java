@@ -8,24 +8,30 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+
+import Model.CustomerUser;
 
 public class customerSignUp extends AppCompatActivity {
     private static final String TAG = "tag";
-    EditText edtFullName, edtEmail, edtPhone, edtPassword, edtConfirmPassword;
+    EditText Customer_edtFullNameSignUp, Customer_edtEmailSignUp, Customer_edtPhoneSignUp, Customer_edtPasswordSignUp, edtConfirmPassword;
     Button btnSignUp;
     TextView tvSignIn;
-
-    private FirebaseAuth mAuth;
+     FirebaseAuth mAuth;
+     FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +41,15 @@ public class customerSignUp extends AppCompatActivity {
         //For hiding Action Bar
         //getSupportActionBar().hide();
 
-
+database=FirebaseDatabase.getInstance();
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        edtFullName = findViewById(R.id.Customer_edtFullNameSignUp);
-        edtEmail = findViewById(R.id.Customer_edtEmailSignUp);
-        edtPhone = findViewById(R.id.Customer_edtPhoneSignUp);
-        edtPassword = findViewById(R.id.Customer_edtPasswordSignUp);
-        edtConfirmPassword = findViewById(R.id.Customer_edtConfirmPasswordSignUp);
+        Customer_edtFullNameSignUp = findViewById(R.id.Customer_edtFullNameSignUp);
+        Customer_edtEmailSignUp = findViewById(R.id.Customer_edtEmailSignUp);
+        Customer_edtPhoneSignUp = findViewById(R.id.Customer_edtPhoneSignUp);
+        Customer_edtPasswordSignUp = findViewById(R.id.Customer_edtPasswordSignUp);
+        /* edtConfirmPassword = findViewById(R.id.Customer_edtConfirmPasswordSignUp);*/
 
         btnSignUp = findViewById(R.id.Customer_btnSignup_P2);
         tvSignIn = findViewById(R.id.tvAlreadyAccountSignUp_P2);
@@ -52,8 +58,88 @@ public class customerSignUp extends AppCompatActivity {
             Intent intent = new Intent(customerSignUp.this, sign_in_ForCustomer.class);
             startActivity(intent);
         });
+     /* btnSignUp.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              String customerFullName = Customer_edtFullNameSignUp.getText().toString().trim();
+              String customerPhone = Customer_edtPhoneSignUp.getText().toString().trim();
+              String customerEmail = Customer_edtEmailSignUp.getText().toString().trim();
+              String customerPassword = Customer_edtPasswordSignUp.getText().toString().trim();
 
-        btnSignUp.setOnClickListener(view -> {
+              if (customerFullName.isEmpty()) {
+                  Customer_edtFullNameSignUp.setError("Please enter your name");
+                  Customer_edtFullNameSignUp.requestFocus();
+                  return;
+              }
+              if (customerPhone.isEmpty()) {
+                  Customer_edtPhoneSignUp.setError("Please enter your phone number");
+                  Customer_edtPhoneSignUp.requestFocus();
+                  return;
+              }
+              if (customerEmail.isEmpty()) {
+                  Customer_edtEmailSignUp.setError("Please enter your email");
+                  Customer_edtEmailSignUp.requestFocus();
+                  return;
+              }
+              if (customerPassword.isEmpty()) {
+                  Customer_edtPasswordSignUp.setError("Please enter your email");
+                  Customer_edtPasswordSignUp.requestFocus();
+                  return;
+              }
+              if (!Patterns.EMAIL_ADDRESS.matcher(customerEmail).matches()) {
+                  Customer_edtEmailSignUp.setError("Please enter valid email");
+                  Customer_edtEmailSignUp.requestFocus();
+                  return;
+              }
+              if (customerPassword.length() < 6) {
+                  Customer_edtPasswordSignUp.setError("Minimum password length should be 6 character");
+                  Customer_edtPasswordSignUp.requestFocus();
+                  return;
+              }
+                  mAuth.createUserWithEmailAndPassword(customerEmail,customerPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                      @Override
+                      public void onComplete(@NonNull Task<AuthResult> task) {
+                          if (task.isSuccessful())
+                          {
+
+                              CustomerUser customerUser = new CustomerUser(customerFullName, customerPhone);
+
+                              FirebaseDatabase.getInstance().getReference("CustomerUsers")
+                                      .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                      .setValue(customerUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                          @Override
+                                          public void onComplete(@NonNull Task<Void> task) {
+                                              if (task.isSuccessful()) {
+                                                  Toast.makeText(customerSignUp.this,
+                                                          "User has been successfully registered", Toast.LENGTH_SHORT).show();
+                                              }
+                                              else {
+                                                  Toast.makeText(customerSignUp.this,
+                                                          "Failed to register!Try Again", Toast.LENGTH_SHORT).show();
+                                              }
+                                          }
+                                      }).addOnFailureListener(new OnFailureListener() {
+                                          @Override
+                                          public void onFailure(@NonNull Exception e) {
+                                              Toast.makeText(customerSignUp.this,
+                                                      "Failed to register", Toast.LENGTH_SHORT).show();
+                                          }
+                                      });
+                              *//*.addOnSuccessListener(new OnSuccessListener<Void>() {
+                                          @Override
+                                          public void onSuccess(Void unused) {
+                                              Toast.makeText(customerSignUp.this,
+                                                      "Successfuly register", Toast.LENGTH_SHORT).show();
+                                          }
+                                      });*//*
+                          }
+                      }
+                  });
+          }
+      });*/
+    }
+}
+       /* btnSignUp.setOnClickListener(view -> {
 
             if(validateInput()){
                 //Send data in database
@@ -78,10 +164,11 @@ public class customerSignUp extends AppCompatActivity {
                             }
                         });
             }
-        });
-    }
+        })
+        };*/
 
-    boolean validateInput()
+
+   /* boolean validateInput()
     {
         String FullName = edtFullName.getText().toString().trim();
         String Email = edtEmail.getText().toString().trim();
@@ -112,9 +199,9 @@ public class customerSignUp extends AppCompatActivity {
         else{
             return true;
         }
-    }
+    }*/
 
-    public static boolean isValidEmail(CharSequence Email) {
+    /*public static boolean isValidEmail(CharSequence Email) {
         return (!TextUtils.isEmpty(Email) && Patterns.EMAIL_ADDRESS.matcher(Email).matches());
-    }
-}
+    }}*/
+

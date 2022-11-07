@@ -1,8 +1,12 @@
 package fragments;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
@@ -14,8 +18,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mayd.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+
+import Model.CustomerUser;
+import Model.User;
 import simpleActivity.cooker;
 import simpleActivity.driver;
 import simpleActivity.electrician_properties;
@@ -27,49 +45,34 @@ import simpleActivity.plumber_properties;
 
 public class home_fragment extends Fragment {
 
-    Button btnSign;
+    Button btnSignOut;
+    /*ImageView customer_profile,add_customer_image;*/
     ImageView imgElectric,imgPlum,imgGraphic,imgAc,imgCook,imgDrive;
-    TextView tvElectric,tvPlum,tvGraphic,tvAc,tvCook,tvDrive;
+    TextView tvElectric,tvPlum,tvGraphic,tvAc,tvCook,tvDrive,tvName,tvId;
     CardView driverCardView,plumberCardView,electricianCardView,houseKeepingCardView,graphicCardView,Ac_CardView,painterCardView,cookCardView;
-
-
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    ActivityResultLauncher<String> launcher;
+    FirebaseAuth auth;
+    FirebaseStorage storage;
+    FirebaseDatabase database;
 
     public home_fragment() {
         // Required empty public constructor
 
     }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        auth=FirebaseAuth.getInstance();
+        storage=FirebaseStorage.getInstance();
+        database=FirebaseDatabase.getInstance();
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment home_fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static home_fragment newInstance(String param1, String param2) {
-        home_fragment fragment = new home_fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-
-        return fragment;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
 
         imgElectric=getView().findViewById(R.id.imgElectric);
         imgPlum=getView().findViewById(R.id.imgPlum);
@@ -83,7 +86,7 @@ public class home_fragment extends Fragment {
         tvAc=getView().findViewById(R.id.tvAc);
         tvCook=getView().findViewById(R.id.tvCook);
         tvDrive=getView().findViewById(R.id.tvDrive);
-        btnSign=getView().findViewById(R.id.btnSign);
+        /*btnSignOut=getView().findViewById(R.id.btnSignOut);*/
 
         driverCardView=getView().findViewById(R.id.driverCardView);
         houseKeepingCardView=getView().findViewById(R.id.houseKeepingCardView);
@@ -94,6 +97,12 @@ public class home_fragment extends Fragment {
         electricianCardView=getView().findViewById(R.id.electricianCardView);
         graphicCardView=getView().findViewById(R.id.graphicCardView);
         plumberCardView=getView().findViewById(R.id.plumberCardView);
+       /* btnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });*/
         plumberCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -156,25 +165,98 @@ public class home_fragment extends Fragment {
 
             }
         });
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        ImageView add_customer_image, customer_profile;
+        add_customer_image = getView().findViewById(R.id.add_customer_image);
+        customer_profile= getView().findViewById(R.id.customer_profile);
+        tvName = getView().findViewById(R.id.tvName);
+        tvId = getView().findViewById(R.id.tvId);
+        database.getReference().child("CustomerUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if (snapshot.exists()) {
+                    CustomerUser customerUser = snapshot.getValue(CustomerUser.class);
+                    Picasso.get()
+                            .load(customerUser.getCustomerProfile())
+                            .placeholder(R.drawable.profile_image_b)
+                            .into(customer_profile);
+                    tvName.setText(customerUser.getCustomerFullName());
+                    tvId.setText(customerUser.getCustomerPhone());
+
+
+
+                   /* String profile_photo=snapshot.getValue(String.class);
+                    Picasso.get()
+                            .load(profile_photo)
+                            .placeholder(R.drawable.profile_image_b)
+                            .into(customer_profile);*/
+
+/*
+                service_provider_number.setText(user.getFullName());
+*/
+
+
+            }
+
         }
 
-
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+            });
+        launcher=registerForActivityResult(new ActivityResultContracts.GetContent()
+                , new ActivityResultCallback<Uri>() {
+                    @Override
+                    public void onActivityResult(Uri uri) {
+                        customer_profile.setImageURI(uri);
+                        final StorageReference reference = storage.getReference().child("CustomerUsers")
+                                .child(FirebaseAuth.getInstance().getUid());
+                        reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+/*
+                                Toast.makeText(getContext(),
+                                        "Profile photo saved", Toast.LENGTH_SHORT).show();
+*/
+                                reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        database.getReference().child("CustomerUsers").child(auth.getUid()).child("customerProfile").setValue(uri.toString())
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                Toast.makeText(getContext(),
+                                                        "Profile photo saved", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+        add_customer_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launcher.launch("image/*");
+            }
+        });
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_fragment, container, false);
+        View view= inflater.inflate(R.layout.fragment_home_fragment, container, false);
+
+
+        return view;
     }
+
+
  /* @Override
     public void onBackPressed() {
       new AlertDialog.Builder(this)

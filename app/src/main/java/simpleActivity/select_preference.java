@@ -33,7 +33,7 @@ public class select_preference extends AppCompatActivity {
         btnService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(select_preference.this, sign_in_for_service_provider.class);
+                Intent intent = new Intent(select_preference.this, customer_login.class);
                 startActivity(intent);
 
             }

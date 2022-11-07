@@ -8,12 +8,14 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.mayd.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import fragments.booking_fragment;
 import fragments.home_fragment;
@@ -28,6 +30,7 @@ public class home1 extends AppCompatActivity {
     NavigationView navigationView;
     DrawerLayout drawerLayout;
 
+    FirebaseAuth mAuth;
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class home1 extends AppCompatActivity {
         bottomNavigationView=findViewById(R.id.bottomNavigation);
         toolbar = findViewById(R.id.toolbar);
 
+        mAuth=FirebaseAuth.getInstance();
         //getSupportActionBar().hide();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.myFrameLayout,new home_fragment()).commit();
@@ -74,6 +78,12 @@ public class home1 extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.myFrameLayout,new terms_fragment())
                                 .commit();
+                        break;
+                    case R.id.logOut:
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent = new Intent(getApplicationContext(), customer_login.class);
+                        startActivity(intent);
+                        finish();
                         break;
 
                 }

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.example.mayd.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import fragments.booking_fragment;
 import fragments.service_provider_profile_fragment;
@@ -24,14 +25,18 @@ public class service_provider_home extends AppCompatActivity {
     BottomNavigationView service_provider_bottomNavigation;
     ActionBarDrawerToggle toggle;
     Toolbar service_provider_toolbar;
+    FirebaseAuth mAuth;
     NavigationView service_provider_navigationView;
     DrawerLayout service_provider_drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_provider_home);
+
+        mAuth=FirebaseAuth.getInstance();
         service_provider_bottomNavigation=findViewById(R.id.service_provider_bottomNavigation);
         service_provider_toolbar = findViewById(R.id.service_provider_toolbar);
+
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.service_provider_FrameLayout,new service_provider_profile_fragment())
                 .commit();
@@ -68,6 +73,10 @@ public class service_provider_home extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.service_provider_FrameLayout,new terms_fragment())
                                 .commit();
+                        break;
+                    case R.id.logOut:
+                        FirebaseAuth.getInstance().signOut();
+                        finish();
                         break;
 
                 }

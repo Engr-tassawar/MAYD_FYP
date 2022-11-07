@@ -14,16 +14,21 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mayd.R;
+
+import Model.User;
 import adapters.fragmentAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -33,9 +38,12 @@ import com.squareup.picasso.Picasso;
 
 public class service_provider_profile_fragment extends Fragment {
 ActivityResultLauncher<String> launcher;
+
 FirebaseAuth auth;
 FirebaseStorage storage;
 FirebaseDatabase database;
+
+
     public service_provider_profile_fragment() {
         // Required empty public constructor
     }
@@ -45,6 +53,7 @@ FirebaseDatabase database;
         auth=FirebaseAuth.getInstance();
         storage=FirebaseStorage.getInstance();
         database=FirebaseDatabase.getInstance();
+
     }
 
     @Override
@@ -53,26 +62,61 @@ FirebaseDatabase database;
         ImageView add_provider_image, service_provider_profile;
         TabLayout S_Provider_tabLayout;
         ViewPager S_Provider_viewpager;
-
+        Button ServiceProvider_btnSignOut;
+        TextView service_provider_number,service_provider_name;
+        ServiceProvider_btnSignOut = getView().findViewById(R.id.ServiceProvider_btnSignOut);
         S_Provider_tabLayout = getView().findViewById(R.id.S_Provider_tabLayout);
         S_Provider_viewpager = getView().findViewById(R.id.S_Provider_viewpager);
         S_Provider_tabLayout.setupWithViewPager(S_Provider_viewpager);
         fragmentAdapter adapter = new fragmentAdapter(getFragmentManager());
         S_Provider_viewpager.setAdapter(adapter);
 
-        add_provider_image = getView().findViewById(R.id.add_provider_image);
+        service_provider_name = getView().findViewById(R.id.service_provider_name);
+
+        service_provider_number = getView().findViewById(R.id.service_provider_number);
         service_provider_profile= getView().findViewById(R.id.service_provider_profile);
+        add_provider_image = getView().findViewById(R.id.add_provider_image);
 
+        ServiceProvider_btnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                finish();
 
-        database.getReference().child("profile_photo").addValueEventListener(new ValueEventListener() {
+            }
+
+            private void finish() {
+
+            }
+        });
+        database.getReference().child("Users").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String profile_photo=snapshot.getValue(String.class);
-                Picasso.get()
-                        .load(profile_photo)
-                        .placeholder(R.drawable.profile_image_b)
-                        .into(service_provider_profile);
 
+                /*if (snapshot.exists()) {
+                    User user = snapshot.getValue(User.class);
+                    Picasso.get()
+                            .load(user.getProviderProfilePhoto())
+                            .placeholder(R.drawable.profile_image_b)
+                            .into(service_provider_profile);
+                   *//* service_provider_number.setText(user.getPhoneNumber());
+                    service_provider_name.setText(user.getFullName());*//*
+
+                }*/
+
+               /* if (snapshot.exists()) {
+                    String profile_photo = snapshot.getValue(String.class);
+                    Picasso.get()
+                            .load(profile_photo)
+                            .placeholder(R.drawable.profile_image_b)
+
+                            .into(service_provider_profile);
+                }*/
+                /*if (snapshot.exists()) {
+
+                User user=snapshot.getValue(User.class);
+                service_provider_number.setText(user.getFullname());
+                }*/
             }
 
             @Override
@@ -85,21 +129,23 @@ FirebaseDatabase database;
                     @Override
                     public void onActivityResult(Uri uri) {
                         service_provider_profile.setImageURI(uri);
-                        final StorageReference reference = storage.getReference().child("profile_photo")
+                        final StorageReference reference = storage.getReference().child("Provider_Profile_Photo")
                                 .child(FirebaseAuth.getInstance().getUid());
                         reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                Toast.makeText(getContext(),
+                                        "Profile photo saved", Toast.LENGTH_SHORT).show();
                                 reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
                                     public void onSuccess(Uri uri) {
-                                        database.getReference().child("profile_photo").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        database.getReference().child("Users").child(auth.getUid()).child("providerProfilePhoto").setValue(uri.toString());
+                                               /* .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void unused) {
-                                                        Toast.makeText(getContext(),
-                                                                "Profile photo saved", Toast.LENGTH_SHORT).show();
+
                                                     }
-                                                });
+                                                });*/
                                     }
                                 });
                             }

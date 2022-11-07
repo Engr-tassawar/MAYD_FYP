@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -22,17 +20,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import simpleActivity.home1;
-import simpleActivity.sign_in_for_service_provider;
+import simpleActivity.customer_login;
 
 
 public class sign_in_ForCustomer extends AppCompatActivity {
     private static final String TAG = "tag";
-    EditText edtEmail, edtPassword;
+    EditText Customer_edtEmailSignIn, Customer_edtPasswordSignIn;
     Button btnSignIn,btnService;
     TextView tvSignUp;
     TextView tvForgotPassword;
+    FirebaseUser currentUser;
 
-    private FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,19 +39,24 @@ public class sign_in_ForCustomer extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in_for_customer);
 
         //getSupportActionBar().hide();
-        edtEmail = findViewById(R.id.Customer_edtEmailSignIn);
-        edtPassword = findViewById(R.id.Customer_edtPasswordSignIn);
+        Customer_edtEmailSignIn = findViewById(R.id.Customer_edtEmailSignIn);
+        Customer_edtPasswordSignIn = findViewById(R.id.Customer_edtPasswordSignIn);
         btnSignIn = findViewById(R.id.Customer_btnSignIn_P1);
         btnService = findViewById(R.id.btn_sign_in_ServicesPreference);
 
         mAuth = FirebaseAuth.getInstance();
+
+/*
+        currentUser=mAuth.getCurrentUser();
+*/
+
 
         tvSignUp = findViewById(R.id.Customer_tvSignUp_SignIn_P1);
         tvForgotPassword = findViewById(R.id.Customer_tvForgotPassword_SignIn);
 
 
         btnService.setOnClickListener(view -> {
-            Intent intent = new Intent(sign_in_ForCustomer.this, sign_in_for_service_provider.class);
+            Intent intent = new Intent(sign_in_ForCustomer.this, customer_login.class);
             startActivity(intent);
         });
 
@@ -66,8 +70,48 @@ public class sign_in_ForCustomer extends AppCompatActivity {
             }
         });
 
+    btnSignIn.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        String customerEmail = Customer_edtEmailSignIn.getText().toString();
+        String customerPassword = Customer_edtPasswordSignIn.getText().toString();
+        if(customerEmail.isEmpty()||customerPassword.isEmpty())
+        {
+            Toast.makeText(sign_in_ForCustomer.this,
+                    "Please enter your mobile or password",Toast.LENGTH_SHORT).show();
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(customerEmail).matches())
+        {
+            Customer_edtEmailSignIn.setError("Please enter valid email");
+            Customer_edtEmailSignIn.requestFocus();
+            return;
+        }
+        if (customerPassword.length()<6)
+        {
+            Customer_edtPasswordSignIn.setError("Minimum password length should be 6 character");
+            Customer_edtPasswordSignIn.requestFocus();
+            return;
+        }
+        mAuth.signInWithEmailAndPassword(customerEmail,customerPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful())
+                {
+                    Toast.makeText(sign_in_ForCustomer.this,
+                            "Successfully Logged In",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(sign_in_ForCustomer.this, home1.class));
+                    finish();
+                }
+                else {
+                    Toast.makeText(sign_in_ForCustomer.this,
+                            "Failed to Log in",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+});
 
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
+        /*btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -100,7 +144,7 @@ public class sign_in_ForCustomer extends AppCompatActivity {
 
 
             }
-        });
+        });*/
 
 
         tvForgotPassword.setOnClickListener(new View.OnClickListener() {
@@ -114,7 +158,7 @@ public class sign_in_ForCustomer extends AppCompatActivity {
 
     }
 
-    boolean validateInput() {
+   /* boolean validateInput() {
         String Email = edtEmail.getText().toString().trim();
         String Password = edtPassword.getText().toString();
 
@@ -127,12 +171,22 @@ public class sign_in_ForCustomer extends AppCompatActivity {
         } else {
             return true;
         }
-    }
+    }*/
 
-    public static boolean isValidEmail(CharSequence Email) {
+   /* public static boolean isValidEmail(CharSequence Email) {
         return (!TextUtils.isEmpty(Email) && Patterns.EMAIL_ADDRESS.matcher(Email).matches());
-    }
+    }*/
+  /*  @Override
+    protected void onStart() {
+        super.onStart();
+        if (currentUser!=null){
 
+            Intent intent=new Intent(sign_in_ForCustomer.this, home1.class);
+            startActivity(intent);
+            onBackPressed();
+            finish();
+        }
+    }*/
 
 }
 

@@ -12,6 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAYD">
         <activity
+            android:name=".register_service_provider_number"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.register_service_provider"
+            android:exported="false"
+            android:label="@string/title_activity_register_service_provider" />
+        <activity
+            android:name=".manage_otp"
+            android:exported="false" />
+        <activity
+            android:name=".register_number"
+            android:exported="false" />
+        <activity
             android:name="simpleActivity.service_provider_home"
             android:exported="false" />
         <activity
@@ -60,10 +73,10 @@
             android:name=".sign_in_ForCustomer"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.sign_in_for_service_provider"
+            android:name="simpleActivity.customer_login"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.serviceProviderSignUp"
+            android:name="simpleActivity.customer_registration"
             android:exported="false" />
         <activity
             android:name="simpleActivity.select_preference"

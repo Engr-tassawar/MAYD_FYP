@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="15dp"
+    tools:context=".register_service_provider_number">
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ServiceProvider_edtFullName_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Full Name"
+            android:inputType="text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ServiceProvider_edtCityName_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter City"
+            android:inputType="text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/ccpForReg"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/ForRegPutNumberEdt"
+            android:layout_marginStart="16dp"/>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ServiceProvider_btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="55sp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/round_button3"
+        android:textColor="@color/white"
+        android:text="Register and end code"
+        android:textAllCaps="false"
+        android:textSize="15dp" />
+</LinearLayout>

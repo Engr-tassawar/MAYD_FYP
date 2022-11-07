@@ -7,15 +7,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="15dp"
     android:orientation="vertical"
-    tools:context="simpleActivity.serviceProviderSignUp">
+    tools:context="simpleActivity.customer_registration">
 
 
     <TextView
-        android:id="@+id/temp_tvForServiceProvider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="@string/service_provider_registration"
+        android:text="Customer Registration"
         android:textColor="@color/green"
         android:textStyle="bold"
         android:textAlignment="center"
@@ -39,21 +38,14 @@
         android:layout_marginTop="30dp"
         >
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ServiceProvider_edtFullName_SignUp"
+            android:id="@+id/customer_edtFullName_SignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Full Name"
             android:inputType="text"
             />
     </com.google.android.material.textfield.TextInputLayout>
-    <!--<EditText
-        android:id="@+id/ServiceProvider_edtFullName_SignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:hint="@string/enter_full_name"
-        android:inputType="text"
-        android:autofillHints="" />-->
+
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
@@ -61,24 +53,16 @@
         android:layout_marginTop="10dp"
         >
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ServiceProvider_edtPhone_SignUp"
+            android:id="@+id/customer_edtEmail_SignUp"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter phone"
-            android:drawableRight="@drawable/ic_baseline_phone_24"
-            android:inputType="phone"
+            android:hint="Enter Email"
+            android:drawableRight="@drawable/ic_baseline_email_24"
+            android:inputType="textEmailAddress"
             />
     </com.google.android.material.textfield.TextInputLayout>
-    <!--<EditText
-        android:id="@+id/ServiceProvider_edtPhone_SignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:hint="@string/enter_phone_number"
-        android:inputType="phone"
-        android:importantForAutofill="no"
-        android:autofillHints="" />-->
+
     <!--<com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
@@ -93,14 +77,7 @@
             android:inputType="numberDecimal"
             />
     </com.google.android.material.textfield.TextInputLayout>-->
-    <!--<EditText
-        android:id="@+id/ServiceProvider_edtCNIC_SignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:autofillHints=""
-        android:hint="@string/enter_cnic"
-        android:inputType="number" />-->
+
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
@@ -108,13 +85,14 @@
         android:layout_marginTop="10dp"
         app:passwordToggleEnabled="true"
         >
+
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ServiceProvider_edtPassword_SignUp"
+            android:id="@+id/customer_edtPhone_SignUp"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"
+            android:hint="Phone"
+            android:inputType="phone"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -127,8 +105,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ServiceProvider_confirmPassword_SignUp"
-            android:hint="Confirm Password"
+            android:id="@+id/customer_edtPassword_SignUp"
+            android:hint="Password"
             android:inputType="textPassword"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -152,7 +130,7 @@
         android:autofillHints="" />-->
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/ServiceProvider_btnSignUp"
+        android:id="@+id/customer_btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="55sp"
         android:layout_marginTop="15dp"
@@ -177,7 +155,7 @@
             android:textSize="16sp"
             />
         <TextView
-            android:id="@+id/ServiceProvider_tvAlreadyAccountSignIn_SignUp"
+            android:id="@+id/customer_tvAlreadyAccountSignIn_SignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
