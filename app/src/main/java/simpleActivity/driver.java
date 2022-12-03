@@ -41,8 +41,6 @@ public class driver extends AppCompatActivity {
         driverClass=new DriverClass();
         auth=FirebaseAuth.getInstance();
 
-
-
         hireDriver_CheckBox=findViewById(R.id.hireDriver_CheckBox);
         chauffeur_CheckBox=findViewById(R.id.chauffeur_CheckBox);
         driver_cityToCity_CheckBox=findViewById(R.id.driver_cityToCity_CheckBox);

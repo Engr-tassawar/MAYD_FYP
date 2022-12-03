@@ -160,6 +160,7 @@ public class home_fragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+
                 Intent intent = new Intent(getContext(), driver.class);
                 startActivity(intent);
 
