@@ -19,6 +19,7 @@ public class register_number extends AppCompatActivity {
     TextView tvRegister_serviceProvider;
     Button ServiceProvider_getOtp,btnCustomer;
     FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

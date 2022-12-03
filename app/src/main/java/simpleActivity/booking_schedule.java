@@ -13,15 +13,21 @@ import android.widget.TimePicker;
 
 import com.example.mayd.R;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import Model.BookingDetail;
+
 public class booking_schedule extends AppCompatActivity {
     Button btn_proceed_schedule;
-    TextInputEditText edtSelectDate,edtSelectTime;
+    TextInputEditText edtSelectDate,edtSelectTime,edtEnterAddress,edtDescription;
     TimePickerDialog timePickerDialog;
+    FirebaseAuth auth;
     int year;
     int day;
     int month;
@@ -31,14 +37,54 @@ public class booking_schedule extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_schedule);
+
+auth=FirebaseAuth.getInstance();
+
         btn_proceed_schedule=findViewById(R.id.btn_proceed_schedule);
         edtSelectDate=findViewById(R.id.edtSelectDate);
         edtSelectTime=findViewById(R.id.edtSelectTime);
+        edtEnterAddress=findViewById(R.id.edtEnterAddress);
+        edtDescription=findViewById(R.id.edtDescription);
        btn_proceed_schedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(booking_schedule.this, booking_summary.class);
-                startActivity(intent);
+                String selectDate = edtSelectDate.getText().toString().trim();
+                String selectTime = edtSelectTime.getText().toString().trim();
+                String selectAddress = edtEnterAddress.getText().toString().trim();
+                String selectDescription = edtDescription.getText().toString().trim();
+
+
+                if (selectDate.isEmpty()) {
+                    edtSelectDate.setError("Please select date");
+                    edtSelectDate.requestFocus();
+                    return;
+                }
+                if (selectTime.isEmpty()) {
+                    edtSelectTime.setError("Please select time");
+                    edtSelectTime.requestFocus();
+                    return;
+                }
+                if (selectAddress.isEmpty()) {
+                    edtEnterAddress.setError("Please enter your address");
+                    edtEnterAddress.requestFocus();
+                    return;
+                }
+                if (selectDescription.isEmpty()) {
+                    edtDescription.setError("Please enter description");
+                    edtDescription.requestFocus();
+                    return;
+                }
+                else {
+                    /*BookingDetail bookingDetail=new BookingDetail(selectDate,selectTime,selectAddress,selectDescription);
+                    FirebaseDatabase.getInstance().getReference().child("CustomerUsers").child(auth.getUid())
+                            .setValue(bookingDetail);*/
+
+                    Intent intent = new Intent(booking_schedule.this, booking_summary.class);
+                    intent.putExtra("Date",selectDate);
+                    intent.putExtra("Time",selectTime);
+                    intent.putExtra("Address",selectAddress);
+                    startActivity(intent);
+                }
             }
         });
         Calendar calender = Calendar.getInstance();

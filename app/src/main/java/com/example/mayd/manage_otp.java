@@ -11,19 +11,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
-import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
-import Model.User;
 import simpleActivity.service_provider_home;
 
 public class manage_otp extends AppCompatActivity {
@@ -109,11 +108,30 @@ PhoneAuthProvider.getInstance().verifyPhoneNumber(
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            FirebaseDatabase.getInstance().getReference("ServiceProviderUsers")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+                                        @Override
+                                        public void onSuccess(DataSnapshot dataSnapshot) {
+                                          if(dataSnapshot.exists())
+                                          {
+                                              Intent intent = new Intent(manage_otp.this, service_provider_home.class);
+                                              startActivity(intent);
+                                              finish();
+                                          }
+                                          else {
+                                              Intent intent = new Intent(manage_otp.this, add_provider_detail.class);
+                                              startActivity(intent);
+                                              finish();
+                                          }
+                                        }
+                                    });
+
 /*
                             storeNewUserData();
 */
-                           startActivity((new Intent(manage_otp.this, service_provider_home.class)));
-                           finish();
+                           /*startActivity((new Intent(manage_otp.this, service_provider_home.class)));
+                           finish();*/
                         } else {
                             Toast.makeText(getApplicationContext(),"SignIn Code Error",Toast.LENGTH_SHORT).show();
                         }

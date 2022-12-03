@@ -45,6 +45,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/bookingSummaryPrice"
             android:gravity="right"
             android:text="Rs.0"
             android:layout_weight="1"
@@ -75,6 +76,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/bookingSummaryService"
             android:text="Nothing"
             android:textSize="18sp"
             android:layout_weight="1"
@@ -142,6 +144,7 @@
             />
     </LinearLayout>
     <TextView
+        android:id="@+id/bookingSummaryLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"

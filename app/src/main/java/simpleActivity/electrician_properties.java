@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.mayd.R;
@@ -27,6 +28,24 @@ public class electrician_properties extends AppCompatActivity {
         tvGenerator=findViewById(R.id.tv_generator);
         tvUPS=findViewById(R.id.tvUPS);
         electricianPackage=findViewById(R.id.electricianPackage);
+        generator_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    UPSCheckBox.setChecked(false);
+
+                }
+            }
+        });
+        UPSCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    generator_CheckBox.setChecked(false);
+
+                }
+            }
+        });
 
         halfHourBtn_Electrician.setOnClickListener(new View.OnClickListener() {
             @Override

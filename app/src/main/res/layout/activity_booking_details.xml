@@ -37,9 +37,11 @@
            android:layout_weight="2"
            android:textStyle="bold"/>
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rs.0"
+            android:id="@+id/priceDetail"
            android:textSize="18sp"
             android:gravity="right"
             android:layout_weight="2"
@@ -62,7 +64,7 @@
             android:layout_weight="2"
             android:textStyle="bold"/>
         <TextView
-            android:id="@+id/tvUPS"
+            android:id="@+id/tvServiceDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nothing"
@@ -140,6 +142,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/bookingDetail_date"
             android:text="Nothing"
             android:textSize="18sp"
             android:gravity="right"
@@ -165,6 +168,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/bookingDetail_time"
             android:text="Nothing"
             android:textSize="18sp"
             android:gravity="right"
@@ -189,6 +193,7 @@
             android:layout_weight="2"
             android:textStyle="bold"/>
         <TextView
+            android:id="@+id/packegDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nothing"
@@ -216,6 +221,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/bookingDetail_address"
             android:text="Nothing"
             android:textSize="18sp"
             android:gravity="center"

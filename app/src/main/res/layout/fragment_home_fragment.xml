@@ -177,10 +177,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/car">
-
-
                 </ImageView>
-
                 <TextView
                     android:id="@+id/tvDrive"
                     android:layout_width="wrap_content"

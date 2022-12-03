@@ -21,14 +21,13 @@ import android.widget.Toast;
 
 import com.example.mayd.R;
 
-import Model.User;
+import Model.serviceProviderRecord;
 import adapters.fragmentAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -63,7 +62,7 @@ FirebaseDatabase database;
         TabLayout S_Provider_tabLayout;
         ViewPager S_Provider_viewpager;
         Button ServiceProvider_btnSignOut;
-        TextView service_provider_number,service_provider_name;
+        TextView service_provider_number,service_provider_name,service_provider_service;
         ServiceProvider_btnSignOut = getView().findViewById(R.id.ServiceProvider_btnSignOut);
         S_Provider_tabLayout = getView().findViewById(R.id.S_Provider_tabLayout);
         S_Provider_viewpager = getView().findViewById(R.id.S_Provider_viewpager);
@@ -72,6 +71,7 @@ FirebaseDatabase database;
         S_Provider_viewpager.setAdapter(adapter);
 
         service_provider_name = getView().findViewById(R.id.service_provider_name);
+        service_provider_service = getView().findViewById(R.id.service_provider_service);
 
         service_provider_number = getView().findViewById(R.id.service_provider_number);
         service_provider_profile= getView().findViewById(R.id.service_provider_profile);
@@ -89,20 +89,22 @@ FirebaseDatabase database;
 
             }
         });
-        database.getReference().child("Users").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
+        database.getReference().child("ServiceProviderUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                /*if (snapshot.exists()) {
-                    User user = snapshot.getValue(User.class);
+                if (snapshot.exists()) {
+                    serviceProviderRecord ServiceProviderRecord = snapshot.getValue(serviceProviderRecord.class);
                     Picasso.get()
-                            .load(user.getProviderProfilePhoto())
+                            .load(ServiceProviderRecord.getServiceProviderProfile())
                             .placeholder(R.drawable.profile_image_b)
                             .into(service_provider_profile);
-                   *//* service_provider_number.setText(user.getPhoneNumber());
-                    service_provider_name.setText(user.getFullName());*//*
+                    service_provider_name.setText(ServiceProviderRecord.getFirstName()+" "+ServiceProviderRecord.getLastName());
+                    service_provider_number.setText(auth.getCurrentUser().getPhoneNumber());
+                    service_provider_service.setText(ServiceProviderRecord.getServiceProviderService());
 
-                }*/
+
+                }
 
                /* if (snapshot.exists()) {
                     String profile_photo = snapshot.getValue(String.class);
@@ -139,7 +141,7 @@ FirebaseDatabase database;
                                 reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
                                     public void onSuccess(Uri uri) {
-                                        database.getReference().child("Users").child(auth.getUid()).child("providerProfilePhoto").setValue(uri.toString());
+                                        database.getReference().child("ServiceProviderUsers").child(auth.getUid()).child("serviceProviderProfile").setValue(uri.toString());
                                                /* .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void unused) {

@@ -34,6 +34,13 @@
         android:layout_marginTop="20dp"
 
         />
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,16 +49,18 @@
         android:weightSum="5"
 
         >
+
         <CheckBox
             android:id="@+id/hireDriver_CheckBox"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Hire a Driver for 3-4 hours daily"
+            android:text="Hire Driver 3-4 hours daily"
             android:textStyle="bold"
             android:layout_weight="4"
             />
+
         <TextView
-            android:id="@+id/tv_hireDriver"
+            android:id="@+id/tv_hireDriver_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rs 15000/-"
@@ -75,7 +84,7 @@
             android:textStyle="bold"
             />
         <TextView
-            android:id="@+id/tv_chauffeur"
+            android:id="@+id/tv_chauffeur_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rs 35000/-"
@@ -99,7 +108,7 @@
             android:textStyle="bold"
             />
         <TextView
-            android:id="@+id/tv_driver_cityToCity"
+            android:id="@+id/tv_driver_cityToCity_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rs 2000/-"
@@ -122,7 +131,7 @@
         android:textStyle="bold"
         />
     <TextView
-        android:id="@+id/tv_driver_withinCity"
+        android:id="@+id/tv_driver_withinCity_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rs 1500/-"
@@ -130,6 +139,7 @@
         android:layout_weight="1"
         />
 </LinearLayout>
+</RadioGroup>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/driverPackage"
         android:layout_width="match_parent"

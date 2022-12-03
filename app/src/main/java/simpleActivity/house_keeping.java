@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.mayd.R;
@@ -35,7 +36,61 @@ public class house_keeping extends AppCompatActivity {
         laundry_CheckBox=findViewById(R.id.laundry_CheckBox);
 
         houseKeepingPackage=findViewById(R.id.houseKeepingPackage);
-
+        houseKeeping_allRoundMonthly_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    basicMonthly_CheckBox.setChecked(false);
+                    officeCleaner_CheckBox.setChecked(false);
+                    fulTime_CheckBox.setChecked(false);
+                    laundry_CheckBox.setChecked(false);
+                }
+            }
+        });
+        basicMonthly_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    officeCleaner_CheckBox.setChecked(false);
+                    fulTime_CheckBox.setChecked(false);
+                    laundry_CheckBox.setChecked(false);
+                    houseKeeping_allRoundMonthly_CheckBox.setChecked(false);
+                }
+            }
+        });
+        officeCleaner_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    fulTime_CheckBox.setChecked(false);
+                    laundry_CheckBox.setChecked(false);
+                    houseKeeping_allRoundMonthly_CheckBox.setChecked(false);
+                    basicMonthly_CheckBox.setChecked(false);
+                }
+            }
+        });
+        fulTime_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    laundry_CheckBox.setChecked(false);
+                    houseKeeping_allRoundMonthly_CheckBox.setChecked(false);
+                    basicMonthly_CheckBox.setChecked(false);
+                    officeCleaner_CheckBox.setChecked(false);
+                }
+            }
+        });
+        laundry_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    fulTime_CheckBox.setChecked(false);
+                    houseKeeping_allRoundMonthly_CheckBox.setChecked(false);
+                    basicMonthly_CheckBox.setChecked(false);
+                    officeCleaner_CheckBox.setChecked(false);
+                }
+            }
+        });
        halfHourBtn_houseKeeping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

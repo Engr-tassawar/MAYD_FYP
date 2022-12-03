@@ -20,7 +20,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import Model.CustomerUser;
-import Model.User;
 
 public class customer_registration extends AppCompatActivity {
     EditText customer_edtFullName_SignUp,customer_edtPhone_SignUp, customer_edtPassword_SignUp, customer_edtEmail_SignUp;
@@ -104,6 +103,7 @@ database=FirebaseDatabase.getInstance();
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
+
                                                     Toast.makeText(customer_registration.this,
                                                             "User has been successfully registered", Toast.LENGTH_SHORT).show();
                                                 } else {

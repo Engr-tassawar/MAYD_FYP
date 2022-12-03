@@ -107,5 +107,15 @@
             android:textColor="@color/lightBlue"
             android:textStyle="bold"/>
     </LinearLayout>
+    <TextView
 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/forgot_password_customer"
+        android:text="Forgot Password"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/lightBlue"
+        android:textSize="16sp"
+        />
 </LinearLayout>

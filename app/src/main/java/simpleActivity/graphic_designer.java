@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.mayd.R;
@@ -29,6 +30,24 @@ public class graphic_designer extends AppCompatActivity {
         monthlyPost_CheckBox=findViewById(R.id.monthlyPost_CheckBox);
         graphicPackage=findViewById(R.id.graphicPackage);
 
+        logoDesign_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    monthlyPost_CheckBox.setChecked(false);
+
+                }
+            }
+        });
+        monthlyPost_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    logoDesign_CheckBox.setChecked(false);
+
+                }
+            }
+        });
         halfHourBtn_Graphic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,5 +1,8 @@
 package simpleActivity;
 
+import static Model.DriverClass.driverType;
+import static Model.DriverClass.price;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -10,19 +13,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.mayd.R;
 
 public class booking_summary extends AppCompatActivity {
     Button btn_confirmBookSummary;
-
+    TextView bookingSummaryService,bookingSummaryPrice,bookingSummaryLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_summary);
         btn_confirmBookSummary=findViewById(R.id.btn_confirmBookSummary);
-
+        bookingSummaryService=findViewById(R.id.bookingSummaryService);
+        bookingSummaryPrice=findViewById(R.id.bookingSummaryPrice);
+        bookingSummaryLocation=findViewById(R.id.bookingSummaryLocation);
+        String selectAddress=getIntent().getStringExtra("Address");
+        bookingSummaryService.setText(driverType);
+        bookingSummaryPrice.setText(price);
+        bookingSummaryLocation.setText(selectAddress);
         btn_confirmBookSummary.setOnClickListener(new View.OnClickListener() {
 
             @Override

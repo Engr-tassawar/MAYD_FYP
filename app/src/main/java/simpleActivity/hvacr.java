@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.mayd.R;
@@ -31,6 +32,46 @@ public class hvacr extends AppCompatActivity {
         AcReplacement_CheckBox=findViewById(R.id.AcReplacement_CheckBox);
         Refrigerator_CheckBox=findViewById(R.id.Refrigerator_CheckBox);
         HvacrPackage=findViewById(R.id.HvacrPackage);
+        gasRefilling_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    AcNewInstallation_CheckBox.setChecked(false);
+                    AcReplacement_CheckBox.setChecked(false);
+                    Refrigerator_CheckBox.setChecked(false);
+                }
+            }
+        });
+        AcNewInstallation_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    gasRefilling_CheckBox.setChecked(false);
+                    AcReplacement_CheckBox.setChecked(false);
+                    Refrigerator_CheckBox.setChecked(false);
+                }
+            }
+        });
+        AcReplacement_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    gasRefilling_CheckBox.setChecked(false);
+                    AcNewInstallation_CheckBox.setChecked(false);
+                    Refrigerator_CheckBox.setChecked(false);
+                }
+            }
+        });
+        Refrigerator_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    gasRefilling_CheckBox.setChecked(false);
+                    AcNewInstallation_CheckBox.setChecked(false);
+                    AcReplacement_CheckBox.setChecked(false);
+                }
+            }
+        });
         halfHourBtn_Hvacr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

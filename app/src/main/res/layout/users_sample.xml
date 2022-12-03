@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp"
+    android:layout_marginTop="5dp"
+    app:cardElevation="5dp"
+    app:contentPadding="1dp"
+    >
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center"
+    >
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/all_serviceProvider_Iv"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+       android:layout_marginLeft="15dp"
+        android:src="@drawable/profile_image_b"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp">
+        <!--<TextView
+            android:id="@+id/phoneTv"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Person Name"
+            />-->
+        <TextView
+            android:id="@+id/nameTv"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Person Name"
+            />
+        <TextView
+            android:id="@+id/serviceTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Person Phone"
+            />
+
+
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book Now"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/round_button3"
+        android:textAllCaps="false"
+        />
+</LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -33,7 +33,6 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import Model.CustomerUser;
-import Model.User;
 import simpleActivity.cooker;
 import simpleActivity.driver;
 import simpleActivity.electrician_properties;
@@ -160,6 +159,7 @@ public class home_fragment extends Fragment {
         driverCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(getContext(), driver.class);
                 startActivity(intent);
 
@@ -210,7 +210,7 @@ public class home_fragment extends Fragment {
                     @Override
                     public void onActivityResult(Uri uri) {
                         customer_profile.setImageURI(uri);
-                        final StorageReference reference = storage.getReference().child("CustomerUsers")
+                        final StorageReference reference = storage.getReference().child("Customer_profile")
                                 .child(FirebaseAuth.getInstance().getUid());
                         reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override

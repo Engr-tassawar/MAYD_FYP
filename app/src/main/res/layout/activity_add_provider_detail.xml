@@ -5,119 +5,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:weightSum="9"
-    tools:context="simpleActivity.booking_schedule">
+    android:padding="10dp"
+    tools:context=".add_provider_detail">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Schedule Your Booking"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:textSize="35sp"
-        android:textAlignment="center"
-        android:layout_weight="1"
-        android:textColor="@color/green"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter Booking Date and Time"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:textSize="20sp"
-        android:textColor="@color/green"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Booking Time(Double Tap):-"
+        android:text="Add Record"
         android:layout_marginTop="50dp"
-        android:layout_weight="0.2"
+        android:id="@+id/tv_createProfile"
+        android:layout_gravity="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        android:layout_centerHorizontal="true"
         />
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginTop="30dp"
         >
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ServiceProvider_edtFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/edtSelectTime"
+            android:hint="First Name"
+            android:inputType="text"
             />
     </com.google.android.material.textfield.TextInputLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Select date(Double Tap):-"
-        android:layout_weight="0.2"
-
-        />
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginTop="10dp"
         >
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ServiceProvider_edtLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/edtSelectDate"
-
-
+            android:hint="Last Name"
+            android:inputType="text"
             />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter Address:-"
-        android:layout_weight="0.2"
-        />
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginTop="10dp"
         >
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ServiceProvider_edtCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/edtEnterAddress"
+            android:hint="City"
+            android:inputType="text"
             />
     </com.google.android.material.textfield.TextInputLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Description:-"
-        android:layout_weight="0.2"
-
-        />
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-
+        android:layout_marginTop="10dp"
         >
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:id="@+id/edtDescription"
-            />
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:hint="@string/select_services"
+            android:id="@+id/selectService_edt"/>
     </com.google.android.material.textfield.TextInputLayout>
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_proceed_schedule"
+        android:id="@+id/ServiceProvider_btnSave"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="55sp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/round_button3"
         android:textColor="@color/white"
-        android:layout_gravity="center"
+        android:text="Save"
         android:textAllCaps="false"
-        android:layout_weight="1.2"
-        android:text="Proceed"
-        />
-
+        android:textSize="15dp" />
 </LinearLayout>
