@@ -32,6 +32,7 @@ public class driver extends AppCompatActivity {
     DatabaseReference reference;
     FirebaseAuth auth;
     DriverClass driverClass;
+    int a=0;
     int i=0;
     @SuppressLint("WrongViewCast")
     @Override
