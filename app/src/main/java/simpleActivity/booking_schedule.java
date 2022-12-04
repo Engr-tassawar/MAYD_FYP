@@ -9,9 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TimePicker;
 
 import com.example.mayd.R;
+import com.example.mayd.search_fragment;
+import com.example.mayd.select_service_provider;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -22,10 +26,13 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import Model.BookingDetail;
+import Model.DriverClass;
+import Model.Order;
 
 public class booking_schedule extends AppCompatActivity {
+
     Button btn_proceed_schedule;
-    TextInputEditText edtSelectDate,edtSelectTime,edtEnterAddress,edtDescription;
+    TextInputEditText edtSelectDate, edtSelectTime, edtEnterAddress, edtDescription;
     TimePickerDialog timePickerDialog;
     FirebaseAuth auth;
     int year;
@@ -33,19 +40,23 @@ public class booking_schedule extends AppCompatActivity {
     int month;
     int Hour;
     int Minute;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_schedule);
 
-auth=FirebaseAuth.getInstance();
+        Intent intent = getIntent();
+        Order order = (Order) intent.getExtras().getSerializable("orderObject");
 
-        btn_proceed_schedule=findViewById(R.id.btn_proceed_schedule);
-        edtSelectDate=findViewById(R.id.edtSelectDate);
-        edtSelectTime=findViewById(R.id.edtSelectTime);
-        edtEnterAddress=findViewById(R.id.edtEnterAddress);
-        edtDescription=findViewById(R.id.edtDescription);
-       btn_proceed_schedule.setOnClickListener(new View.OnClickListener() {
+        auth = FirebaseAuth.getInstance();
+
+        btn_proceed_schedule = findViewById(R.id.btn_proceed_schedule);
+        edtSelectDate = findViewById(R.id.edtSelectDate);
+        edtSelectTime = findViewById(R.id.edtSelectTime);
+        edtEnterAddress = findViewById(R.id.edtEnterAddress);
+        edtDescription = findViewById(R.id.edtDescription);
+        btn_proceed_schedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String selectDate = edtSelectDate.getText().toString().trim();
@@ -73,16 +84,21 @@ auth=FirebaseAuth.getInstance();
                     edtDescription.setError("Please enter description");
                     edtDescription.requestFocus();
                     return;
-                }
-                else {
+                } else {
                     /*BookingDetail bookingDetail=new BookingDetail(selectDate,selectTime,selectAddress,selectDescription);
                     FirebaseDatabase.getInstance().getReference().child("CustomerUsers").child(auth.getUid())
                             .setValue(bookingDetail);*/
 
-                    Intent intent = new Intent(booking_schedule.this, booking_summary.class);
-                    intent.putExtra("Date",selectDate);
-                    intent.putExtra("Time",selectTime);
-                    intent.putExtra("Address",selectAddress);
+                    DriverClass driver = (DriverClass) order.service;
+
+                    order.date = selectDate;
+                    order.time = selectTime;
+                    order.address = selectAddress;
+                    order.price = driver.price;
+                    order.description = selectDescription;
+
+                    Intent intent = new Intent(booking_schedule.this, select_service_provider.class);
+                    intent.putExtra("orderObject", order);
                     startActivity(intent);
                 }
             }
@@ -101,25 +117,25 @@ auth=FirebaseAuth.getInstance();
 
 
                     }
-                },year,month,day);
+                }, year, month, day);
                 datePickerDialog.show();
             }
         });
         edtSelectTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TimePickerDialog.OnTimeSetListener onTimeSetListener= new TimePickerDialog.OnTimeSetListener() {
+                TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
 
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectHour, int selectMinute) {
                         Hour = selectHour;
-                        Minute=selectMinute;
-                        edtSelectTime.setText(String.format(Locale.getDefault(),"%02d:%2d",Hour,Minute));
+                        Minute = selectMinute;
+                        edtSelectTime.setText(String.format(Locale.getDefault(), "%02d:%2d", Hour, Minute));
 
                     }
 
                 };
-                TimePickerDialog timePickerDialog = new TimePickerDialog(booking_schedule.this,onTimeSetListener,Hour,Minute,true);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(booking_schedule.this, onTimeSetListener, Hour, Minute, true);
                 timePickerDialog.setTitle("Select Time");
                 timePickerDialog.show();
             }

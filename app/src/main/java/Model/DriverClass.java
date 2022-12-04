@@ -1,7 +1,11 @@
 package Model;
 
-public class DriverClass {
-    public static String driverType,price;
+import java.io.Serializable;
+
+import Utils.Services;
+
+public class DriverClass extends Services implements Serializable {
+    public  String driverType,price;
 
    public DriverClass()
    {

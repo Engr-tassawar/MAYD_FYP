@@ -1,5 +1,6 @@
 package com.example.mayd;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,8 +26,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import Model.Order;
 import Model.serviceProviderRecord;
 import adapters.AdapterServiceUsers;
+import simpleActivity.booking_summary;
+import simpleActivity.customer_login;
 import simpleActivity.customer_registration;
 
 /**
@@ -36,30 +41,22 @@ import simpleActivity.customer_registration;
 public class search_fragment extends Fragment {
     RecyclerView recyclerView;
     AdapterServiceUsers adapterServiceUsers;
+    Order order;
 /*private MenuItem menuItem;*/
 private SearchView searchView;
     ArrayList<serviceProviderRecord> list=new ArrayList<>();
     FirebaseAuth auth;
     FirebaseDatabase database;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public search_fragment() {
         // Required empty public constructor
     }
 
-    public static search_fragment newInstance(String param1, String param2) {
+    public static search_fragment newInstance(Order data) {
         search_fragment fragment = new search_fragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putSerializable("order", data);
         fragment.setArguments(args);
         return fragment;
     }
@@ -70,6 +67,8 @@ private SearchView searchView;
         auth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
         setHasOptionsMenu(true);//to show menu option in fragment
+        order = (Order) getArguments().getSerializable(
+                "order");
     }
 
     @Override
@@ -129,7 +128,16 @@ private SearchView searchView;
 
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.search_fragment, container, false);
-        AdapterServiceUsers adapterServiceUsers=new AdapterServiceUsers(getContext(),list);
+        AdapterServiceUsers adapterServiceUsers=new AdapterServiceUsers(getContext(), list, data -> {
+            serviceProviderRecord user = (serviceProviderRecord)data;
+            order.ServiceProviderId = user.getUid();
+            order.ServiceProviderName = user.getFirstName() + " " + user.getLastName();
+            Log.d("tag", "UID for selected service provider is  " + order.ServiceProviderId );
+
+            Intent intent = new Intent(getContext(), booking_summary.class);
+            intent.putExtra("orderObject",order);
+            startActivity(intent);
+        });
         LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
         searchView=view.findViewById(R.id.SearchView);
         recyclerView=view.findViewById(R.id.users_recyclerView);

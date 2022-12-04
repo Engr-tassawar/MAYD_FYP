@@ -6,9 +6,9 @@ public class DriverOption {
     public static String hireForDriver="Hire a Driver for 24/7";
     public static String dayDriver="Day Driver(within City)";
 
-    public static String hireDriver_price="Rs 15000";
-    public static String Chauffeur_price="Rs 35000";
-    public static String hireForDriver_price="Rs 2000";
-    public static String dayDriver_price="Rs 1500";
+    public static String hireDriver_price="15000";
+    public static String Chauffeur_price="35000";
+    public static String hireForDriver_price="2000";
+    public static String dayDriver_price="1500";
 
 }

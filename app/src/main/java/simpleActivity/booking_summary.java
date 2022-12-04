@@ -1,8 +1,6 @@
 package simpleActivity;
 
-import static Model.DriverClass.driverType;
-import static Model.DriverClass.price;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -14,25 +12,41 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mayd.R;
+import com.google.firebase.auth.FirebaseAuth;
+
+import Model.DriverClass;
+import Model.Order;
+import Utils.DbUtil;
 
 public class booking_summary extends AppCompatActivity {
     Button btn_confirmBookSummary;
-    TextView bookingSummaryService,bookingSummaryPrice,bookingSummaryLocation;
+    TextView bookingSummaryService, bookingSummaryPrice, bookingSummaryLocation,bookingSummaryTime,bookingSummaryServiceProviderName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_summary);
-        btn_confirmBookSummary=findViewById(R.id.btn_confirmBookSummary);
-        bookingSummaryService=findViewById(R.id.bookingSummaryService);
-        bookingSummaryPrice=findViewById(R.id.bookingSummaryPrice);
-        bookingSummaryLocation=findViewById(R.id.bookingSummaryLocation);
-        String selectAddress=getIntent().getStringExtra("Address");
-        bookingSummaryService.setText(driverType);
-        bookingSummaryPrice.setText(price);
-        bookingSummaryLocation.setText(selectAddress);
+
+        Intent intent = getIntent();
+        Order order = (Order) intent.getExtras().getSerializable("orderObject");
+        DriverClass driver = (DriverClass) order.service;
+
+        btn_confirmBookSummary = findViewById(R.id.btn_confirmBookSummary);
+        bookingSummaryService = findViewById(R.id.bookingSummaryService);
+        bookingSummaryPrice = findViewById(R.id.bookingSummaryPrice);
+        bookingSummaryLocation = findViewById(R.id.bookingSummaryLocation);
+        bookingSummaryTime = findViewById(R.id.bookingSummaryTimeTV);
+        bookingSummaryServiceProviderName = findViewById(R.id.orderedServiceProviderNameTv);
+
+        bookingSummaryService.setText(driver.driverType);
+        bookingSummaryPrice.setText(order.price);
+        bookingSummaryLocation.setText(order.address);
+        bookingSummaryTime.setText(order.time);
+        bookingSummaryServiceProviderName.setText(order.ServiceProviderName);
+
         btn_confirmBookSummary.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -44,31 +58,33 @@ public class booking_summary extends AppCompatActivity {
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+                                order.CustomerId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                DbUtil.AddOrder(order,booking_summary.this);
 
-btn_confirmBookSummary.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Dialog dialog=new Dialog(booking_summary.this);
-        dialog.setContentView(R.layout.success_alert_dialog);
-        AppCompatButton btn_success = dialog.findViewById(R.id.btn_success);
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimationReport;
-        dialog.getWindow().setBackgroundDrawableResource(R.color.black);
-        btn_success.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                                btn_confirmBookSummary.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Dialog dialog = new Dialog(booking_summary.this);
+                                        dialog.setContentView(R.layout.success_alert_dialog);
+                                        AppCompatButton btn_success = dialog.findViewById(R.id.btn_success);
+                                        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimationReport;
+                                        dialog.getWindow().setBackgroundDrawableResource(R.color.black);
+                                        btn_success.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
 
-                Intent intent = new Intent(booking_summary.this, booking_details.class);
-                startActivity(intent);
-                dialog.dismiss();
-            }
-        });
-        dialog.show();
-    }
-});
+                                                Intent intent = new Intent(booking_summary.this, booking_details.class);
+                                                startActivity(intent);
+                                                dialog.dismiss();
+                                            }
+                                        });
+                                        dialog.show();
+                                    }
+                                });
 
                             }
                         })
-                        .setNegativeButton("No",null)
+                        .setNegativeButton("No", null)
                         .show();
             }
         });
@@ -87,7 +103,8 @@ btn_confirmBookSummary.setOnClickListener(new View.OnClickListener() {
                         finish();
                     }
                 })
-                .setNegativeButton("No",null)
+                .setNegativeButton("No", null)
                 .show();
     }
+
 }

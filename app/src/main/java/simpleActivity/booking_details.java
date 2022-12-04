@@ -44,8 +44,8 @@ public class booking_details extends AppCompatActivity {
         bookingDetail_time.setText(selectTime);
         bookingDetail_address.setText(selectAddress);
 
-        tvServiceDetail.setText(driverType);
-        priceDetail.setText(price);
+        //tvServiceDetail.setText(driverType);
+        //priceDetail.setText(price);
 
     }
 }

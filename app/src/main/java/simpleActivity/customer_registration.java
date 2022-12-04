@@ -22,11 +22,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import Model.CustomerUser;
 
 public class customer_registration extends AppCompatActivity {
-    EditText customer_edtFullName_SignUp,customer_edtPhone_SignUp, customer_edtPassword_SignUp, customer_edtEmail_SignUp;
+    EditText customer_edtFullName_SignUp, customer_edtPhone_SignUp, customer_edtPassword_SignUp, customer_edtEmail_SignUp;
     Button customer_btnSignUp;
     TextView tvAlreadyAccount;
     FirebaseAuth mAuth;
-     FirebaseDatabase database;
+    FirebaseDatabase database;
    /* DatabaseReference databaseReference = FirebaseDatabase.getInstance().
             getReferenceFromUrl("https://mayd-535a0-default-rtdb.asia-southeast1.firebasedatabase.app/");*/
    /*String OTP;
@@ -37,8 +37,8 @@ public class customer_registration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_registration);
-       mAuth = FirebaseAuth.getInstance();
-database=FirebaseDatabase.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
         customer_edtFullName_SignUp = findViewById(R.id.customer_edtFullName_SignUp);
         customer_edtPhone_SignUp = findViewById(R.id.customer_edtPhone_SignUp);
         customer_edtPassword_SignUp = findViewById(R.id.customer_edtPassword_SignUp);
@@ -57,9 +57,9 @@ database=FirebaseDatabase.getInstance();
                 String customerPassword = customer_edtPassword_SignUp.getText().toString().trim();
 
 
-              if (customerFullName.isEmpty()) {
-                  customer_edtFullName_SignUp.setError("Please enter your name");
-                  customer_edtFullName_SignUp.requestFocus();
+                if (customerFullName.isEmpty()) {
+                    customer_edtFullName_SignUp.setError("Please enter your name");
+                    customer_edtFullName_SignUp.requestFocus();
                     return;
                 }
                 if (customerPhoneNumber.isEmpty()) {
@@ -77,41 +77,39 @@ database=FirebaseDatabase.getInstance();
                     customer_edtPassword_SignUp.requestFocus();
                     return;
                 }
-                if (!Patterns.EMAIL_ADDRESS.matcher(customerEmail).matches())
-                {
+                if (!Patterns.EMAIL_ADDRESS.matcher(customerEmail).matches()) {
                     customer_edtEmail_SignUp.setError("Please enter valid email");
                     customer_edtEmail_SignUp.requestFocus();
                     return;
                 }
-               if (customerPassword.length()<6)
-                {
+                if (customerPassword.length() < 6) {
                     customer_edtPassword_SignUp.setError("Minimum password length should be 6 character");
                     customer_edtPassword_SignUp.requestFocus();
                     return;
                 }
-                    mAuth.createUserWithEmailAndPassword(customerEmail, customerPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
+                mAuth.createUserWithEmailAndPassword(customerEmail, customerPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
 
-                               CustomerUser customerUser=new CustomerUser(customerFullName,
-                                       customerEmail,customerPhoneNumber,customerPassword,"abc");
+                            CustomerUser customerUser = new CustomerUser(customerFullName,
+                                    customerEmail, customerPhoneNumber, customerPassword, "abc");
 
-                                FirebaseDatabase.getInstance().getReference("CustomerUsers")
-                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .setValue(customerUser).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
+                            FirebaseDatabase.getInstance().getReference("CustomerUsers")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(customerUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
 
-                                                    Toast.makeText(customer_registration.this,
-                                                            "User has been successfully registered", Toast.LENGTH_SHORT).show();
-                                                } else {
-                                                    Toast.makeText(customer_registration.this,
-                                                            "Failed to register!Try Again", Toast.LENGTH_SHORT).show();
-                                                }
+                                                Toast.makeText(customer_registration.this,
+                                                        "User has been successfully registered", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                Toast.makeText(customer_registration.this,
+                                                        "Failed to register!Try Again", Toast.LENGTH_SHORT).show();
                                             }
-                                        });/*.addOnFailureListener(new OnFailureListener() {
+                                        }
+                                    });/*.addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
                                                 Toast.makeText(serviceProviderSignUp.this,
@@ -119,13 +117,13 @@ database=FirebaseDatabase.getInstance();
                                             }
                                         });*/
 
-                            } else {
-                                Toast.makeText(customer_registration.this,
-                                        "Failed to register", Toast.LENGTH_SHORT).show();
-                            }
+                        } else {
+                            Toast.makeText(customer_registration.this,
+                                    "Failed to register", Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
+            }
         });
 
         /*ServiceProvider_btnSignUp.setOnClickListener(new View.OnClickListener() {

@@ -1,6 +1,5 @@
 package simpleActivity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -11,28 +10,27 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mayd.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import Model.DriverClass;
 import Model.DriverOption;
+import Model.Order;
 
 public class driver extends AppCompatActivity {
+
+
     TextView tv_hireDriver_price,tv_chauffeur_price,tv_driver_cityToCity_price,tv_driver_withinCity_price;
     CheckBox hireDriver_CheckBox,chauffeur_CheckBox,driver_cityToCity_CheckBox,driver_withinCity_CheckBox;
     Button driverPackage;
     FirebaseDatabase database;
     DatabaseReference reference;
     FirebaseAuth auth;
+    Order order = new Order();
     DriverClass driverClass;
-    int a=0;
     int i=0;
     @SuppressLint("WrongViewCast")
     @Override
@@ -116,31 +114,36 @@ public class driver extends AppCompatActivity {
 
                 if (hireDriver_CheckBox.isChecked())
                 {
-                    DriverClass.price=DriverOption.hireDriver_price;
-                    DriverClass.driverType= DriverOption.hireDriver;
+                    driverClass.price=DriverOption.hireDriver_price;
+                    driverClass.driverType= DriverOption.hireDriver;
                    /* Toast.makeText(driver.this,
                             "Driver type is"+DriverOption.hireDriver, Toast.LENGTH_SHORT).show();*/
                 }
                 if (chauffeur_CheckBox.isChecked())
                 {
-                    DriverClass.price=DriverOption.Chauffeur_price;
-                    DriverClass.driverType= DriverOption.Chauffeur;
+                    driverClass.price=DriverOption.Chauffeur_price;
+                    driverClass.driverType= DriverOption.Chauffeur;
 
                 }
                 if (driver_cityToCity_CheckBox.isChecked())
                 {
-                    DriverClass.price=DriverOption.hireForDriver_price;
-                    DriverClass.driverType= DriverOption.hireForDriver;
+                    driverClass.price=DriverOption.hireForDriver_price;
+                    driverClass.driverType= DriverOption.hireForDriver;
 
                 }
                 if (driver_withinCity_CheckBox.isChecked())
                 {
-                    DriverClass.price=DriverOption.dayDriver_price;
-                    DriverClass.driverType= DriverOption.dayDriver;
+                    driverClass.price=DriverOption.dayDriver_price;
+                    driverClass.driverType= DriverOption.dayDriver;
 
                 }
-                Intent intent = new Intent(driver.this, book_your_service.class);
+                order.service = driverClass;
+
+                //Intent intent = new Intent(driver.this, book_your_service.class);
+                Intent intent = new Intent(driver.this, booking_schedule.class);
+                intent.putExtra("orderObject", order);
                 startActivity(intent);
+
             }
         });
 
