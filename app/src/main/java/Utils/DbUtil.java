@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import Model.DriverClass;
 import Model.Order;
 import simpleActivity.booking_summary;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -75,9 +76,9 @@ public class  DbUtil {
                             mOrder.ServiceProviderId = (String)orderHashMap.get("ServiceProviderId");
                             mOrder.ServiceProviderType = (String)orderHashMap.get("ServiceProviderType");
 
-                            //The service is in hashmap. and it cannot be mapped to service
-                            mOrder.service = Class.forName("Model.DriverClass").cast(orderHashMap.get("service"));
+                            HashMap<String,String> Service = (HashMap<String,String>)orderHashMap.get("service");
 
+                            mOrder.service = Parser(mOrder.ServiceProviderType,Service);
                             Toast.makeText(context,"data is " + mOrder.toString(), Toast.LENGTH_LONG).show();
                             Log.d("tag", "data is " + mOrder.toString());
 
@@ -97,5 +98,22 @@ public class  DbUtil {
             }
         });
 
+    }
+
+    private static Object Parser(String Type, HashMap<String,String> ParsedObject){
+        switch(Type){
+            case "Model.DriverClass":
+                return DriverParser(ParsedObject);
+
+            default:
+                return null;
+        }
+    }
+
+    private static Model.DriverClass DriverParser(HashMap<String,String> DriverDetails){
+        DriverClass driver = new DriverClass();
+        driver.driverType = (String)DriverDetails.get("driverType");
+        driver.price = (String)DriverDetails.get("price");
+        return driver;
     }
 }

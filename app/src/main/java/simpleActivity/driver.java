@@ -138,6 +138,7 @@ public class driver extends AppCompatActivity {
 
                 }
                 order.service = driverClass;
+                order.ServiceProviderType="Model.Driver";
 
                 //Intent intent = new Intent(driver.this, book_your_service.class);
                 Intent intent = new Intent(driver.this, booking_schedule.class);
