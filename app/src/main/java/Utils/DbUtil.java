@@ -47,60 +47,11 @@ public class  DbUtil {
     }
 
     public static void getCustomersPendingOrders(Context context){
-        String userId = FirebaseAuth.getInstance().getUid();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Orders");
-        Query query = reference.orderByChild("CustomerId").equalTo(userId);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot data : dataSnapshot.getChildren()) {
-                        try{
-                            HashMap<String,Object> orderHashMap;
-                            try{
-                                 orderHashMap =(HashMap<String,Object>) data.getValue();
-                            }
-                            catch(Exception e) {
-                                Log.d("tag", "exce>> " + e);
 
-                                return;
-                            }
-                            Order mOrder = new Order();
-                            mOrder.date = (String)orderHashMap.get("date");
-                            mOrder.address = (String)orderHashMap.get("address");
-                            mOrder.price = (String)orderHashMap.get("price");
-                            mOrder.description = (String)orderHashMap.get("description");
-                            mOrder.CustomerId = (String)orderHashMap.get("CustomerId");
-                            mOrder.time = (String)orderHashMap.get("time");
-                            mOrder.ServiceProviderName = (String)orderHashMap.get("ServiceProviderName");
-                            mOrder.ServiceProviderId = (String)orderHashMap.get("ServiceProviderId");
-                            mOrder.ServiceProviderType = (String)orderHashMap.get("ServiceProviderType");
-
-                            HashMap<String,String> Service = (HashMap<String,String>)orderHashMap.get("service");
-
-                            mOrder.service = Parser(mOrder.ServiceProviderType,Service);
-                            Toast.makeText(context,"data is " + mOrder.toString(), Toast.LENGTH_LONG).show();
-                            Log.d("tag", "data is " + mOrder.toString());
-
-                        }catch(Exception e){
-                            Log.d("tag", "ex " + e);
-                            Toast.makeText(context, "ex " + e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(context, "Cancelled", Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
     }
 
-    private static Object Parser(String Type, HashMap<String,String> ParsedObject){
+    public static Object Parser(String Type, HashMap<String,String> ParsedObject){
         switch(Type){
             case "Model.DriverClass":
                 return DriverParser(ParsedObject);

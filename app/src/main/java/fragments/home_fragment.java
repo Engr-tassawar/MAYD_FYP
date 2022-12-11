@@ -159,8 +159,6 @@ public class home_fragment extends Fragment {
         driverCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 Intent intent = new Intent(getContext(), driver.class);
                 startActivity(intent);
 
