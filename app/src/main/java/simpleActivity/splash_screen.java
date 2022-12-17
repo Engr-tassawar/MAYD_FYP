@@ -1,4 +1,4 @@
-package com.example.mayd;
+package simpleActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import simpleActivity.customer_login;
+import com.example.mayd.R;
 
 public class splash_screen extends AppCompatActivity {
 ImageView imgLogo;
@@ -23,7 +23,7 @@ ImageView imgLogo;
                 super.run();
                 try {
                     sleep(1000);
-                   Intent intent=new Intent(splash_screen.this, customer_login.class);
+                   Intent intent=new Intent(splash_screen.this, home1.class);
                     startActivity(intent);
                     finish();
 

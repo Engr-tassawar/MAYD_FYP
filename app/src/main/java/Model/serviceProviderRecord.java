@@ -7,6 +7,19 @@ public class serviceProviderRecord {
     String lastName;
     String city;
 
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    String dateOfBirth;
+
+    public serviceProviderRecord() {
+    }
+
     public String getUid() {
         return uid;
     }
@@ -30,7 +43,7 @@ public class serviceProviderRecord {
     String serviceProviderProfile;
 
 
-    public serviceProviderRecord() {
+    public serviceProviderRecord(String firstName, String lastName, String city, String services, String dateOfBirth, String ppp) {
     }
 
     public serviceProviderRecord(String firstName, String lastName, String city, String serviceProviderService, String serviceProviderProfile) {

@@ -51,7 +51,7 @@ public class AdapterServiceUsers extends RecyclerView.Adapter<AdapterServiceUser
 
        Picasso.get().load(users.getServiceProviderProfile())
         .placeholder(R.drawable.profile_image_b)
-        .into(holder.binding.allServiceProviderIv);
+        .into(holder.binding.AllServiceProviderImgV);
        holder.binding.nameTv.setText(users.getFirstName()+users.getLastName());
        holder.binding.serviceTv.setText(users.getServiceProviderService());
 

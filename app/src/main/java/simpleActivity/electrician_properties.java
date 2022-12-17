@@ -50,14 +50,14 @@ public class electrician_properties extends AppCompatActivity {
         halfHourBtn_Electrician.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(electrician_properties.this, book_your_service.class);
+                Intent intent = new Intent(electrician_properties.this, booking_schedule.class);
                 startActivity(intent);
             }
         });
         electricianPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(electrician_properties.this, book_your_service.class);
+                Intent intent = new Intent(electrician_properties.this, booking_schedule.class);
                 startActivity(intent);
             }
         });

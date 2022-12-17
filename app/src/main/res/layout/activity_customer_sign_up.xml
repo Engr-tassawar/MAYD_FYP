@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="15dp"
     android:orientation="vertical"
-    tools:context=".customerSignUp">
+    tools:context="simpleActivity.customerSignUp">
     <TextView
         android:id="@+id/temp_tvCustomer"
         android:layout_width="wrap_content"
@@ -21,7 +21,6 @@
         />
 
     <TextView
-        android:id="@+id/temp_tvHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Please enter the correct details in the following fields to signup"
@@ -74,16 +73,6 @@
             android:inputType="phone"
             />
     </com.google.android.material.textfield.TextInputLayout>
-    <!--<EditText
-        android:id="@+id/Customer_edtPhoneSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:hint="Enter Phone Number"
-        android:inputType="phone"
-        />-->
-
-
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
@@ -100,22 +89,7 @@
             />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!--<com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:passwordToggleEnabled="true"
-        >
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Customer_edtConfirmPasswordSignUp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
--->
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Customer_btnSignup_P2"
         android:layout_width="match_parent"

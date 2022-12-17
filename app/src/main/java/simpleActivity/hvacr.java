@@ -75,14 +75,14 @@ public class hvacr extends AppCompatActivity {
         halfHourBtn_Hvacr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(hvacr.this, book_your_service.class);
+                Intent intent = new Intent(hvacr.this, booking_schedule.class);
                 startActivity(intent);
             }
         });
         HvacrPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(hvacr.this, book_your_service.class);
+                Intent intent = new Intent(hvacr.this, booking_schedule.class);
                 startActivity(intent);
             }
         });

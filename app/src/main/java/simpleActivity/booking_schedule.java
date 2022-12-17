@@ -9,23 +9,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TimePicker;
 
 import com.example.mayd.R;
-import com.example.mayd.search_fragment;
 import com.example.mayd.select_service_provider;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import Model.BookingDetail;
 import Model.DriverClass;
 import Model.Order;
 
@@ -103,19 +96,18 @@ public class booking_schedule extends AppCompatActivity {
                 }
             }
         });
-        Calendar calender = Calendar.getInstance();
+
         edtSelectDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final Calendar calender = Calendar.getInstance();
                 int year = calender.get(Calendar.YEAR);
                 int month = calender.get(Calendar.MONTH);
                 int day = calender.get(Calendar.DAY_OF_MONTH);
                 DatePickerDialog datePickerDialog = new DatePickerDialog(booking_schedule.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        edtSelectDate.setText(SimpleDateFormat.getDateInstance().format(calender.getTime()));
-
-
+                    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                        edtSelectDate.setText(dayOfMonth+"/"+(month+1)+"/"+year);
                     }
                 }, year, month, day);
                 datePickerDialog.show();

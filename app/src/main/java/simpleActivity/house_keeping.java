@@ -94,14 +94,14 @@ public class house_keeping extends AppCompatActivity {
        halfHourBtn_houseKeeping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(house_keeping.this, book_your_service.class);
+                Intent intent = new Intent(house_keeping.this, booking_schedule.class);
                 startActivity(intent);
             }
         });
        houseKeepingPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(house_keeping.this, book_your_service.class);
+                Intent intent = new Intent(house_keeping.this, booking_schedule.class);
                 startActivity(intent);
             }
         });

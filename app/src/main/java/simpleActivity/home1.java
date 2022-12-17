@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.mayd.R;
-import com.example.mayd.search_fragment;
+import fragments.search_fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -113,10 +113,10 @@ public class home1 extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.myFrameLayout,new booking_fragment()).commit();
 
                 }
-                else if(item.getItemId()==R.id.Users_icon){
+                /*else if(item.getItemId()==R.id.Users_icon){
                     getSupportFragmentManager().beginTransaction().replace(R.id.myFrameLayout,new search_fragment()).commit();
 
-                }
+                }*/
 
 
                /* switch (item.getItemId())

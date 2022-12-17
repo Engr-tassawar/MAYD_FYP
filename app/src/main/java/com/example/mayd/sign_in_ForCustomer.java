@@ -19,6 +19,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import simpleActivity.Forget_password_customer;
+import simpleActivity.customerSignUp;
 import simpleActivity.home1;
 import simpleActivity.customer_login;
 

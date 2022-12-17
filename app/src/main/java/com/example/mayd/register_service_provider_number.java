@@ -13,6 +13,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hbb20.CountryCodePicker;
 
+import simpleActivity.manage_otp;
+
 public class register_service_provider_number extends AppCompatActivity {
 EditText ServiceProvider_edtFullName_register,ServiceProvider_edtCityName_register;
 CountryCodePicker ccpForReg;

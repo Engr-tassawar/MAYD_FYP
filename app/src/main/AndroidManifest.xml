@@ -19,7 +19,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".add_provider_detail"
+            android:name="simpleActivity.add_provider_detail"
             android:exported="false" />
 
         <activity
@@ -32,10 +32,10 @@
             android:label="@string/title_activity_register_service_provider" /
         -->
         <activity
-            android:name=".manage_otp"
+            android:name="simpleActivity.manage_otp"
             android:exported="false" />
         <activity
-            android:name=".register_number"
+            android:name="simpleActivity.register_number"
             android:exported="false" />
         <activity
             android:name="simpleActivity.service_provider_home"
@@ -80,7 +80,7 @@
             android:name="simpleActivity.plumber_properties"
             android:exported="false" />
         <activity
-            android:name=".Forget_password_customer"
+            android:name="simpleActivity.Forget_password_customer"
             android:exported="false" />
         <activity
             android:name=".sign_in_ForCustomer"
@@ -95,13 +95,13 @@
             android:name="simpleActivity.select_preference"
             android:exported="false" />
         <activity
-            android:name=".customerSignUp"
+            android:name="simpleActivity.customerSignUp"
             android:exported="false" />
         <activity
             android:name="simpleActivity.home1"
             android:exported="true" />
         <activity
-            android:name=".splash_screen"
+            android:name="simpleActivity.splash_screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

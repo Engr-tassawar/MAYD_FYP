@@ -27,11 +27,6 @@ public class customer_registration extends AppCompatActivity {
     TextView tvAlreadyAccount;
     FirebaseAuth mAuth;
     FirebaseDatabase database;
-   /* DatabaseReference databaseReference = FirebaseDatabase.getInstance().
-            getReferenceFromUrl("https://mayd-535a0-default-rtdb.asia-southeast1.firebasedatabase.app/");*/
-   /*String OTP;
-
-    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +99,8 @@ public class customer_registration extends AppCompatActivity {
 
                                                 Toast.makeText(customer_registration.this,
                                                         "User has been successfully registered", Toast.LENGTH_SHORT).show();
+                                                Intent intent = new Intent(customer_registration.this, customer_login.class);
+                                                startActivity(intent);
                                             } else {
                                                 Toast.makeText(customer_registration.this,
                                                         "Failed to register!Try Again", Toast.LENGTH_SHORT).show();

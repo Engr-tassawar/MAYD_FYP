@@ -14,12 +14,12 @@
         android:id="@+id/support_icon"
         android:icon="@drawable/ic_baseline_support_agent_24"
         android:title="Support" />
-    <item
+    <!--<item
         android:id="@+id/Users_icon"
         android:icon="@drawable/ic_baseline_search_24"
        app:showAsAction="always"
         android:title="Users"
         app:actionViewClass="android.widget.SearchView"/>
-
+-->
 
 </menu>

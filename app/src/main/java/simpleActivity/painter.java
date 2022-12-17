@@ -28,14 +28,14 @@ public class painter extends AppCompatActivity {
         halfHourBtn_Painter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(painter.this, book_your_service.class);
+                Intent intent = new Intent(painter.this, booking_schedule.class);
                 startActivity(intent);
             }
         });
         painterPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(painter.this, book_your_service.class);
+                Intent intent = new Intent(painter.this, booking_schedule.class);
                 startActivity(intent);
             }
         });

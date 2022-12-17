@@ -29,14 +29,14 @@ public class plumber_properties extends AppCompatActivity {
         halfHourBtn_Plumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(plumber_properties.this, book_your_service.class);
+                Intent intent = new Intent(plumber_properties.this, booking_schedule.class);
                 startActivity(intent);
             }
         });
         plumberPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(plumber_properties.this, book_your_service.class);
+                Intent intent = new Intent(plumber_properties.this, booking_schedule.class);
                 startActivity(intent);
             }
         });

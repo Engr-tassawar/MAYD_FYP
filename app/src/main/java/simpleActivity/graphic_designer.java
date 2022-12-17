@@ -51,14 +51,14 @@ public class graphic_designer extends AppCompatActivity {
         halfHourBtn_Graphic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(graphic_designer.this, book_your_service.class);
+                Intent intent = new Intent(graphic_designer.this, booking_schedule.class);
                 startActivity(intent);
             }
         });
         graphicPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(graphic_designer.this, book_your_service.class);
+                Intent intent = new Intent(graphic_designer.this, booking_schedule.class);
                 startActivity(intent);
             }
         });

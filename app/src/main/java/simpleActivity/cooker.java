@@ -7,9 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.mayd.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import Model.DriverClass;
+import Model.Order;
 
 public class cooker extends AppCompatActivity {
     TextView tv_monthlyCook,tv_fullDay,tv_cookHelper_houseKeeping,tv_partTime;
@@ -31,19 +38,91 @@ public class cooker extends AppCompatActivity {
         tv_fullDay=findViewById(R.id.tv_fullDay);
         tv_cookHelper_houseKeeping=findViewById(R.id.tv_cookHelper_houseKeeping);
         tv_partTime=findViewById(R.id.tv_partTime);
+        monthlyCook_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    fullDay_CheckBox.setChecked(false);
+                    cookHelper_houseKeeping_CheckBox.setChecked(false);
+                    partTime_CheckBox.setChecked(false);
+                }
+            }
+        });
+        fullDay_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    monthlyCook_CheckBox.setChecked(false);
+                    cookHelper_houseKeeping_CheckBox.setChecked(false);
+                    partTime_CheckBox.setChecked(false);
+                }
+            }
+        });
+        cookHelper_houseKeeping_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    monthlyCook_CheckBox.setChecked(false);
+                    fullDay_CheckBox.setChecked(false);
+                    partTime_CheckBox.setChecked(false);
+                }
+            }
+        });
+        partTime_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    monthlyCook_CheckBox.setChecked(false);
+                    fullDay_CheckBox.setChecked(false);
+                    cookHelper_houseKeeping_CheckBox.setChecked(false);
+                }
+            }
+        });
+
         halfHourBtn_Cook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(cooker.this, book_your_service.class);
+                Intent intent = new Intent(cooker.this, booking_schedule.class);
                 startActivity(intent);
             }
         });
-        cookPackage.setOnClickListener(new View.OnClickListener() {
+       /* cookPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(cooker.this, book_your_service.class);
+                if (monthlyCook_CheckBox.isChecked())
+                {
+                    driverClass.price= CookerOption.monthly_Cook_price;
+                    driverClass.driverType= CookerOption.monthly_Cook;
+                   *//* Toast.makeText(driver.this,
+                            "Driver type is"+DriverOption.hireDriver, Toast.LENGTH_SHORT).show();*//*
+                }
+                if (fullDay_CheckBox.isChecked())
+                {
+                    driverClass.price=CookerOption.full_Day_Cook_price;
+                    driverClass.driverType= CookerOption.full_Day_Cook;
+
+                }
+                if (cookHelper_houseKeeping_CheckBox.isChecked())
+                {
+                    driverClass.price=CookerOption.cook_houseKeeping_price;
+                    driverClass.driverType= CookerOption.cook_houseKeeping;
+
+                }
+                if (partTime_CheckBox.isChecked())
+                {
+                    driverClass.price=CookerOption.partTime_2hrs_price;
+                    driverClass.driverType= CookerOption.partTime_2hrs;
+
+                }
+                order.service = driverClass;
+                order.ServiceProviderType="Model.Driver";
+
+                Intent intent = new Intent(cooker.this, booking_schedule.class);
+                intent.putExtra("orderObject", order);
                 startActivity(intent);
+
             }
-        });
+
+        });*/
     }
 }

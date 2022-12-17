@@ -3,11 +3,10 @@ package com.example.mayd;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 
 import Model.Order;
 import Utils.Common;
+import fragments.search_fragment;
 
 public class select_service_provider extends AppCompatActivity {
 

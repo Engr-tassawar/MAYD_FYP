@@ -1,4 +1,4 @@
-package com.example.mayd;
+package fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.example.mayd.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,8 +31,6 @@ import Model.Order;
 import Model.serviceProviderRecord;
 import adapters.AdapterServiceUsers;
 import simpleActivity.booking_summary;
-import simpleActivity.customer_login;
-import simpleActivity.customer_registration;
 
 /**
  * A simple {@link Fragment} subclass.

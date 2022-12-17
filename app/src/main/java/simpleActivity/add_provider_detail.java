@@ -1,4 +1,4 @@
-package com.example.mayd;
+package simpleActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,26 +11,19 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.mayd.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import Model.CustomerUser;
 import Model.serviceProviderRecord;
-import simpleActivity.booking_details;
-import simpleActivity.booking_summary;
-import simpleActivity.service_provider_home;
 
 public class add_provider_detail extends AppCompatActivity {
-    EditText ServiceProvider_edtFirstName,ServiceProvider_edtLastName,ServiceProvider_edtCity;
+    EditText ServiceProvider_edtFirstName,ServiceProvider_edtLastName,ServiceProvider_edtCity,ServiceProvider_edtBirth;
     Button ServiceProvider_btnSave;
     FirebaseAuth firebaseAuth;
     FirebaseStorage storage;
@@ -47,6 +40,10 @@ public class add_provider_detail extends AppCompatActivity {
         ServiceProvider_edtLastName=findViewById(R.id.ServiceProvider_edtLastName);
         ServiceProvider_edtCity=findViewById(R.id.ServiceProvider_edtCity);
         ServiceProvider_btnSave=findViewById(R.id.ServiceProvider_btnSave);
+        ServiceProvider_edtBirth=findViewById(R.id.ServiceProvider_edtBirth);
+
+
+
 
        selectService_edt=findViewById(R.id.selectService_edt);
 
@@ -59,7 +56,9 @@ public class add_provider_detail extends AppCompatActivity {
 
 
       adapter=new ArrayAdapter<String>(add_provider_detail.this, R.layout.list_items,services);
+/*
        adapter.setDropDownViewResource(android.R.layout.activity_list_item);
+*/
        selectService_edt.setAdapter(adapter);
        selectService_edt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
@@ -75,23 +74,21 @@ public class add_provider_detail extends AppCompatActivity {
                 if(!ServiceProvider_edtFirstName.getText().toString().isEmpty()&&
                         !ServiceProvider_edtLastName.getText().toString().isEmpty()&&
                         !ServiceProvider_edtCity.getText().toString().isEmpty()&&
-                !selectService_edt.getText().toString().isEmpty())
+                        !selectService_edt.getText().toString().isEmpty())
+
                 {
                     String firstName = ServiceProvider_edtFirstName.getText().toString();
                     String lastName = ServiceProvider_edtLastName.getText().toString();
                     String city = ServiceProvider_edtCity.getText().toString();
+                    String date = ServiceProvider_edtBirth.getText().toString();
                     String services = selectService_edt.getText().toString();
-/*
-                    String services=selectService_edt.getText().toString();
-*/
-                   /* Map<String,Object>user=new HashMap<>();
-                    user.put("firstName",firstName);
-                    user.put("lastName",lastName);
-                    user.put("city",city);*/
-                    serviceProviderRecord serviceUser=new serviceProviderRecord(firstName,lastName,city,services,"ppp");
+
+                    serviceProviderRecord serviceUser=new serviceProviderRecord(firstName,lastName
+                            ,city,services,date,"ppp");
 
                     FirebaseDatabase.getInstance().getReference("ServiceProviderUsers")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(serviceUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(serviceUser)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()) {

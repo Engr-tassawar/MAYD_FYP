@@ -1,4 +1,4 @@
-package com.example.mayd;
+package simpleActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mayd.R;
+import com.example.mayd.register_service_provider_number;
+import com.example.mayd.sign_in_ForCustomer;
 import com.google.firebase.auth.FirebaseAuth;
 import com.hbb20.CountryCodePicker;
 

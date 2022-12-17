@@ -14,8 +14,9 @@
     android:orientation="horizontal"
     android:layout_gravity="center"
     >
-    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/all_serviceProvider_Iv"
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+       android:id="@+id/All_ServiceProvider_imgV"
         android:layout_width="66dp"
         android:layout_height="66dp"
        android:layout_marginLeft="15dp"
@@ -26,8 +27,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+
         android:layout_marginLeft="20dp">
-        <!--<TextView
+       <!-- <TextView
             android:id="@+id/phoneTv"
             android:textStyle="bold"
             android:layout_marginTop="5dp"
@@ -48,18 +50,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Person Phone"
+
             />
-
-
     </LinearLayout>
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:textSize="10sp"
         android:text="Book Now"
+        android:background="@drawable/round_button3"
         android:textColor="@color/white"
         android:layout_gravity="center"
-        android:layout_marginLeft="100dp"
-        android:background="@drawable/round_button3"
+        android:layout_marginLeft="80dp"
         android:textAllCaps="false"
         />
 </LinearLayout>
