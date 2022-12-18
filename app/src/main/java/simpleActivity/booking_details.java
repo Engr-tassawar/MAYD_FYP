@@ -14,6 +14,8 @@ import com.example.mayd.R;
 
 import Model.BookingDetail;
 import Model.DriverClass;
+import Model.Order;
+import Utils.Common;
 
 public class booking_details extends AppCompatActivity {
     Button btn_homeBookingDetail;
@@ -23,6 +25,7 @@ public class booking_details extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_details);
+        Order order = Common.getOrderObject(booking_details.this);
         priceDetail=findViewById(R.id.priceDetail);
         btn_homeBookingDetail=findViewById(R.id.btn_homeBookingDetail);
         tvServiceDetail=findViewById(R.id.tvServiceDetail);

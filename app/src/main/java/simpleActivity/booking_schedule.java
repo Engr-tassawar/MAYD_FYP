@@ -93,6 +93,7 @@ public class booking_schedule extends AppCompatActivity {
                     Intent intent = new Intent(booking_schedule.this, select_service_provider.class);
                     intent.putExtra("orderObject", order);
                     startActivity(intent);
+                    finish();
                 }
             }
         });

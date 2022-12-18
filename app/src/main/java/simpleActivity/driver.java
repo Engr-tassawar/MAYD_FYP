@@ -137,13 +137,14 @@ public class driver extends AppCompatActivity {
                     driverClass.driverType= DriverOption.dayDriver;
 
                 }
+
                 order.service = driverClass;
-                order.ServiceProviderType="Model.Driver";
+                order.ServiceProviderType="Model.DriverClass";
 
                 Intent intent = new Intent(driver.this, booking_schedule.class);
                 intent.putExtra("orderObject", order);
                 startActivity(intent);
-
+                finish();
             }
         });
 

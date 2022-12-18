@@ -10,11 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.mayd.R;
@@ -31,10 +29,6 @@ import java.util.HashMap;
 
 import Model.DriverClass;
 import Model.Order;
-import Model.serviceProviderRecord;
-import Utils.Common;
-import Utils.DbUtil;
-import adapters.AdapterServiceUsers;
 import adapters.PendingAdapter;
 
 
@@ -45,7 +39,7 @@ public class customer_on_going_fragment extends Fragment {
     }
     RecyclerView recyclerView;
     PendingAdapter pendingAdapter;
-    ArrayList<Order> list = new ArrayList<>();
+    ArrayList<Order> ordersList = new ArrayList<>();
     FirebaseAuth auth;
     FirebaseDatabase database;
 
@@ -68,11 +62,12 @@ public class customer_on_going_fragment extends Fragment {
         String userId = FirebaseAuth.getInstance().getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Orders");
         Query query = reference.orderByChild("CustomerId").equalTo(userId);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot data : dataSnapshot.getChildren()) {
+        if(ordersList.size() == 0  ){
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        for (DataSnapshot data : dataSnapshot.getChildren()) {
 
                             HashMap<String,Object> orderHashMap;
                             orderHashMap =(HashMap<String,Object>) data.getValue();
@@ -89,26 +84,32 @@ public class customer_on_going_fragment extends Fragment {
 
                             HashMap<String,String> Service = (HashMap<String,String>)orderHashMap.get("service");
                             mOrder.service = Parser(mOrder.ServiceProviderType,Service);
-                            //mOrder.service = Class.forName(mOrder.ServiceProviderType).cast(mOrder.service);
-                            DriverClass driver = (Model.DriverClass)mOrder.service;
-                            Toast.makeText(getContext(),"driver is  " + driver, Toast.LENGTH_LONG).show();
-                            //Log.d("tag", "data is " + mOrder.ServiceProviderType);
-
-                            list.add(mOrder);
-                            pendingAdapter = new PendingAdapter(list,getContext());
-                            recyclerView.setAdapter(pendingAdapter);
-                            pendingAdapter.notifyDataSetChanged();
-
-
+                            try {
+                                mOrder.service = Class.forName(mOrder.ServiceProviderType).cast(mOrder.service);
+                            } catch (ClassNotFoundException e) {
+                                Toast.makeText(getContext(), "Exception "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                e.printStackTrace();
+                            }
+                            ordersList.add(mOrder);
+                        }
+                        pendingAdapter = new PendingAdapter(ordersList,getContext());
+                        recyclerView.setAdapter(pendingAdapter);
+                        pendingAdapter.notifyDataSetChanged();
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getContext(), "Cancelled", Toast.LENGTH_SHORT).show();
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(getContext(), "Cancelled", Toast.LENGTH_SHORT).show();
 
-            }
-        });
+                }
+            });
+        }
+        else{
+            pendingAdapter = new PendingAdapter(ordersList,getContext());
+            recyclerView.setAdapter(pendingAdapter);
+            pendingAdapter.notifyDataSetChanged();
+        }
+
     }
 }

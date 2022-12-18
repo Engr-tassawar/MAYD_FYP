@@ -10,8 +10,11 @@ import Model.Order;
 public class Common {
     public static Order getOrderObject(Activity context){
         Intent intent = context.getIntent();
-        Order order = (Order) intent.getExtras().getSerializable("orderObject");
-        return order;
+        return (Order) intent.getExtras().getSerializable("orderObject");
+    }
+
+    public static void sendOrderObjectToNextActivity(Intent intent,Order order){
+        intent.putExtra("orderObject", order);
     }
 
     public static Order getRawOrder(){

@@ -20,5 +20,6 @@ public class select_service_provider extends AppCompatActivity {
         search_fragment fragment = search_fragment.newInstance(order);
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutForServiceProviderDisplay,fragment).commit();
 
+
     }
 }

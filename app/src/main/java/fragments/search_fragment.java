@@ -136,6 +136,7 @@ public class search_fragment extends Fragment {
             Intent intent = new Intent(getContext(), booking_summary.class);
             intent.putExtra("orderObject", order);
             startActivity(intent);
+            getActivity().finish();
         });
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         searchView = view.findViewById(R.id.SearchView);

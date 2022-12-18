@@ -19,11 +19,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import Model.DriverClass;
 import Model.Order;
+import Utils.Common;
 import Utils.DbUtil;
 
 public class booking_summary extends AppCompatActivity {
     Button btn_confirmBookSummary;
-    TextView bookingSummaryService, bookingSummaryPrice, bookingSummaryLocation,bookingSummaryTime,bookingSummaryServiceProviderName;
+    TextView bookingSummaryService, bookingSummaryPrice, bookingSummaryLocation, bookingSummaryTime, bookingSummaryServiceProviderName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,28 +60,26 @@ public class booking_summary extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 order.CustomerId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                DbUtil.AddOrder(order,booking_summary.this);
+                                DbUtil.AddOrder(order, booking_summary.this);
 
-                                btn_confirmBookSummary.setOnClickListener(new View.OnClickListener() {
+                                Dialog dialog = new Dialog(booking_summary.this);
+                                dialog.setContentView(R.layout.success_alert_dialog);
+                                AppCompatButton btn_success = dialog.findViewById(R.id.btn_success);
+                                dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimationReport;
+                                dialog.getWindow().setBackgroundDrawableResource(R.color.black);
+                                btn_success.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        Dialog dialog = new Dialog(booking_summary.this);
-                                        dialog.setContentView(R.layout.success_alert_dialog);
-                                        AppCompatButton btn_success = dialog.findViewById(R.id.btn_success);
-                                        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimationReport;
-                                        dialog.getWindow().setBackgroundDrawableResource(R.color.black);
-                                        btn_success.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View view) {
-
-                                                Intent intent = new Intent(booking_summary.this, booking_details.class);
-                                                startActivity(intent);
-                                                dialog.dismiss();
-                                            }
-                                        });
-                                        dialog.show();
+                                        Intent intent = new Intent(booking_summary.this, booking_details.class);
+                                        intent.putExtra("orderObject", order);
+                                        Common.sendOrderObjectToNextActivity(intent,order);
+                                        startActivity(intent);
+                                        dialog.dismiss();
+                                        finish();
                                     }
                                 });
+                                dialog.show();
+
 
                             }
                         })
