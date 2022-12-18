@@ -143,6 +143,7 @@ public class search_fragment extends Fragment {
         recyclerView = view.findViewById(R.id.users_recyclerView);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapterServiceUsers);
+        //ToDO: Change the query to get service providers depending upon service type
         database.getReference().child("ServiceProviderUsers").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
