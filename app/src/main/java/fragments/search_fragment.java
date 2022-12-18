@@ -41,9 +41,9 @@ public class search_fragment extends Fragment {
     RecyclerView recyclerView;
     AdapterServiceUsers adapterServiceUsers;
     Order order;
-/*private MenuItem menuItem;*/
-private SearchView searchView;
-    ArrayList<serviceProviderRecord> list=new ArrayList<>();
+    /*private MenuItem menuItem;*/
+    private SearchView searchView;
+    ArrayList<serviceProviderRecord> list = new ArrayList<>();
     FirebaseAuth auth;
     FirebaseDatabase database;
 
@@ -63,8 +63,8 @@ private SearchView searchView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        auth=FirebaseAuth.getInstance();
-        database=FirebaseDatabase.getInstance();
+        auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
         setHasOptionsMenu(true);//to show menu option in fragment
         order = (Order) getArguments().getSerializable(
                 "order");
@@ -72,7 +72,7 @@ private SearchView searchView;
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.navigations_items,menu);
+        inflater.inflate(R.menu.navigations_items, menu);
 
         /*searchView=(SearchView) MenuItemCompat.getActionView(menuItem);
         searchView.setIconified(true);
@@ -126,28 +126,27 @@ private SearchView searchView;
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.search_fragment, container, false);
-        AdapterServiceUsers adapterServiceUsers=new AdapterServiceUsers(getContext(), list, data -> {
-            serviceProviderRecord user = (serviceProviderRecord)data;
+        View view = inflater.inflate(R.layout.search_fragment, container, false);
+        AdapterServiceUsers adapterServiceUsers = new AdapterServiceUsers(getContext(), list, data -> {
+            serviceProviderRecord user = (serviceProviderRecord) data;
             order.ServiceProviderId = user.getUid();
             order.ServiceProviderName = user.getFirstName() + " " + user.getLastName();
-            Log.d("tag", "UID for selected service provider is  " + order.ServiceProviderId );
+            Log.d("tag", "UID for selected service provider is  " + order.ServiceProviderId);
 
             Intent intent = new Intent(getContext(), booking_summary.class);
-            intent.putExtra("orderObject",order);
+            intent.putExtra("orderObject", order);
             startActivity(intent);
         });
-        LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
-        searchView=view.findViewById(R.id.SearchView);
-        recyclerView=view.findViewById(R.id.users_recyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        searchView = view.findViewById(R.id.SearchView);
+        recyclerView = view.findViewById(R.id.users_recyclerView);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapterServiceUsers);
         database.getReference().child("ServiceProviderUsers").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot:snapshot.getChildren())
-                {
-                    serviceProviderRecord users=dataSnapshot.getValue(serviceProviderRecord.class);
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    serviceProviderRecord users = dataSnapshot.getValue(serviceProviderRecord.class);
                     users.setUid(dataSnapshot.getKey());
                     list.add(users);
                 }
@@ -182,19 +181,17 @@ private SearchView searchView;
     }
 
     private void filterList(String s) {
-        List<serviceProviderRecord> filteredList=new ArrayList<>();
-        for (serviceProviderRecord item:list){
-            if (item.getFirstName().toLowerCase().contains(s.toLowerCase()))
-            {
+        List<serviceProviderRecord> filteredList = new ArrayList<>();
+        for (serviceProviderRecord item : list) {
+            if (item.getFirstName().toLowerCase().contains(s.toLowerCase())) {
                 filteredList.add(item);
             }
         }
-        if (filteredList.isEmpty()){
+        if (filteredList.isEmpty()) {
             Toast.makeText(getContext(),
                     "No data found", Toast.LENGTH_SHORT).show();
 
-        }
-        else {
+        } else {
 
 
 /*

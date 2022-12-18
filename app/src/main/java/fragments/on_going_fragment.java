@@ -34,7 +34,6 @@ public class on_going_fragment extends Fragment {
     FirebaseAuth auth;
     FirebaseDatabase database;
     public on_going_fragment() {
-
         // Required empty public constructor
     }
     @Override
@@ -47,9 +46,6 @@ public class on_going_fragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

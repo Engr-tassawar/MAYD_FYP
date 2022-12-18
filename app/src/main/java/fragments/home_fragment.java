@@ -71,8 +71,6 @@ public class home_fragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
         imgElectric=getView().findViewById(R.id.imgElectric);
         imgPlum=getView().findViewById(R.id.imgPlum);
         imgGraphic=getView().findViewById(R.id.imgGraphic);
@@ -170,6 +168,7 @@ public class home_fragment extends Fragment {
         customer_profile= getView().findViewById(R.id.customer_profile);
         tvName = getView().findViewById(R.id.tvName);
         tvId = getView().findViewById(R.id.tvId);
+
         database.getReference().child("CustomerUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -242,8 +241,6 @@ public class home_fragment extends Fragment {
             }
         });
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

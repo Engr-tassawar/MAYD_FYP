@@ -46,11 +46,6 @@ public class  DbUtil {
                 });
     }
 
-    public static void getCustomersPendingOrders(Context context){
-
-
-    }
-
     public static Object Parser(String Type, HashMap<String,String> ParsedObject){
         switch(Type){
             case "Model.DriverClass":

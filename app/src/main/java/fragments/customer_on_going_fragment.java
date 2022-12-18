@@ -7,11 +7,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.mayd.R;
@@ -23,11 +26,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import Model.DriverClass;
 import Model.Order;
+import Model.serviceProviderRecord;
+import Utils.Common;
 import Utils.DbUtil;
+import adapters.AdapterServiceUsers;
+import adapters.PendingAdapter;
 
 
 public class customer_on_going_fragment extends Fragment {
@@ -35,6 +43,11 @@ public class customer_on_going_fragment extends Fragment {
     public customer_on_going_fragment() {
         // Required empty public constructor
     }
+    RecyclerView recyclerView;
+    PendingAdapter pendingAdapter;
+    ArrayList<Order> list = new ArrayList<>();
+    FirebaseAuth auth;
+    FirebaseDatabase database;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +59,12 @@ public class customer_on_going_fragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView = view.findViewById(R.id.customerPendingOrders_recyclerView);
+        recyclerView.setLayoutManager(layoutManager);
+
         String userId = FirebaseAuth.getInstance().getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Orders");
         Query query = reference.orderByChild("CustomerId").equalTo(userId);
@@ -54,7 +73,7 @@ public class customer_on_going_fragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot data : dataSnapshot.getChildren()) {
-                        try{
+
                             HashMap<String,Object> orderHashMap;
                             orderHashMap =(HashMap<String,Object>) data.getValue();
                             Order mOrder = new Order();
@@ -70,16 +89,17 @@ public class customer_on_going_fragment extends Fragment {
 
                             HashMap<String,String> Service = (HashMap<String,String>)orderHashMap.get("service");
                             mOrder.service = Parser(mOrder.ServiceProviderType,Service);
-                            mOrder.service = Class.forName(mOrder.ServiceProviderType).cast(mOrder.service);
+                            //mOrder.service = Class.forName(mOrder.ServiceProviderType).cast(mOrder.service);
                             DriverClass driver = (Model.DriverClass)mOrder.service;
-                            Toast.makeText(getContext(),"data is " + driver.driverType + driver.price, Toast.LENGTH_LONG).show();
-                            Log.d("tag", "data is " + mOrder.ServiceProviderType);
+                            Toast.makeText(getContext(),"driver is  " + driver, Toast.LENGTH_LONG).show();
+                            //Log.d("tag", "data is " + mOrder.ServiceProviderType);
 
-                        }catch(Exception e){
-                            Log.d("tag", "ex " + e.getMessage());
-                            Toast.makeText(getContext(), "ex " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            list.add(mOrder);
+                            pendingAdapter = new PendingAdapter(list,getContext());
+                            recyclerView.setAdapter(pendingAdapter);
+                            pendingAdapter.notifyDataSetChanged();
 
-                        }
+
                     }
                 }
             }
@@ -90,7 +110,5 @@ public class customer_on_going_fragment extends Fragment {
 
             }
         });
-
-        DbUtil.getCustomersPendingOrders(getContext());
     }
 }

@@ -6,12 +6,11 @@
     tools:context="fragments.customer_on_going_fragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/customerPendingOrders_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="On-Going"
-        android:textSize="35sp"
-        android:gravity="center"
-        android:textStyle="bold"/>
+        android:layout_marginTop="10dp"
+         />
 
 </FrameLayout>
