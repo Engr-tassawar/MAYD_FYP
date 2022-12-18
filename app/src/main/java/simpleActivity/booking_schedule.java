@@ -21,6 +21,7 @@ import java.util.Locale;
 
 import Model.DriverClass;
 import Model.Order;
+import Utils.Common;
 
 public class booking_schedule extends AppCompatActivity {
 
@@ -39,8 +40,7 @@ public class booking_schedule extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_schedule);
 
-        Intent intent = getIntent();
-        Order order = (Order) intent.getExtras().getSerializable("orderObject");
+        Order order = Common.getOrderObject(booking_schedule.this);
 
         auth = FirebaseAuth.getInstance();
 
@@ -82,12 +82,9 @@ public class booking_schedule extends AppCompatActivity {
                     FirebaseDatabase.getInstance().getReference().child("CustomerUsers").child(auth.getUid())
                             .setValue(bookingDetail);*/
 
-                    DriverClass driver = (DriverClass) order.service;
-
                     order.date = selectDate;
                     order.time = selectTime;
                     order.address = selectAddress;
-                    order.price = driver.price;
                     order.description = selectDescription;
 
                     Intent intent = new Intent(booking_schedule.this, select_service_provider.class);

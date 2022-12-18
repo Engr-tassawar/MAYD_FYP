@@ -1,6 +1,5 @@
 package fragments;
 
-import static Utils.DbUtil.Parser;
 
 import android.os.Bundle;
 
@@ -82,14 +81,6 @@ public class customer_on_going_fragment extends Fragment {
                             mOrder.ServiceProviderId = (String)orderHashMap.get("ServiceProviderId");
                             mOrder.ServiceProviderType = (String)orderHashMap.get("ServiceProviderType");
 
-                            HashMap<String,String> Service = (HashMap<String,String>)orderHashMap.get("service");
-                            mOrder.service = Parser(mOrder.ServiceProviderType,Service);
-                            try {
-                                mOrder.service = Class.forName(mOrder.ServiceProviderType).cast(mOrder.service);
-                            } catch (ClassNotFoundException e) {
-                                Toast.makeText(getContext(), "Exception "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                                e.printStackTrace();
-                            }
                             ordersList.add(mOrder);
                         }
                         pendingAdapter = new PendingAdapter(ordersList,getContext());

@@ -46,20 +46,4 @@ public class  DbUtil {
                 });
     }
 
-    public static Object Parser(String Type, HashMap<String,String> ParsedObject){
-        switch(Type){
-            case "Model.DriverClass":
-                return DriverParser(ParsedObject);
-
-            default:
-                return null;
-        }
-    }
-
-    private static Model.DriverClass DriverParser(HashMap<String,String> DriverDetails){
-        DriverClass driver = new DriverClass();
-        driver.driverType = (String)DriverDetails.get("driverType");
-        driver.price = (String)DriverDetails.get("price");
-        return driver;
-    }
 }

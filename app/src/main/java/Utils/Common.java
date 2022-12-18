@@ -27,7 +27,6 @@ public class Common {
         mOrder.ServiceProviderName="XYZ";
         mOrder.address="Street ABC, XYZ Colony, City A , Country XYZ";
         mOrder.description="XYZ description";
-        mOrder.service=new DriverClass("XYZ Driver type","ABC driver price");
         return mOrder;
     }
 

@@ -33,7 +33,6 @@ public class booking_summary extends AppCompatActivity {
 
         Intent intent = getIntent();
         Order order = (Order) intent.getExtras().getSerializable("orderObject");
-        DriverClass driver = (DriverClass) order.service;
 
         btn_confirmBookSummary = findViewById(R.id.btn_confirmBookSummary);
         bookingSummaryService = findViewById(R.id.bookingSummaryService);
@@ -42,11 +41,13 @@ public class booking_summary extends AppCompatActivity {
         bookingSummaryTime = findViewById(R.id.bookingSummaryTimeTV);
         bookingSummaryServiceProviderName = findViewById(R.id.orderedServiceProviderNameTv);
 
-        bookingSummaryService.setText(driver.driverType);
+        bookingSummaryService.setText(order.ServiceProviderType);
         bookingSummaryPrice.setText(order.price);
         bookingSummaryLocation.setText(order.address);
         bookingSummaryTime.setText(order.time);
         bookingSummaryServiceProviderName.setText(order.ServiceProviderName);
+
+
 
         btn_confirmBookSummary.setOnClickListener(new View.OnClickListener() {
 
@@ -70,10 +71,6 @@ public class booking_summary extends AppCompatActivity {
                                 btn_success.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        Intent intent = new Intent(booking_summary.this, booking_details.class);
-                                        intent.putExtra("orderObject", order);
-                                        Common.sendOrderObjectToNextActivity(intent,order);
-                                        startActivity(intent);
                                         dialog.dismiss();
                                         finish();
                                     }

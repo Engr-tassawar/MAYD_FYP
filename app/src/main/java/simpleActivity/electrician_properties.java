@@ -12,11 +12,16 @@ import android.widget.TextView;
 
 import com.example.mayd.R;
 
+import Model.Order;
+import Utils.Common;
+
 public class electrician_properties extends AppCompatActivity {
     TextView tvGenerator,tvUPS;
     Button halfHourBtn_Electrician;
     CheckBox generator_CheckBox,UPSCheckBox;
     Button electricianPackage;
+    Order order= new Order();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +33,18 @@ public class electrician_properties extends AppCompatActivity {
         tvGenerator=findViewById(R.id.tv_generator);
         tvUPS=findViewById(R.id.tvUPS);
         electricianPackage=findViewById(R.id.electricianPackage);
+        electricianPackage.setEnabled(false);
+
         generator_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     UPSCheckBox.setChecked(false);
-
+                    order.ServiceProviderType = "UPS Electrician";
+                    order.price="1500";
+                    electricianPackage.setEnabled(true);
+                }else{
+                    electricianPackage.setEnabled(false);
                 }
             }
         });
@@ -42,7 +53,12 @@ public class electrician_properties extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     generator_CheckBox.setChecked(false);
+                    order.ServiceProviderType = "Generator Electrician";
+                    order.price="2000";
+                    electricianPackage.setEnabled(true);
 
+                }else{
+                    electricianPackage.setEnabled(false);
                 }
             }
         });
@@ -58,8 +74,12 @@ public class electrician_properties extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(electrician_properties.this, booking_schedule.class);
+                order.ServiceProviderType="UPS Electrician";
+                Common.sendOrderObjectToNextActivity(intent,order);
                 startActivity(intent);
+                finish();
             }
         });
     }
+
 }

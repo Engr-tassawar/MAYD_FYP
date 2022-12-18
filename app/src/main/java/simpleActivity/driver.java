@@ -31,7 +31,7 @@ public class driver extends AppCompatActivity {
     FirebaseAuth auth;
     Order order = new Order();
     DriverClass driverClass;
-    int i=0;
+
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,7 +138,7 @@ public class driver extends AppCompatActivity {
 
                 }
 
-                order.service = driverClass;
+                order.price = driverClass.price;
                 order.ServiceProviderType="Model.DriverClass";
 
                 Intent intent = new Intent(driver.this, booking_schedule.class);

@@ -6,7 +6,6 @@ import Utils.Services;
 
 public class Order implements Serializable {
 
-    public Object service;
     public String price;
     public String date;
     public String time;
