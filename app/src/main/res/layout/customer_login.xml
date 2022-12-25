@@ -49,7 +49,7 @@
         android:id="@+id/customer_edtEmail_SignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableRight="@drawable/ic_baseline_phone_24"
+        android:drawableRight="@drawable/ic_baseline_email_24"
         android:hint="Phone Email"
         android:inputType="textEmailAddress"
          />

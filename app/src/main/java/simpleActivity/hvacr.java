@@ -32,6 +32,7 @@ public class hvacr extends AppCompatActivity {
         AcReplacement_CheckBox=findViewById(R.id.AcReplacement_CheckBox);
         Refrigerator_CheckBox=findViewById(R.id.Refrigerator_CheckBox);
         HvacrPackage=findViewById(R.id.HvacrPackage);
+        HvacrPackage.setEnabled(false);
         gasRefilling_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -39,6 +40,10 @@ public class hvacr extends AppCompatActivity {
                     AcNewInstallation_CheckBox.setChecked(false);
                     AcReplacement_CheckBox.setChecked(false);
                     Refrigerator_CheckBox.setChecked(false);
+                    HvacrPackage.setEnabled(true);
+                }
+                else{
+                    HvacrPackage.setEnabled(false);
                 }
             }
         });
@@ -49,6 +54,10 @@ public class hvacr extends AppCompatActivity {
                     gasRefilling_CheckBox.setChecked(false);
                     AcReplacement_CheckBox.setChecked(false);
                     Refrigerator_CheckBox.setChecked(false);
+                    HvacrPackage.setEnabled(true);
+                }
+                else{
+                    HvacrPackage.setEnabled(false);
                 }
             }
         });
@@ -59,6 +68,10 @@ public class hvacr extends AppCompatActivity {
                     gasRefilling_CheckBox.setChecked(false);
                     AcNewInstallation_CheckBox.setChecked(false);
                     Refrigerator_CheckBox.setChecked(false);
+                    HvacrPackage.setEnabled(true);
+                }
+                else{
+                    HvacrPackage.setEnabled(false);
                 }
             }
         });
@@ -69,6 +82,10 @@ public class hvacr extends AppCompatActivity {
                     gasRefilling_CheckBox.setChecked(false);
                     AcNewInstallation_CheckBox.setChecked(false);
                     AcReplacement_CheckBox.setChecked(false);
+                    HvacrPackage.setEnabled(true);
+                }
+                else{
+                    HvacrPackage.setEnabled(false);
                 }
             }
         });

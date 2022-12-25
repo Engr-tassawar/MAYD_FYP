@@ -3,11 +3,13 @@ package simpleActivity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,10 +21,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+
 import Model.CustomerUser;
 
 public class customer_registration extends AppCompatActivity {
-    EditText customer_edtFullName_SignUp, customer_edtPhone_SignUp, customer_edtPassword_SignUp, customer_edtEmail_SignUp;
+    EditText customer_edtFullName_SignUp,customer_edtPhone_SignUp, customer_edtPassword_SignUp, customer_edtEmail_SignUp;
     Button customer_btnSignUp;
     TextView tvAlreadyAccount;
     FirebaseAuth mAuth;
@@ -35,6 +39,7 @@ public class customer_registration extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         customer_edtFullName_SignUp = findViewById(R.id.customer_edtFullName_SignUp);
+
         customer_edtPhone_SignUp = findViewById(R.id.customer_edtPhone_SignUp);
         customer_edtPassword_SignUp = findViewById(R.id.customer_edtPassword_SignUp);
         customer_edtEmail_SignUp = findViewById(R.id.customer_edtEmail_SignUp);
@@ -82,7 +87,7 @@ public class customer_registration extends AppCompatActivity {
                     customer_edtPassword_SignUp.requestFocus();
                     return;
                 }
-                mAuth.createUserWithEmailAndPassword(customerEmail, customerPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                mAuth.createUserWithEmailAndPassword(customerEmail,customerPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {

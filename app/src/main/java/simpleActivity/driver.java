@@ -44,7 +44,9 @@ public class driver extends AppCompatActivity {
         chauffeur_CheckBox=findViewById(R.id.chauffeur_CheckBox);
         driver_cityToCity_CheckBox=findViewById(R.id.driver_cityToCity_CheckBox);
         driver_withinCity_CheckBox=findViewById(R.id.driver_withinCity_CheckBox);
-
+/*
+        driverPackage.setEnabled(false);
+*/
         tv_hireDriver_price=findViewById(R.id.tv_hireDriver_price);
         tv_chauffeur_price=findViewById(R.id.tv_chauffeur_price);
         tv_driver_cityToCity_price=findViewById(R.id.tv_driver_cityToCity_price);
@@ -75,6 +77,10 @@ public class driver extends AppCompatActivity {
                     chauffeur_CheckBox.setChecked(false);
                     driver_cityToCity_CheckBox.setChecked(false);
                     driver_withinCity_CheckBox.setChecked(false);
+                    driverPackage.setEnabled(true);
+                }
+                else{
+                    driverPackage.setEnabled(false);
                 }
             }
         });
@@ -85,6 +91,10 @@ public class driver extends AppCompatActivity {
                     hireDriver_CheckBox.setChecked(false);
                     driver_cityToCity_CheckBox.setChecked(false);
                     driver_withinCity_CheckBox.setChecked(false);
+                    driverPackage.setEnabled(true);
+                }
+                else{
+                    driverPackage.setEnabled(false);
                 }
             }
         });
@@ -95,6 +105,10 @@ public class driver extends AppCompatActivity {
                     hireDriver_CheckBox.setChecked(false);
                     chauffeur_CheckBox.setChecked(false);
                     driver_withinCity_CheckBox.setChecked(false);
+                    driverPackage.setEnabled(true);
+                }
+                else{
+                    driverPackage.setEnabled(false);
                 }
             }
         });
@@ -105,6 +119,10 @@ public class driver extends AppCompatActivity {
                     hireDriver_CheckBox.setChecked(false);
                     chauffeur_CheckBox.setChecked(false);
                     driver_cityToCity_CheckBox.setChecked(false);
+                    driverPackage.setEnabled(true);
+                }
+                else{
+                    driverPackage.setEnabled(false);
                 }
             }
         });

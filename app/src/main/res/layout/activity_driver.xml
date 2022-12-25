@@ -140,8 +140,8 @@
         />
 </LinearLayout>
 </RadioGroup>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/driverPackage"
+<Button
+    android:id="@+id/driverPackage"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="Proceed with Package"
@@ -149,6 +149,7 @@
         android:background="@drawable/round_button3"
         android:textColor="@color/white"
         android:textAllCaps="false"
+        android:enabled="false"
         android:layout_marginTop="20dp"
         />
 

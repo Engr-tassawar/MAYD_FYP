@@ -23,7 +23,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import Model.serviceProviderRecord;
 
 public class add_provider_detail extends AppCompatActivity {
-    EditText ServiceProvider_edtFirstName,ServiceProvider_edtLastName,ServiceProvider_edtCity,ServiceProvider_edtBirth;
+    EditText ServiceProvider_edtFirstName,ServiceProvider_edtLastName,ServiceProvider_edtCity;
     Button ServiceProvider_btnSave;
     FirebaseAuth firebaseAuth;
     FirebaseStorage storage;
@@ -40,7 +40,6 @@ public class add_provider_detail extends AppCompatActivity {
         ServiceProvider_edtLastName=findViewById(R.id.ServiceProvider_edtLastName);
         ServiceProvider_edtCity=findViewById(R.id.ServiceProvider_edtCity);
         ServiceProvider_btnSave=findViewById(R.id.ServiceProvider_btnSave);
-        ServiceProvider_edtBirth=findViewById(R.id.ServiceProvider_edtBirth);
 
 
 
@@ -80,11 +79,10 @@ public class add_provider_detail extends AppCompatActivity {
                     String firstName = ServiceProvider_edtFirstName.getText().toString();
                     String lastName = ServiceProvider_edtLastName.getText().toString();
                     String city = ServiceProvider_edtCity.getText().toString();
-                    String date = ServiceProvider_edtBirth.getText().toString();
                     String services = selectService_edt.getText().toString();
 
                     serviceProviderRecord serviceUser=new serviceProviderRecord(firstName,lastName
-                            ,city,services,date,"ppp");
+                            ,city,services,"ppp");
 
                     FirebaseDatabase.getInstance().getReference("ServiceProviderUsers")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(serviceUser)

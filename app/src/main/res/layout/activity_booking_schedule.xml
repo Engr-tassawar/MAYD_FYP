@@ -33,7 +33,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Booking Time(Double Tap):-"
+        android:text="Booking Time:-"
         android:layout_marginTop="50dp"
         android:layout_weight="0.2"
         />
@@ -53,7 +53,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select date(Double Tap):-"
+        android:text="Select date:-"
         android:layout_weight="0.2"
 
         />

@@ -17,12 +17,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import Model.DriverClass;
 import Model.Order;
+import Utils.Common;
 
 public class cooker extends AppCompatActivity {
     TextView tv_monthlyCook,tv_fullDay,tv_cookHelper_houseKeeping,tv_partTime;
     Button halfHourBtn_Cook;
     CheckBox monthlyCook_CheckBox,fullDay_CheckBox,cookHelper_houseKeeping_CheckBox,partTime_CheckBox;
     Button cookPackage;
+    Order order= new Order();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,12 @@ public class cooker extends AppCompatActivity {
                     fullDay_CheckBox.setChecked(false);
                     cookHelper_houseKeeping_CheckBox.setChecked(false);
                     partTime_CheckBox.setChecked(false);
+                    order.ServiceProviderType = "Regular Monthly Cook";
+                    order.price="20000";
+                    cookPackage.setEnabled(true);
+                }
+                else{
+                    cookPackage.setEnabled(false);
                 }
             }
         });
@@ -55,6 +63,12 @@ public class cooker extends AppCompatActivity {
                     monthlyCook_CheckBox.setChecked(false);
                     cookHelper_houseKeeping_CheckBox.setChecked(false);
                     partTime_CheckBox.setChecked(false);
+                    order.ServiceProviderType = "Full Day";
+                    order.price="1500";
+                    cookPackage.setEnabled(true);
+                }
+                else{
+                    cookPackage.setEnabled(false);
                 }
             }
         });
@@ -65,6 +79,12 @@ public class cooker extends AppCompatActivity {
                     monthlyCook_CheckBox.setChecked(false);
                     fullDay_CheckBox.setChecked(false);
                     partTime_CheckBox.setChecked(false);
+                    order.ServiceProviderType = "Cook helper + House keeping";
+                    order.price="30000";
+                    cookPackage.setEnabled(true);
+                }
+                else{
+                    cookPackage.setEnabled(false);
                 }
             }
         });
@@ -75,6 +95,12 @@ public class cooker extends AppCompatActivity {
                     monthlyCook_CheckBox.setChecked(false);
                     fullDay_CheckBox.setChecked(false);
                     cookHelper_houseKeeping_CheckBox.setChecked(false);
+                    order.ServiceProviderType = "Part time(2 Hrs max daily)";
+                    order.price="10500";
+                    cookPackage.setEnabled(true);
+                }
+                else{
+                    cookPackage.setEnabled(false);
                 }
             }
         });
@@ -84,6 +110,18 @@ public class cooker extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(cooker.this, booking_schedule.class);
                 startActivity(intent);
+            }
+        });
+        cookPackage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(cooker.this, booking_schedule.class);
+/*
+                order.ServiceProviderType="UPS Electrician";
+*/
+                Common.sendOrderObjectToNextActivity(intent,order);
+                startActivity(intent);
+                finish();
             }
         });
        /* cookPackage.setOnClickListener(new View.OnClickListener() {

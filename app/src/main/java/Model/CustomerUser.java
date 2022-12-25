@@ -1,14 +1,22 @@
 package Model;
 
 public class CustomerUser {
-    String customerFullName,customerEmail,customerPhone,customerPassword,customerProfile;
-public CustomerUser()
-{
+    String customerFullName;
+    String customerEmail;
+    String customerPhone;
+    String customerPassword;
 
-}
-    public CustomerUser(String customerFullName, String customerPhoneNumber, String customerEmail, String customerPassword){
-
+    public CustomerUser() {
     }
+
+    String customerProfile;
+
+   public CustomerUser(String customerFullName, String customerEmail, String customerPhoneNumber, String customerDateOfBirth, String customerPassword, String abc) {
+    }
+
+   /* public CustomerUser(String customerFullName, String customerPhoneNumber, String customerEmail, String customerPassword){
+
+    }*/
 
     public CustomerUser(String customerFullName, String customerEmail, String customerPhone, String customerPassword, String customerProfile) {
         this.customerFullName = customerFullName;

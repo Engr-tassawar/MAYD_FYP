@@ -65,13 +65,17 @@
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/ic_baseline_home_ic_24.xml" value="0.1195" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.1" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/ic_baseline_perm_identity_24.xml" value="0.1195" />
+        <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1105" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.1" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/ic_baseline_support_agent_24.xml" value="0.1" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1195" />
+        <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/login.xml" value="0.1105" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/round_button.xml" value="0.1" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/round_button2.xml" value="0.1" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/round_button3.xml" value="0.1" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/round_button4.xml" value="0.1" />
+        <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/share.xml" value="0.1105" />
+        <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/drawable/wallet.xml" value="0.1105" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout-w1240dp/activity_register_service_provider.xml" value="0.11546184738955824" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout-w936dp/activity_register_service_provider.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_add_customer_record.xml" value="0.15760869565217392" />
@@ -81,13 +85,14 @@
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_booking_details.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_booking_schedule.xml" value="0.22" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_booking_summary.xml" value="0.22" />
-        <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_cooker.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_cooker.xml" value="0.22" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_customer_login.xml" value="0.15760869565217392" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_customer_registration.xml" value="0.15760869565217392" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_customer_sign_up.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_data_register.xml" value="0.15760869565217392" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_driver.xml" value="0.22" />
-        <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_electrician_properties.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_edit_customer_profile.xml" value="0.1381340579710145" />
+        <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_electrician_properties.xml" value="0.22" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_find_users.xml" value="0.16621376811594202" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_forget_password_customer.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/activity_graphic_designer.xml" value="0.16666666666666666" />
@@ -132,9 +137,12 @@
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/fragment_call_.xml" value="0.12635869565217392" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/fragment_chat_.xml" value="0.12635869565217392" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/fragment_completed_fragment.xml" value="0.14356884057971014" />
+        <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/fragment_customer.xml" value="0.1381340579710145" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/fragment_customer_cancelled_fragment.xml" value="0.12635869565217392" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/fragment_customer_comleted_fragment.xml" value="0.12635869565217392" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/fragment_customer_on_going_fragment.xml" value="0.12635869565217392" />
+        <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/fragment_customer_profile.xml" value="0.22" />
+        <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/fragment_edit_customer_profile.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/fragment_home_fragment.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/fragment_on_going.xml" value="0.14356884057971014" />
         <entry key="..\:/Users/USER/StudioProjects/MAYD_FYP/app/src/main/res/layout/fragment_on_going_fragment.xml" value="0.1796875" />

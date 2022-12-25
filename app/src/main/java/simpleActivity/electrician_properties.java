@@ -40,8 +40,8 @@ public class electrician_properties extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     UPSCheckBox.setChecked(false);
-                    order.ServiceProviderType = "UPS Electrician";
-                    order.price="1500";
+                    order.ServiceProviderType = "Generator Installation";
+                    order.price="2000";
                     electricianPackage.setEnabled(true);
                 }else{
                     electricianPackage.setEnabled(false);
@@ -53,8 +53,8 @@ public class electrician_properties extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     generator_CheckBox.setChecked(false);
-                    order.ServiceProviderType = "Generator Electrician";
-                    order.price="2000";
+                    order.ServiceProviderType = "UPS Installation";
+                    order.price="1500";
                     electricianPackage.setEnabled(true);
 
                 }else{
@@ -74,7 +74,9 @@ public class electrician_properties extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(electrician_properties.this, booking_schedule.class);
+/*
                 order.ServiceProviderType="UPS Electrician";
+*/
                 Common.sendOrderObjectToNextActivity(intent,order);
                 startActivity(intent);
                 finish();

@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.mayd.R;
+
+import fragments.customer_profile;
 import fragments.search_fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -63,6 +65,12 @@ public class home1 extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction()
                                         .replace(R.id.myFrameLayout,new home_fragment())
                                                 .commit();
+
+                        break;
+                    case R.id.C_Profile:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.myFrameLayout,new customer_profile())
+                                .commit();
 
                         break;
                     case R.id.booking:

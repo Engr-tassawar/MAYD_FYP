@@ -97,7 +97,7 @@ public class home_fragment extends Fragment {
        /* btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+            auth.signOut();
             }
         });*/
         plumberCardView.setOnClickListener(new View.OnClickListener() {
@@ -181,19 +181,6 @@ public class home_fragment extends Fragment {
                             .into(customer_profile);
                     tvName.setText(customerUser.getCustomerFullName());
                     tvId.setText(customerUser.getCustomerPhone());
-
-
-
-                   /* String profile_photo=snapshot.getValue(String.class);
-                    Picasso.get()
-                            .load(profile_photo)
-                            .placeholder(R.drawable.profile_image_b)
-                            .into(customer_profile);*/
-
-/*
-                service_provider_number.setText(user.getFullName());
-*/
-
 
             }
 

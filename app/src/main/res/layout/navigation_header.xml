@@ -7,12 +7,13 @@
     android:background="@color/green"
     >
 
-    <ImageView
-        android:id="@+id/sideProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/profile"
-        android:scaleType="fitXY"
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="45dp"
+        android:src="@drawable/profile_image_b"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
 
         />
     <TextView
@@ -20,6 +21,7 @@
         android:layout_height="wrap_content"
         android:text="Profile"
         android:textSize="25dp"
+
         android:textColor="@color/white"
         android:textStyle="bold"
 

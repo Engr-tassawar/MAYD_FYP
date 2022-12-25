@@ -7,15 +7,7 @@ public class serviceProviderRecord {
     String lastName;
     String city;
 
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
 
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    String dateOfBirth;
 
     public serviceProviderRecord() {
     }

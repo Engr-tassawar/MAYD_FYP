@@ -12,11 +12,15 @@ import android.widget.TextView;
 
 import com.example.mayd.R;
 
+import Model.Order;
+import Utils.Common;
+
 public class graphic_designer extends AppCompatActivity {
     TextView tv_logoDesign,tv_monthlyPost;
     Button halfHourBtn_Graphic;
     CheckBox logoDesign_CheckBox,monthlyPost_CheckBox;
     Button graphicPackage;
+    Order order= new Order();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +34,18 @@ public class graphic_designer extends AppCompatActivity {
         monthlyPost_CheckBox=findViewById(R.id.monthlyPost_CheckBox);
         graphicPackage=findViewById(R.id.graphicPackage);
 
+
         logoDesign_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     monthlyPost_CheckBox.setChecked(false);
-
+                    order.ServiceProviderType = "Logo Design";
+                    order.price="1000";
+                    graphicPackage.setEnabled(true);
+                }
+                else{
+                    graphicPackage.setEnabled(false);
                 }
             }
         });
@@ -44,7 +54,12 @@ public class graphic_designer extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     logoDesign_CheckBox.setChecked(false);
-
+                    order.ServiceProviderType = "Monthly Posts Design";
+                    order.price="15000";
+                    graphicPackage.setEnabled(true);
+                }
+                else{
+                    graphicPackage.setEnabled(false);
                 }
             }
         });
@@ -59,7 +74,13 @@ public class graphic_designer extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(graphic_designer.this, booking_schedule.class);
+/*
+                order.ServiceProviderType="UPS Electrician";
+*/
+                Common.sendOrderObjectToNextActivity(intent,order);
                 startActivity(intent);
+                finish();
+
             }
         });
     }

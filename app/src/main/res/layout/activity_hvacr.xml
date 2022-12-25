@@ -153,7 +153,7 @@
             android:layout_weight="1"
             />
     </LinearLayout>
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/HvacrPackage"
         android:layout_width="match_parent"
         android:layout_height="55dp"
@@ -162,6 +162,7 @@
         android:text="Proceed with Package"
         android:layout_gravity="center"
         android:textAllCaps="false"
+        android:enabled="false"
         android:layout_marginTop="20dp"
         />
 </LinearLayout>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="160dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="20dp"
     android:layout_marginTop="5dp"
@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginLeft="15dp"
         >
     <LinearLayout
         android:layout_width="wrap_content"
@@ -22,79 +23,87 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date:"
-            android:textSize="25sp" />
+            android:textStyle="bold"
+            android:textSize="15sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Service:"
-            android:textSize="25sp" />
+            android:textStyle="bold"
+            android:textSize="15sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contact:"
-            android:textSize="25sp" />
+            android:textStyle="bold"
+            android:textSize="15sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Time:"
-            android:textSize="25sp" />
+            android:textStyle="bold"
+            android:textSize="15sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Provider Name:"
-            android:textSize="25sp" />
+            android:textStyle="bold"
+            android:textSize="15sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Address:"
-            android:textSize="25sp" />
+            android:textStyle="bold"
+            android:textSize="15sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginLeft="15dp"
         >
         <TextView
             android:id="@+id/pending_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date:"
-            android:textSize="25sp" />
+
+            android:textSize="15sp" />
         <TextView
             android:id="@+id/pending_service"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Service:"
-            android:textSize="25sp" />
+            android:textSize="15sp" />
         <TextView
             android:id="@+id/pending_contact"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contact:"
-            android:textSize="25sp" />
+            android:textSize="15sp" />
         <TextView
             android:id="@+id/pending_time"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Time:"
-            android:textSize="25sp" />
+            android:textSize="15sp" />
         <TextView
             android:id="@+id/pending_providerName"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Provider Name:"
-            android:textSize="25sp" />
+            android:textSize="15sp" />
         <TextView
             android:id="@+id/pending_address"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Address:"
-            android:textSize="25sp" />
+            android:textSize="15sp" />
     </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
