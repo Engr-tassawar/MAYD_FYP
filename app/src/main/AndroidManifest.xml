@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAYD">
         <activity
+            android:name=".baby_care"
+            android:exported="false" />
+        <activity
             android:name=".editCustomerProfile"
             android:exported="false" />
         <activity

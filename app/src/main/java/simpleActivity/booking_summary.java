@@ -24,7 +24,7 @@ import Utils.DbUtil;
 
 public class booking_summary extends AppCompatActivity {
     Button btn_confirmBookSummary;
-    TextView bookingSummaryService, bookingSummaryPrice, bookingSummaryLocation, bookingSummaryTime, bookingSummaryServiceProviderName;
+    TextView bookingSummaryService, bookingSummaryPrice, bookingSummaryDateTV,bookingSummaryLocation, bookingSummaryTime, bookingSummaryServiceProviderName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class booking_summary extends AppCompatActivity {
         Order order = (Order) intent.getExtras().getSerializable("orderObject");
 
         btn_confirmBookSummary = findViewById(R.id.btn_confirmBookSummary);
+        bookingSummaryDateTV = findViewById(R.id.bookingSummaryDateTV);
         bookingSummaryService = findViewById(R.id.bookingSummaryService);
         bookingSummaryPrice = findViewById(R.id.bookingSummaryPrice);
         bookingSummaryLocation = findViewById(R.id.bookingSummaryLocation);
@@ -43,6 +44,7 @@ public class booking_summary extends AppCompatActivity {
 
         bookingSummaryService.setText(order.ServiceProviderType);
         bookingSummaryPrice.setText(order.price);
+        bookingSummaryDateTV.setText(order.date);
         bookingSummaryLocation.setText(order.address);
         bookingSummaryTime.setText(order.time);
         bookingSummaryServiceProviderName.setText(order.ServiceProviderName);

@@ -12,11 +12,16 @@ import android.widget.TextView;
 
 import com.example.mayd.R;
 
+import Model.Order;
+import Utils.Common;
+
 public class hvacr extends AppCompatActivity {
     TextView tv_gasRefilling,tv_AcNewInstallation,tv_AcReplacement,tv_Refrigerator;
     Button halfHourBtn_Hvacr;
     CheckBox gasRefilling_CheckBox,AcNewInstallation_CheckBox,AcReplacement_CheckBox,Refrigerator_CheckBox;
     Button HvacrPackage;
+    Order order= new Order();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,8 @@ public class hvacr extends AppCompatActivity {
                     AcNewInstallation_CheckBox.setChecked(false);
                     AcReplacement_CheckBox.setChecked(false);
                     Refrigerator_CheckBox.setChecked(false);
+                    order.ServiceProviderType = "AC Gas Refilling";
+                    order.price="3000";
                     HvacrPackage.setEnabled(true);
                 }
                 else{
@@ -54,6 +61,8 @@ public class hvacr extends AppCompatActivity {
                     gasRefilling_CheckBox.setChecked(false);
                     AcReplacement_CheckBox.setChecked(false);
                     Refrigerator_CheckBox.setChecked(false);
+                    order.ServiceProviderType = "AC New Installation";
+                    order.price="2500";
                     HvacrPackage.setEnabled(true);
                 }
                 else{
@@ -68,6 +77,8 @@ public class hvacr extends AppCompatActivity {
                     gasRefilling_CheckBox.setChecked(false);
                     AcNewInstallation_CheckBox.setChecked(false);
                     Refrigerator_CheckBox.setChecked(false);
+                    order.ServiceProviderType = "AC Replacement Charges";
+                    order.price="2000";
                     HvacrPackage.setEnabled(true);
                 }
                 else{
@@ -82,6 +93,8 @@ public class hvacr extends AppCompatActivity {
                     gasRefilling_CheckBox.setChecked(false);
                     AcNewInstallation_CheckBox.setChecked(false);
                     AcReplacement_CheckBox.setChecked(false);
+                    order.ServiceProviderType = "Refrigerator Repair and Gas filling";
+                    order.price="3500";
                     HvacrPackage.setEnabled(true);
                 }
                 else{
@@ -100,7 +113,13 @@ public class hvacr extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(hvacr.this, booking_schedule.class);
+/*
+                order.ServiceProviderType="UPS Electrician";
+*/
+                Common.sendOrderObjectToNextActivity(intent,order);
                 startActivity(intent);
+                finish();
+
             }
         });
     }

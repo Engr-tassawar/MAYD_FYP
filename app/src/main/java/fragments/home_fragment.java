@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mayd.R;
+import com.example.mayd.baby_care;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -48,7 +49,7 @@ public class home_fragment extends Fragment {
     /*ImageView customer_profile,add_customer_image;*/
     ImageView imgElectric,imgPlum,imgGraphic,imgAc,imgCook,imgDrive;
     TextView tvElectric,tvPlum,tvGraphic,tvAc,tvCook,tvDrive,tvName,tvId;
-    CardView driverCardView,plumberCardView,electricianCardView,houseKeepingCardView,graphicCardView,Ac_CardView,painterCardView,cookCardView;
+    CardView driverCardView,plumberCardView,electricianCardView,houseKeepingCardView,graphicCardView,Ac_CardView,painterCardView,cookCardView,babyCareCardView;
     ActivityResultLauncher<String> launcher;
     FirebaseAuth auth;
     FirebaseStorage storage;
@@ -94,6 +95,7 @@ public class home_fragment extends Fragment {
         electricianCardView=getView().findViewById(R.id.electricianCardView);
         graphicCardView=getView().findViewById(R.id.graphicCardView);
         plumberCardView=getView().findViewById(R.id.plumberCardView);
+        babyCareCardView=getView().findViewById(R.id.babyCareCardView);
        /* btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -158,6 +160,14 @@ public class home_fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), driver.class);
+                startActivity(intent);
+
+            }
+        });
+        babyCareCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), baby_care.class);
                 startActivity(intent);
 
             }

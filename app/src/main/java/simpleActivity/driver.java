@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import Model.DriverClass;
 import Model.DriverOption;
 import Model.Order;
+import Utils.Common;
 
 public class driver extends AppCompatActivity {
 
@@ -77,6 +78,8 @@ public class driver extends AppCompatActivity {
                     chauffeur_CheckBox.setChecked(false);
                     driver_cityToCity_CheckBox.setChecked(false);
                     driver_withinCity_CheckBox.setChecked(false);
+                    order.ServiceProviderType = "Hire Driver 3-4 hours daily";
+                    order.price="15000";
                     driverPackage.setEnabled(true);
                 }
                 else{
@@ -91,6 +94,8 @@ public class driver extends AppCompatActivity {
                     hireDriver_CheckBox.setChecked(false);
                     driver_cityToCity_CheckBox.setChecked(false);
                     driver_withinCity_CheckBox.setChecked(false);
+                    order.ServiceProviderType = "Chauffeur(24/7)";
+                    order.price="35000";
                     driverPackage.setEnabled(true);
                 }
                 else{
@@ -105,6 +110,8 @@ public class driver extends AppCompatActivity {
                     hireDriver_CheckBox.setChecked(false);
                     chauffeur_CheckBox.setChecked(false);
                     driver_withinCity_CheckBox.setChecked(false);
+                    order.ServiceProviderType = "Hire a Driver for 24/7";
+                    order.price="2000";
                     driverPackage.setEnabled(true);
                 }
                 else{
@@ -119,6 +126,8 @@ public class driver extends AppCompatActivity {
                     hireDriver_CheckBox.setChecked(false);
                     chauffeur_CheckBox.setChecked(false);
                     driver_cityToCity_CheckBox.setChecked(false);
+                    order.ServiceProviderType = "Day Driver(within City)";
+                    order.price="1500";
                     driverPackage.setEnabled(true);
                 }
                 else{
@@ -129,13 +138,25 @@ public class driver extends AppCompatActivity {
         driverPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(driver.this, booking_schedule.class);
+/*
+                order.ServiceProviderType="UPS Electrician";
+*/
+                Common.sendOrderObjectToNextActivity(intent,order);
+                startActivity(intent);
+                finish();
+            }
+        });
+   /*     driverPackage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
                 if (hireDriver_CheckBox.isChecked())
                 {
                     driverClass.price=DriverOption.hireDriver_price;
                     driverClass.driverType= DriverOption.hireDriver;
-                   /* Toast.makeText(driver.this,
-                            "Driver type is"+DriverOption.hireDriver, Toast.LENGTH_SHORT).show();*/
+                   *//* Toast.makeText(driver.this,
+                            "Driver type is"+DriverOption.hireDriver, Toast.LENGTH_SHORT).show();*//*
                 }
                 if (chauffeur_CheckBox.isChecked())
                 {
@@ -163,8 +184,12 @@ public class driver extends AppCompatActivity {
                 intent.putExtra("orderObject", order);
                 startActivity(intent);
                 finish();
+                Intent intent = new Intent(driver.this, booking_schedule.class);
+                Common.sendOrderObjectToNextActivity(intent,order);
+                startActivity(intent);
+                finish();
             }
-        });
+        });*/
 
     }
 }
