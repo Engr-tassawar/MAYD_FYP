@@ -12,10 +12,10 @@ import android.widget.CompoundButton;
 import com.example.mayd.R;
 
 import Model.Order;
+import Model.ServiceTypes;
 import Utils.Common;
 
 public class plumber_properties extends AppCompatActivity {
-    Button halfHourBtn_Plumber;
     CheckBox bathroomCheckBox,gasLineIronCheckBox,gasLinePlasticCheckBox,drainOpenerCheckBox;
     Button plumberPackage;
     Order order= new Order();
@@ -24,12 +24,14 @@ public class plumber_properties extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plumber_properties);
-        halfHourBtn_Plumber=findViewById(R.id.halfHourBtn_Plumber);
         bathroomCheckBox=findViewById(R.id.bathroomCheckBox);
         gasLineIronCheckBox=findViewById(R.id.gasLineIronCheckBox);
         gasLinePlasticCheckBox=findViewById(R.id.gasLinePlasticCheckbox);
         drainOpenerCheckBox=findViewById(R.id.drainOpenerCheckBox);
         plumberPackage=findViewById(R.id.plumberPackage);
+
+        order.ServiceProviderType = ServiceTypes.Plumber;
+
         bathroomCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -37,7 +39,7 @@ public class plumber_properties extends AppCompatActivity {
                     gasLineIronCheckBox.setChecked(false);
                     gasLinePlasticCheckBox.setChecked(false);
                     drainOpenerCheckBox.setChecked(false);
-                    order.ServiceProviderType = "Bathroom Fitting";
+                    order.description = "Bathroom Fitting";
                     order.price="8000";
                     plumberPackage.setEnabled(true);
                 }
@@ -53,7 +55,8 @@ public class plumber_properties extends AppCompatActivity {
                     bathroomCheckBox.setChecked(false);
                     gasLinePlasticCheckBox.setChecked(false);
                     drainOpenerCheckBox.setChecked(false);
-                    order.ServiceProviderType = "Gas LIne Service(iron)";
+                    order.description
+ = "Gas LIne Service(iron)";
                     order.price="6300";
                     plumberPackage.setEnabled(true);
                 }
@@ -69,7 +72,8 @@ public class plumber_properties extends AppCompatActivity {
                     bathroomCheckBox.setChecked(false);
                     gasLineIronCheckBox.setChecked(false);
                     drainOpenerCheckBox.setChecked(false);
-                    order.ServiceProviderType = "Gas LIne Service(plastic)";
+                    order.description
+ = "Gas LIne Service(plastic)";
                     order.price="4000";
                     plumberPackage.setEnabled(true);
                 }
@@ -85,7 +89,8 @@ public class plumber_properties extends AppCompatActivity {
                     bathroomCheckBox.setChecked(false);
                     gasLineIronCheckBox.setChecked(false);
                     gasLinePlasticCheckBox.setChecked(false);
-                    order.ServiceProviderType = "Drain Opener and Repair";
+                    order.description
+ = "Drain Opener and Repair";
                     order.price="2000";
                     plumberPackage.setEnabled(true);
                 }
@@ -94,21 +99,12 @@ public class plumber_properties extends AppCompatActivity {
                 }
             }
         });
-        halfHourBtn_Plumber.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(plumber_properties.this, booking_schedule.class);
-                startActivity(intent);
-            }
-        });
+
         plumberPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(plumber_properties.this, booking_schedule.class);
-/*
-                order.ServiceProviderType="UPS Electrician";
-*/
-                Common.sendOrderObjectToNextActivity(intent,order);
+             Common.sendOrderObjectToNextActivity(intent,order);
                 startActivity(intent);
                 finish();
 

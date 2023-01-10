@@ -30,4 +30,10 @@ public class Common {
         return mOrder;
     }
 
+    public static enum OrderStatus{
+        OnGoing,
+        Cancelled,
+        Completed
+    }
+
 }

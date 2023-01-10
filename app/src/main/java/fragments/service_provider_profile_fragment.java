@@ -81,14 +81,16 @@ FirebaseDatabase database;
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                finish();
-
+                try{
+                    requireActivity().finish();
+                }catch(Exception e){}
             }
 
-            private void finish() {
 
-            }
         });
+
+
+
         database.getReference().child("ServiceProviderUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

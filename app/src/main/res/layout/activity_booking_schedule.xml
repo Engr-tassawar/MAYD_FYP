@@ -33,7 +33,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Booking Time:-"
+        android:text="Booking Time:"
         android:layout_marginTop="50dp"
         android:layout_weight="0.2"
         />
@@ -53,7 +53,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select date:-"
+        android:text="Select Date:"
         android:layout_weight="0.2"
 
         />
@@ -76,7 +76,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Address:-"
+        android:text="Enter Address:"
         android:layout_weight="0.2"
         />
     <com.google.android.material.textfield.TextInputLayout
@@ -94,7 +94,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description:-"
+        android:text="Description:"
         android:layout_weight="0.2"
 
         />
@@ -107,7 +107,7 @@
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:id="@+id/edtDescription"
             />
     </com.google.android.material.textfield.TextInputLayout>

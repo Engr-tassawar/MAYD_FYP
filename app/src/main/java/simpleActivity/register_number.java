@@ -29,6 +29,7 @@ public class register_number extends AppCompatActivity {
         setContentView(R.layout.activity_register_number);
         mAuth=FirebaseAuth.getInstance();
 
+
         /*String _fullName=getIntent().getStringExtra("fullName");
         String _city=getIntent().getStringExtra("city");
         String _phoneNumber=getIntent().getStringExtra("phoneNumber");*/
@@ -39,6 +40,9 @@ public class register_number extends AppCompatActivity {
         putNumberEdt=findViewById(R.id.putNumberEdt);
         ServiceProvider_getOtp=findViewById(R.id.ServiceProvider_getOtp);
         ccp.registerCarrierNumberEditText(putNumberEdt);
+        ccp.setDefaultCountryUsingNameCode("PK");
+        ccp.resetToDefaultCountry();
+
 
         tvRegister_serviceProvider.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,13 +66,16 @@ public class register_number extends AppCompatActivity {
                 {
                     Toast.makeText(register_number.this,
                             "Please enter your mobile number",Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(register_number.this, manage_otp.class);
+                    intent.putExtra("mobile", ccp.getFullNumberWithPlus().replace("", ""));
+                   /* intent.putExtra("fullName",_fullName);
+                    intent.putExtra("city",_city);
+                    intent.putExtra("phoneNumber",_phoneNumber);*/
+                    startActivity(intent);
+
                 }
-                Intent intent = new Intent(register_number.this, manage_otp.class);
-                intent.putExtra("mobile",ccp.getFullNumberWithPlus().replace("",""));
-               /* intent.putExtra("fullName",_fullName);
-                intent.putExtra("city",_city);
-                intent.putExtra("phoneNumber",_phoneNumber);*/
-                startActivity(intent);
+
             }
         });
     }

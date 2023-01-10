@@ -31,13 +31,6 @@ public class AdapterServiceUsers extends RecyclerView.Adapter<AdapterServiceUser
         this.itemClickListener = listener;
     }
 
-
-
-    /*public static void setFilteredItem(List<serviceProviderRecord> filteredItem)
-    {
-        this.list=filteredItem;
-        notifyDataSetChanged();
-    }*/
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

@@ -43,7 +43,6 @@ public class manage_otp extends AppCompatActivity {
         /*_city = getIntent().getStringExtra("city".toString());
         _fullName = getIntent().getStringExtra("fullName".toString());*/
 
-
         mAuth=FirebaseAuth.getInstance();
         initiateotp();
         ServiceProvider_putOtp_btn.setOnClickListener(new View.OnClickListener() {

@@ -12,6 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAYD">
         <activity
+            android:name=".ServiceProviderOrderStatus"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".baby_care"
             android:exported="false" />
         <activity
@@ -25,7 +32,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="simpleActivity.add_provider_detail"
+            android:name=".add_provider_detail"
             android:exported="false" />
         <activity
             android:name=".register_service_provider_number"
@@ -37,76 +44,76 @@
             android:label="@string/title_activity_register_service_provider" /
         -->
         <activity
-            android:name="simpleActivity.manage_otp"
+            android:name=".manage_otp"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.register_number"
+            android:name=".register_number"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.service_provider_home"
+            android:name=".service_provider_home"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.driver"
+            android:name=".driver"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.house_keeping"
+            android:name=".house_keeping"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.selectService_for_ServiceProvider"
+            android:name=".selectService_for_ServiceProvider"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.booking_details"
+            android:name=".booking_details"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.painter"
+            android:name=".painter"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.cooker"
+            android:name=".cooker"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.booking_summary"
+            android:name=".booking_summary"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.hvacr"
+            android:name=".hvacr"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.booking_schedule"
+            android:name=".booking_schedule"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.graphic_designer"
+            android:name=".graphic_designer"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.electrician_properties"
+            android:name=".electrician_properties"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.book_your_service"
+            android:name=".book_your_service"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.plumber_properties"
+            android:name=".plumber_properties"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.Forget_password_customer"
+            android:name=".Forget_password_customer"
             android:exported="false" />
         <activity
             android:name=".sign_in_ForCustomer"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.customer_login"
+            android:name=".customer_login"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.customer_registration"
+            android:name=".customer_registration"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.select_preference"
+            android:name=".select_preference"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.customerSignUp"
+            android:name=".customerSignUp"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.home1"
+            android:name=".home1"
             android:exported="true" />
         <activity
-            android:name="simpleActivity.splash_screen"
+            android:name=".splash_screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

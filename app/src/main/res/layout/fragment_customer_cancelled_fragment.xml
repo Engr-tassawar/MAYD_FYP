@@ -5,13 +5,20 @@
     android:layout_height="match_parent"
     tools:context="fragments.customer_cancelled_fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/customerCancelledOrders_refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="Cancelled"
-        android:textSize="35sp"
-        android:gravity="center"
-        android:textStyle="bold"/>
+        android:layout_marginTop="10dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/customerCancelledOrders_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </FrameLayout>

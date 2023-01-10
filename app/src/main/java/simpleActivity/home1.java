@@ -2,21 +2,27 @@ package simpleActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mayd.R;
 
 import Model.CustomerUser;
+import Utils.DbUtil;
 import fragments.customer_profile;
 import fragments.search_fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -86,6 +92,8 @@ public class home1 extends AppCompatActivity {
 
             }
         });*/
+
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -131,9 +139,6 @@ public class home1 extends AppCompatActivity {
             }
         });
 
-
-
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -141,44 +146,38 @@ public class home1 extends AppCompatActivity {
                 if(item.getItemId()==R.id.home_icon)
                 {
                     getSupportFragmentManager().beginTransaction().replace(R.id.myFrameLayout,new home_fragment()).commit();
+                    return true;
                 }
                 else if(item.getItemId()==R.id.support_icon){
                     getSupportFragmentManager().beginTransaction().replace(R.id.myFrameLayout,new support_fragment()).commit();
+                    return true;
 
                 }
                 else if(item.getItemId()==R.id.booking_icon){
                     getSupportFragmentManager().beginTransaction().replace(R.id.myFrameLayout,new booking_fragment()).commit();
+                    return true;
 
                 }
-                /*else if(item.getItemId()==R.id.Users_icon){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.myFrameLayout,new search_fragment()).commit();
-
-                }*/
-
-
-               /* switch (item.getItemId())
-                {
-                    case R.id.home_icon:
-                }*/
                 return false;
             }
         });
     }
 
-   /* @Override
+    @Override
     public void onBackPressed() {
-      new AlertDialog.Builder(this)
-              .setIcon(R.drawable.ic_baseline_warning_24)
-              .setTitle("Exit")
-              .setMessage(("Are you sure to want exit?"))
-              .setCancelable(false)
-              .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                  @Override
-                  public void onClick(DialogInterface dialogInterface, int i) {
-                      finish();
-                  }
-              })
-              .setNegativeButton("No",null)
-        .show();
-    }*/
+        new AlertDialog.Builder(home1.this)
+                .setTitle("Exit")
+                .setMessage(("Are you sure to want exit?"))
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finishAffinity();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+
+
 }

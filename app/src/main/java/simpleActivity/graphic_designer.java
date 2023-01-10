@@ -13,11 +13,11 @@ import android.widget.TextView;
 import com.example.mayd.R;
 
 import Model.Order;
+import Model.ServiceTypes;
 import Utils.Common;
 
 public class graphic_designer extends AppCompatActivity {
     TextView tv_logoDesign,tv_monthlyPost;
-    Button halfHourBtn_Graphic;
     CheckBox logoDesign_CheckBox,monthlyPost_CheckBox;
     Button graphicPackage;
     Order order= new Order();
@@ -27,20 +27,20 @@ public class graphic_designer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graphic_designer);
 
-        halfHourBtn_Graphic=findViewById(R.id.halfHourBtn_Graphic);
         tv_logoDesign=findViewById(R.id.tv_logoDesign);
         tv_monthlyPost=findViewById(R.id.tv_monthlyPost);
         logoDesign_CheckBox=findViewById(R.id.logoDesign_CheckBox);
         monthlyPost_CheckBox=findViewById(R.id.monthlyPost_CheckBox);
         graphicPackage=findViewById(R.id.graphicPackage);
 
+        order.ServiceProviderType = ServiceTypes.Graphics;
 
         logoDesign_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     monthlyPost_CheckBox.setChecked(false);
-                    order.ServiceProviderType = "Logo Design";
+                    order.ServiceDescription = "Logo Design";
                     order.price="1000";
                     graphicPackage.setEnabled(true);
                 }
@@ -54,7 +54,8 @@ public class graphic_designer extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     logoDesign_CheckBox.setChecked(false);
-                    order.ServiceProviderType = "Monthly Posts Design";
+                    order.ServiceDescription
+ = "Monthly Posts Design";
                     order.price="15000";
                     graphicPackage.setEnabled(true);
                 }
@@ -63,20 +64,12 @@ public class graphic_designer extends AppCompatActivity {
                 }
             }
         });
-        halfHourBtn_Graphic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(graphic_designer.this, booking_schedule.class);
-                startActivity(intent);
-            }
-        });
+
         graphicPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(graphic_designer.this, booking_schedule.class);
-/*
-                order.ServiceProviderType="UPS Electrician";
-*/
+
                 Common.sendOrderObjectToNextActivity(intent,order);
                 startActivity(intent);
                 finish();

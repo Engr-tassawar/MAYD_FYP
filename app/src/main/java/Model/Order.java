@@ -2,6 +2,7 @@ package Model;
 
 import java.io.Serializable;
 
+import Utils.Common;
 import Utils.Services;
 
 public class Order implements Serializable {
@@ -15,4 +16,9 @@ public class Order implements Serializable {
     public String ServiceProviderId;
     public String ServiceProviderName;
     public String ServiceProviderType;
+    public String ServiceDescription;
+    public String status = String.valueOf(Common.OrderStatus.OnGoing);
+
+    public transient String Uid ;
+
 }

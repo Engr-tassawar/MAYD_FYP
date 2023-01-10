@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,16 +14,30 @@ import com.example.mayd.R;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 import Model.Order;
+import Model.serviceProviderRecord;
 
 public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.viewHolder>{
     ArrayList<Order> list;
     Context context;
+    PendingAdapter.ItemClickListener itemClickListener;
+
+    public PendingAdapter(ArrayList<Order> list, Context context,PendingAdapter.ItemClickListener listener) {
+        this.list = list;
+        this.context = context;
+        this.itemClickListener = listener;
+
+    }
 
     public PendingAdapter(ArrayList<Order> list, Context context) {
         this.list = list;
         this.context = context;
+    }
+
+    public void clear(){
+        list = new ArrayList<>();
     }
 
     @NonNull
@@ -40,11 +55,27 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.viewHold
      holder.pending_time.setText(order.time);
      holder.pending_providerName.setText(order.ServiceProviderName);
      holder.pending_address.setText(order.address);
+
+     try{
+         if(itemClickListener != null){
+             holder.itemView.setOnClickListener(view ->{
+                 itemClickListener.onItemClick(order);
+             });
+         }
+     }catch(Exception e){
+
+         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+     }
+
     }
 
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public interface ItemClickListener{
+        void onItemClick(Object data);
     }
 
     public class viewHolder extends RecyclerView.ViewHolder {

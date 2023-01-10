@@ -43,7 +43,9 @@ android:id="@+id/drawerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            app:menu="@menu/navigations_items" />
+            app:menu="@menu/navigations_items"
+
+            />
 
         <!--<androidx.appcompat.widget.Toolbar
 

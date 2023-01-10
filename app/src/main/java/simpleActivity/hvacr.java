@@ -13,11 +13,11 @@ import android.widget.TextView;
 import com.example.mayd.R;
 
 import Model.Order;
+import Model.ServiceTypes;
 import Utils.Common;
 
 public class hvacr extends AppCompatActivity {
     TextView tv_gasRefilling,tv_AcNewInstallation,tv_AcReplacement,tv_Refrigerator;
-    Button halfHourBtn_Hvacr;
     CheckBox gasRefilling_CheckBox,AcNewInstallation_CheckBox,AcReplacement_CheckBox,Refrigerator_CheckBox;
     Button HvacrPackage;
     Order order= new Order();
@@ -31,13 +31,16 @@ public class hvacr extends AppCompatActivity {
         tv_AcNewInstallation=findViewById(R.id.tv_AcNewInstallation);
         tv_AcReplacement=findViewById(R.id.tv_AcReplacement);
         tv_Refrigerator=findViewById(R.id.tv_Refrigerator);
-        halfHourBtn_Hvacr=findViewById(R.id.halfHourBtn_Hvacr);
         gasRefilling_CheckBox=findViewById(R.id.gasRefilling_CheckBox);
         AcNewInstallation_CheckBox=findViewById(R.id.AcNewInstallation_CheckBox);
         AcReplacement_CheckBox=findViewById(R.id.AcReplacement_CheckBox);
         Refrigerator_CheckBox=findViewById(R.id.Refrigerator_CheckBox);
         HvacrPackage=findViewById(R.id.HvacrPackage);
         HvacrPackage.setEnabled(false);
+
+        order.ServiceProviderType = ServiceTypes.HVAC;
+
+
         gasRefilling_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -45,7 +48,7 @@ public class hvacr extends AppCompatActivity {
                     AcNewInstallation_CheckBox.setChecked(false);
                     AcReplacement_CheckBox.setChecked(false);
                     Refrigerator_CheckBox.setChecked(false);
-                    order.ServiceProviderType = "AC Gas Refilling";
+                    order.ServiceDescription = "AC Gas Refilling";
                     order.price="3000";
                     HvacrPackage.setEnabled(true);
                 }
@@ -61,7 +64,7 @@ public class hvacr extends AppCompatActivity {
                     gasRefilling_CheckBox.setChecked(false);
                     AcReplacement_CheckBox.setChecked(false);
                     Refrigerator_CheckBox.setChecked(false);
-                    order.ServiceProviderType = "AC New Installation";
+                    order.ServiceDescription = "AC New Installation";
                     order.price="2500";
                     HvacrPackage.setEnabled(true);
                 }
@@ -77,7 +80,7 @@ public class hvacr extends AppCompatActivity {
                     gasRefilling_CheckBox.setChecked(false);
                     AcNewInstallation_CheckBox.setChecked(false);
                     Refrigerator_CheckBox.setChecked(false);
-                    order.ServiceProviderType = "AC Replacement Charges";
+                    order.ServiceDescription = "AC Replacement Charges";
                     order.price="2000";
                     HvacrPackage.setEnabled(true);
                 }
@@ -93,7 +96,7 @@ public class hvacr extends AppCompatActivity {
                     gasRefilling_CheckBox.setChecked(false);
                     AcNewInstallation_CheckBox.setChecked(false);
                     AcReplacement_CheckBox.setChecked(false);
-                    order.ServiceProviderType = "Refrigerator Repair and Gas filling";
+                    order.ServiceDescription = "Refrigerator Repair and Gas filling";
                     order.price="3500";
                     HvacrPackage.setEnabled(true);
                 }
@@ -102,20 +105,12 @@ public class hvacr extends AppCompatActivity {
                 }
             }
         });
-        halfHourBtn_Hvacr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(hvacr.this, booking_schedule.class);
-                startActivity(intent);
-            }
-        });
+
         HvacrPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(hvacr.this, booking_schedule.class);
-/*
-                order.ServiceProviderType="UPS Electrician";
-*/
+
                 Common.sendOrderObjectToNextActivity(intent,order);
                 startActivity(intent);
                 finish();

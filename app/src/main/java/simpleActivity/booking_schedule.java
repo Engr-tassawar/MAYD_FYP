@@ -120,7 +120,7 @@ public class booking_schedule extends AppCompatActivity {
                     public void onTimeSet(TimePicker timePicker, int selectHour, int selectMinute) {
                         Hour = selectHour;
                         Minute = selectMinute;
-                        edtSelectTime.setText(String.format(Locale.getDefault(), "%02d:%2d", Hour, Minute));
+                        edtSelectTime.setText(String.format(Locale.getDefault(), "%02d:%02d", Hour, Minute));
 
                     }
 

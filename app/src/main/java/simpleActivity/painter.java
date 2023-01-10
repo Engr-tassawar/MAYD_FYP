@@ -13,12 +13,13 @@ import android.widget.TextView;
 import com.example.mayd.R;
 
 import Model.Order;
+import Model.ServiceTypes;
 import Utils.Common;
 
 public class painter extends AppCompatActivity {
     TextView tv_painterPerDay;
-    Button halfHourBtn_Painter;
     CheckBox painterPerDay_CheckBox;
+    CheckBox painterPerMonth_CheckBox;
     Button painterPackage;
     Order order= new Order();
     @Override
@@ -26,14 +27,16 @@ public class painter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_painter);
         tv_painterPerDay=findViewById(R.id.tv_painterPerDay);
-        halfHourBtn_Painter=findViewById(R.id.halfHourBtn_Painter);
         painterPerDay_CheckBox=findViewById(R.id.painterPerDay_CheckBox);
+        painterPerMonth_CheckBox=findViewById(R.id.painterPerMonth_CheckBox);
         painterPackage=findViewById(R.id.painterPackage);
+        order.ServiceDescription = ServiceTypes.Painter;
+
         painterPerDay_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
-                    order.ServiceProviderType = "Painter Per Day Charges";
+                    order.ServiceDescription = "Painter Per Day Charges (Sketch etc.)";
                     order.price="2000";
                     painterPackage.setEnabled(true);
                 }
@@ -42,20 +45,25 @@ public class painter extends AppCompatActivity {
                 }
             }
         });
-        halfHourBtn_Painter.setOnClickListener(new View.OnClickListener() {
+
+        painterPerMonth_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(painter.this, booking_schedule.class);
-                startActivity(intent);
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    order.ServiceDescription = "Painting Home Tuition (Monthly)";
+                    order.price="25000";
+                    painterPackage.setEnabled(true);
+                }
+                else{
+                    painterPackage.setEnabled(false);
+                }
             }
         });
+
         painterPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(painter.this, booking_schedule.class);
-/*
-                order.ServiceProviderType="UPS Electrician";
-*/
                 Common.sendOrderObjectToNextActivity(intent,order);
                 startActivity(intent);
                 finish();

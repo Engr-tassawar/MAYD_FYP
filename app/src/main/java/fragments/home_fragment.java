@@ -102,60 +102,7 @@ public class home_fragment extends Fragment {
             auth.signOut();
             }
         });*/
-        plumberCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), plumber_properties.class);
-                startActivity(intent);
 
-            }
-        });
-        electricianCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), electrician_properties.class);
-                startActivity(intent);
-            }
-        });
-        graphicCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), graphic_designer.class);
-                startActivity(intent);
-            }
-        });
-        Ac_CardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), hvacr.class);
-                startActivity(intent);
-
-            }
-        });
-        cookCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), cooker.class);
-                startActivity(intent);
-
-            }
-        });
-        painterCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), painter.class);
-                startActivity(intent);
-
-            }
-        });
-        houseKeepingCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), house_keeping.class);
-                startActivity(intent);
-
-            }
-        });
         driverCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -164,6 +111,68 @@ public class home_fragment extends Fragment {
 
             }
         });
+
+        Ac_CardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), hvacr.class);
+                startActivity(intent);
+
+            }
+        });
+
+        plumberCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), plumber_properties.class);
+                startActivity(intent);
+
+            }
+        });
+
+        graphicCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), graphic_designer.class);
+                startActivity(intent);
+            }
+        });
+
+        cookCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), cooker.class);
+                startActivity(intent);
+
+            }
+        });
+
+        electricianCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), electrician_properties.class);
+                startActivity(intent);
+            }
+        });
+
+        painterCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), painter.class);
+                startActivity(intent);
+
+            }
+        });
+
+        houseKeepingCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), house_keeping.class);
+                startActivity(intent);
+
+            }
+        });
+
         babyCareCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

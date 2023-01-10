@@ -5,12 +5,20 @@
     android:layout_height="match_parent"
     tools:context="fragments.customer_completed_fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/customerCompletedOrders_refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="Completed"
-        android:textSize="35sp"
-        android:gravity="center"
-        android:textStyle="bold"/>
+        android:layout_marginTop="10dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/customerCompletedOrders_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 </FrameLayout>

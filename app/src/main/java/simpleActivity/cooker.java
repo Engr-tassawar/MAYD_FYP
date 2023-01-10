@@ -17,11 +17,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import Model.DriverClass;
 import Model.Order;
+import Model.ServiceTypes;
 import Utils.Common;
+import Utils.Services;
 
 public class cooker extends AppCompatActivity {
     TextView tv_monthlyCook,tv_fullDay,tv_cookHelper_houseKeeping,tv_partTime;
-    Button halfHourBtn_Cook;
     CheckBox monthlyCook_CheckBox,fullDay_CheckBox,cookHelper_houseKeeping_CheckBox,partTime_CheckBox;
     Button cookPackage;
     Order order= new Order();
@@ -30,7 +31,6 @@ public class cooker extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cooker);
-        halfHourBtn_Cook=findViewById(R.id.halfHourBtn_Cook);
         monthlyCook_CheckBox=findViewById(R.id.monthlyCook_CheckBox);
         fullDay_CheckBox=findViewById(R.id.fullDay_CheckBox);
         cookHelper_houseKeeping_CheckBox=findViewById(R.id.cookHelper_houseKeeping_CheckBox);
@@ -40,6 +40,9 @@ public class cooker extends AppCompatActivity {
         tv_fullDay=findViewById(R.id.tv_fullDay);
         tv_cookHelper_houseKeeping=findViewById(R.id.tv_cookHelper_houseKeeping);
         tv_partTime=findViewById(R.id.tv_partTime);
+
+        order.ServiceProviderType = ServiceTypes.Cook;
+
         monthlyCook_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -47,7 +50,7 @@ public class cooker extends AppCompatActivity {
                     fullDay_CheckBox.setChecked(false);
                     cookHelper_houseKeeping_CheckBox.setChecked(false);
                     partTime_CheckBox.setChecked(false);
-                    order.ServiceProviderType = "Regular Monthly Cook";
+                    order.ServiceDescription = "Regular Monthly Cook";
                     order.price="20000";
                     cookPackage.setEnabled(true);
                 }
@@ -63,7 +66,7 @@ public class cooker extends AppCompatActivity {
                     monthlyCook_CheckBox.setChecked(false);
                     cookHelper_houseKeeping_CheckBox.setChecked(false);
                     partTime_CheckBox.setChecked(false);
-                    order.ServiceProviderType = "Full Day";
+                    order.ServiceDescription = "Full Day";
                     order.price="1500";
                     cookPackage.setEnabled(true);
                 }
@@ -79,7 +82,7 @@ public class cooker extends AppCompatActivity {
                     monthlyCook_CheckBox.setChecked(false);
                     fullDay_CheckBox.setChecked(false);
                     partTime_CheckBox.setChecked(false);
-                    order.ServiceProviderType = "Cook helper + House keeping";
+                    order.ServiceDescription = "Cook helper + House keeping";
                     order.price="30000";
                     cookPackage.setEnabled(true);
                 }
@@ -95,7 +98,7 @@ public class cooker extends AppCompatActivity {
                     monthlyCook_CheckBox.setChecked(false);
                     fullDay_CheckBox.setChecked(false);
                     cookHelper_houseKeeping_CheckBox.setChecked(false);
-                    order.ServiceProviderType = "Part time(2 Hrs max daily)";
+                    order.ServiceDescription = "Part time(2 Hrs max daily)";
                     order.price="10500";
                     cookPackage.setEnabled(true);
                 }
@@ -105,19 +108,13 @@ public class cooker extends AppCompatActivity {
             }
         });
 
-        halfHourBtn_Cook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(cooker.this, booking_schedule.class);
-                startActivity(intent);
-            }
-        });
+
         cookPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(cooker.this, booking_schedule.class);
 /*
-                order.ServiceProviderType="UPS Electrician";
+                order.ServiceDescription="UPS Electrician";
 */
                 Common.sendOrderObjectToNextActivity(intent,order);
                 startActivity(intent);
@@ -153,7 +150,7 @@ public class cooker extends AppCompatActivity {
 
                 }
                 order.service = driverClass;
-                order.ServiceProviderType="Model.Driver";
+                order.ServiceDescription="Model.Driver";
 
                 Intent intent = new Intent(cooker.this, booking_schedule.class);
                 intent.putExtra("orderObject", order);

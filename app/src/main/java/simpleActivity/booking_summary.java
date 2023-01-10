@@ -24,7 +24,7 @@ import Utils.DbUtil;
 
 public class booking_summary extends AppCompatActivity {
     Button btn_confirmBookSummary;
-    TextView bookingSummaryService, bookingSummaryPrice, bookingSummaryDateTV,bookingSummaryLocation, bookingSummaryTime, bookingSummaryServiceProviderName;
+    TextView bookingSummaryServiceDescription,bookingSummaryService, bookingSummaryPrice, bookingSummaryDateTV,bookingSummaryLocation, bookingSummaryTime, bookingSummaryServiceProviderName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,7 @@ public class booking_summary extends AppCompatActivity {
         bookingSummaryLocation = findViewById(R.id.bookingSummaryLocation);
         bookingSummaryTime = findViewById(R.id.bookingSummaryTimeTV);
         bookingSummaryServiceProviderName = findViewById(R.id.orderedServiceProviderNameTv);
+        bookingSummaryServiceDescription = findViewById(R.id.orderedServiceDescription);
 
         bookingSummaryService.setText(order.ServiceProviderType);
         bookingSummaryPrice.setText(order.price);
@@ -48,7 +49,7 @@ public class booking_summary extends AppCompatActivity {
         bookingSummaryLocation.setText(order.address);
         bookingSummaryTime.setText(order.time);
         bookingSummaryServiceProviderName.setText(order.ServiceProviderName);
-
+        bookingSummaryServiceDescription.setText(order.ServiceDescription);
 
 
         btn_confirmBookSummary.setOnClickListener(new View.OnClickListener() {
