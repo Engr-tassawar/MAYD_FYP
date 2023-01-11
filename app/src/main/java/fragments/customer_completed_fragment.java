@@ -35,6 +35,10 @@ import adapters.PendingAdapter;
 
 
 public class customer_completed_fragment extends Fragment {
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     public customer_completed_fragment() {
         // Required empty public constructor
@@ -47,6 +51,13 @@ public class customer_completed_fragment extends Fragment {
     SwipeRefreshLayout refreshLayout;
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        return inflater.inflate(R.layout.fragment_customer_comleted_fragment, container, false);
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -55,15 +66,7 @@ public class customer_completed_fragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView = view.findViewById(R.id.customerCompletedOrders_recyclerView);
         recyclerView.setLayoutManager(layoutManager);
-        refreshLayout = view.findViewById(R.id.customerCompletedOrders_refreshLayout);
 
-        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                DbUtil.customerCompletedOrders.clear();
-                RefreshData();
-            }
-        });
 
         RefreshData();
     }
@@ -72,7 +75,8 @@ public class customer_completed_fragment extends Fragment {
         String userId = FirebaseAuth.getInstance().getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Orders");
         Query query = reference.orderByChild("CustomerId").equalTo(userId);
-        pendingAdapter.clear();
+        pendingAdapter = new PendingAdapter(DbUtil.customerOnGoingOrders,getContext());
+        //pendingAdapter.clear();
         recyclerView.setAdapter(pendingAdapter);
         pendingAdapter.notifyDataSetChanged();
 

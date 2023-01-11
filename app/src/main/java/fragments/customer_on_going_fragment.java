@@ -95,7 +95,6 @@ public class customer_on_going_fragment extends Fragment {
                 RefreshData();
             }
         });
-
         RefreshData();
 
     }
@@ -104,7 +103,10 @@ public class customer_on_going_fragment extends Fragment {
         String userId = FirebaseAuth.getInstance().getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Orders");
         Query query = reference.orderByChild("CustomerId").equalTo(userId);
-        pendingAdapter.clear();
+        pendingAdapter = new PendingAdapter(DbUtil.customerOnGoingOrders,getContext(),data -> {
+            ClickOrder(data);
+        });
+        //pendingAdapter.clear();
         recyclerView.setAdapter(pendingAdapter);
         pendingAdapter.notifyDataSetChanged();
 

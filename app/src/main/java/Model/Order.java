@@ -13,6 +13,8 @@ public class Order implements Serializable {
     public String address;
     public String description;
     public String CustomerId;
+    public String ServiceProviderContact;
+    public String CustomerContact;
     public String ServiceProviderId;
     public String ServiceProviderName;
     public String ServiceProviderType;

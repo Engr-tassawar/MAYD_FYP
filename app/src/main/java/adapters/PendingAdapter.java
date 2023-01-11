@@ -51,10 +51,11 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.viewHold
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
      Order order=list.get(position);
      holder.pending_date.setText(order.date);
-     //holder.pending_service.setText(order.ServiceProviderType);
+     holder.pending_service.setText(order.ServiceProviderType);
      holder.pending_time.setText(order.time);
      holder.pending_providerName.setText(order.ServiceProviderName);
      holder.pending_address.setText(order.address);
+     holder.pending_contact.setText(order.CustomerContact);
 
      try{
          if(itemClickListener != null){

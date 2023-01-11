@@ -36,7 +36,79 @@ public class  DbUtil {
     public static ArrayList<Order> customerCompletedOrders = new ArrayList<>();
     public static ArrayList<Order> customerCancelledOrders = new ArrayList<>();
 
-    public static void AddOrder(Order order, Context context){
+    public static void AddOrder(Order order, Context context) {
+
+       SetContactInfo(order,context);
+
+
+    }
+
+    private static void SetContactInfo(Order order, Context context) {
+        String userId = FirebaseAuth.getInstance().getUid();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("CustomerUsers");
+        Query query = reference.orderByChild("customerPhone");
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        for (DataSnapshot data : dataSnapshot.getChildren()) {
+
+                            HashMap<String,Object> customers;
+                            customers =(HashMap<String,Object>) data.getValue();
+                            Order mOrder = new Order();
+
+                            String id = data.getKey();
+                            if(id==userId){
+                                mOrder.CustomerContact = (String)customers.get("customerPhone");
+
+                                Toast.makeText(context,
+                                        "Phone Number is "+ mOrder.CustomerContact, Toast.LENGTH_SHORT).show();
+
+                            }
+
+
+                        }
+
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+        /*userId = FirebaseAuth.getInstance().getUid();
+        reference = FirebaseDatabase.getInstance().getReference("Orders");
+        query = reference.orderByChild("CustomerId").equalTo(userId);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot data : dataSnapshot.getChildren()) {
+
+                        HashMap<String,Object> customers;
+                        customers =(HashMap<String,Object>) data.getValue();
+                        Order mOrder = new Order();
+
+                        mOrder.CustomerContact = (String)customers.get("customerPhone");
+
+                        Toast.makeText(context,
+                                "Phone Number is "+ mOrder.CustomerContact, Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
+
         FirebaseDatabase.getInstance().getReference("Orders")
                 .push()
                 .setValue(order).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -53,18 +125,19 @@ public class  DbUtil {
                     }
 
                 });
+
     }
 
-    public static void ClearFetchedOrders(){
+    public static void ClearFetchedOrders() {
         customerOnGoingOrders.clear();
         customerCompletedOrders.clear();
         customerCancelledOrders.clear();
     }
-
+}
     /*public static void ChangeOrderStatus(String Uid , Common.OrderStatus){
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Orders");
         //ToDO
        /* reference.child(Uid).child("status").setValue(String.valueOf(Common.OrderStatus));//order started
         finish();*/
-    }
+
 

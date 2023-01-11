@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,10 @@ import adapters.PendingAdapter;
 
 
 public class customer_cancelled_fragment extends Fragment {
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     public customer_cancelled_fragment() {
         // Required empty public constructor
@@ -43,6 +48,13 @@ public class customer_cancelled_fragment extends Fragment {
     FirebaseAuth auth;
     FirebaseDatabase database;
     SwipeRefreshLayout refreshLayout;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        return inflater.inflate(R.layout.fragment_customer_cancelled_fragment, container, false);
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -70,7 +82,8 @@ public class customer_cancelled_fragment extends Fragment {
         String userId = FirebaseAuth.getInstance().getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Orders");
         Query query = reference.orderByChild("CustomerId").equalTo(userId);
-        pendingAdapter.clear();
+        pendingAdapter = new PendingAdapter(DbUtil.customerCancelledOrders,getContext());
+        //pendingAdapter.clear();
         recyclerView.setAdapter(pendingAdapter);
         pendingAdapter.notifyDataSetChanged();
 
