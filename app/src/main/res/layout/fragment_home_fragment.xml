@@ -148,14 +148,14 @@
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-10dp"
+            android:paddingBottom="20dp"
             android:columnCount="3"
             android:rowCount="6">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/driverCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -235,7 +235,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/plumberCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="85dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -274,7 +274,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/graphicCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="85dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -312,7 +312,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cookCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="85dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -351,7 +351,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/electricianCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="85dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -390,12 +390,13 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/painterCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="85dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
                 app:cardCornerRadius="20dp">
 
                 <LinearLayout
@@ -428,12 +429,13 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/houseKeepingCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="85dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
                 app:cardCornerRadius="20dp">
 
                 <LinearLayout
@@ -456,7 +458,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="House \nKeeping"
-                        android:textSize="15sp"
+                        android:textSize="12sp"
                         android:textStyle="bold">
 
                     </TextView>
@@ -466,12 +468,13 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/babyCareCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="85dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
                 app:cardCornerRadius="20dp">
 
                 <LinearLayout
@@ -503,7 +506,7 @@
 
             <!--<androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="85dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -540,7 +543,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="85dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -577,7 +580,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="85dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -614,7 +617,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="85dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
@@ -651,7 +654,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="85dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"

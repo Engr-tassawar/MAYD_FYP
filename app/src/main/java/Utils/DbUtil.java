@@ -55,15 +55,14 @@ public class  DbUtil {
 
                             HashMap<String,Object> customers;
                             customers =(HashMap<String,Object>) data.getValue();
-                            Order mOrder = new Order();
+
 
                             String id = data.getKey();
-                            if(id==userId){
-                                mOrder.CustomerContact = (String)customers.get("customerPhone");
 
-                                Toast.makeText(context,
-                                        "Phone Number is "+ mOrder.CustomerContact, Toast.LENGTH_SHORT).show();
-
+                            if(Objects.equals(id, userId)){
+                                order.CustomerContact = (String)customers.get("customerPhone");
+                                saveOrderInDB(order, context);
+                                break;
                             }
 
 
@@ -109,6 +108,11 @@ public class  DbUtil {
             }
         });*/
 
+
+
+    }
+
+    private static void saveOrderInDB(Order order, Context context){
         FirebaseDatabase.getInstance().getReference("Orders")
                 .push()
                 .setValue(order).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -125,7 +129,6 @@ public class  DbUtil {
                     }
 
                 });
-
     }
 
     public static void ClearFetchedOrders() {
@@ -133,11 +136,30 @@ public class  DbUtil {
         customerCompletedOrders.clear();
         customerCancelledOrders.clear();
     }
-}
-    /*public static void ChangeOrderStatus(String Uid , Common.OrderStatus){
+
+    public static Order prepareOrder(Object order,String UiD) {
+        HashMap<String,Object> orderHashMap;
+        orderHashMap =(HashMap<String,Object>) order;
+        Order mOrder = new Order();
+        mOrder.date = (String)orderHashMap.get("date");
+        mOrder.Uid = UiD;
+        mOrder.address = (String)orderHashMap.get("address");
+        mOrder.price = (String)orderHashMap.get("price");
+        mOrder.description = (String)orderHashMap.get("description");
+        mOrder.CustomerId = (String)orderHashMap.get("CustomerId");
+        mOrder.time = (String)orderHashMap.get("time");
+        mOrder.ServiceProviderName = (String)orderHashMap.get("ServiceProviderName");
+        mOrder.ServiceProviderId = (String)orderHashMap.get("ServiceProviderId");
+        mOrder.ServiceProviderType = (String)orderHashMap.get("ServiceProviderType");
+        mOrder.status = (String)orderHashMap.get("status");
+        mOrder.CustomerContact = (String)orderHashMap.get("CustomerContact");
+        return mOrder;
+    }
+
+    public static void ChangeOrderStatus(String Uid , Common.OrderStatus status) {
+
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Orders");
-        //ToDO
-       /* reference.child(Uid).child("status").setValue(String.valueOf(Common.OrderStatus));//order started
-        finish();*/
-
-
+        String orderStatus = String.valueOf(status);
+        reference.child(Uid).child("status").setValue(orderStatus);
+    }
+}

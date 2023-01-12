@@ -92,13 +92,16 @@ public class service_provider_home extends AppCompatActivity {
                 if(item.getItemId()==R.id.home_icon)
                 {
                     getSupportFragmentManager().beginTransaction().replace(R.id.service_provider_FrameLayout,new service_provider_profile_fragment()).commit();
+                return true;
                 }
                 else if(item.getItemId()==R.id.support_icon){
                     getSupportFragmentManager().beginTransaction().replace(R.id.service_provider_FrameLayout,new support_fragment()).commit();
+                    return true;
 
                 }
                 else if(item.getItemId()==R.id.booking_icon){
                     getSupportFragmentManager().beginTransaction().replace(R.id.service_provider_FrameLayout,new booking_fragment()).commit();
+                    return true;
 
                 }
 

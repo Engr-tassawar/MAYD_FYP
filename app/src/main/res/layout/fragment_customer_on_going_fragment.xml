@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="3dp"
     tools:context="fragments.customer_on_going_fragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -13,13 +14,16 @@
         android:id="@+id/customerOnGoingOrders_refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/customerPendingOrders_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

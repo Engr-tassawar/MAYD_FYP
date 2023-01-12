@@ -1,6 +1,8 @@
 package fragments;
 
 
+import static Utils.DbUtil.prepareOrder;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -93,6 +95,7 @@ public class customer_on_going_fragment extends Fragment {
             public void onRefresh() {
                 DbUtil.customerOnGoingOrders.clear();
                 RefreshData();
+
             }
         });
         RefreshData();
@@ -119,20 +122,7 @@ public class customer_on_going_fragment extends Fragment {
                     if (dataSnapshot.exists()) {
                         for (DataSnapshot data : dataSnapshot.getChildren()) {
 
-                            HashMap<String,Object> orderHashMap;
-                            orderHashMap =(HashMap<String,Object>) data.getValue();
-                            Order mOrder = new Order();
-                            mOrder.date = (String)orderHashMap.get("date");
-                            mOrder.Uid = data.getKey();
-                            mOrder.address = (String)orderHashMap.get("address");
-                            mOrder.price = (String)orderHashMap.get("price");
-                            mOrder.description = (String)orderHashMap.get("description");
-                            mOrder.CustomerId = (String)orderHashMap.get("CustomerId");
-                            mOrder.time = (String)orderHashMap.get("time");
-                            mOrder.ServiceProviderName = (String)orderHashMap.get("ServiceProviderName");
-                            mOrder.ServiceProviderId = (String)orderHashMap.get("ServiceProviderId");
-                            mOrder.ServiceProviderType = (String)orderHashMap.get("ServiceProviderType");
-                            mOrder.status = (String)orderHashMap.get("status");
+                            Order mOrder = prepareOrder(data.getValue(), data.getKey());
 
                             if(Objects.equals(mOrder.status, String.valueOf(Common.OrderStatus.OnGoing)))
                                 DbUtil.customerOnGoingOrders.add(mOrder);
@@ -147,6 +137,9 @@ public class customer_on_going_fragment extends Fragment {
                         });
                         recyclerView.setAdapter(pendingAdapter);
                         pendingAdapter.notifyDataSetChanged();
+                        if (refreshLayout.isRefreshing()) {
+                            refreshLayout.setRefreshing(false);
+                        }
                     }
                 }
 
@@ -157,12 +150,17 @@ public class customer_on_going_fragment extends Fragment {
                 }
             });
         }
+
         else{
             pendingAdapter = new PendingAdapter(DbUtil.customerOnGoingOrders,getContext(),data->{
                 ClickOrder(data);
             });
             recyclerView.setAdapter(pendingAdapter);
             pendingAdapter.notifyDataSetChanged();
+
+            if (refreshLayout.isRefreshing()) {
+                refreshLayout.setRefreshing(false);
+            }
         }
     }
 
@@ -172,10 +170,8 @@ public class customer_on_going_fragment extends Fragment {
 
         try {
             Order order = (Order)data;
-            Toast.makeText(requireContext(), "Price is " + order.price , Toast.LENGTH_SHORT).show();
             if(order.Uid == null )
                 return;
-            Toast.makeText(requireContext(), "Uid " + order.Uid , Toast.LENGTH_SHORT).show();
 
             //ToDo: Make activity with name DisplayOrderInfo
            /* Intent intent = new Intent(requireActivity(),DisplayOrderInfo.class);

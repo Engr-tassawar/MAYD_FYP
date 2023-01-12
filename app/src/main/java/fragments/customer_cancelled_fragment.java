@@ -1,5 +1,7 @@
 package fragments;
 
+import static Utils.DbUtil.prepareOrder;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -66,12 +68,9 @@ public class customer_cancelled_fragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         refreshLayout = view.findViewById(R.id.customerCancelledOrders_refreshLayout);
 
-        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                DbUtil.customerCancelledOrders.clear();
-                RefreshData();
-            }
+        refreshLayout.setOnRefreshListener(() -> {
+            DbUtil.customerCancelledOrders.clear();
+            RefreshData();
         });
 
         RefreshData();
@@ -95,20 +94,7 @@ public class customer_cancelled_fragment extends Fragment {
                     if (dataSnapshot.exists()) {
                         for (DataSnapshot data : dataSnapshot.getChildren()) {
 
-                            HashMap<String,Object> orderHashMap;
-                            orderHashMap =(HashMap<String,Object>) data.getValue();
-                            Order mOrder = new Order();
-                            mOrder.date = (String)orderHashMap.get("date");
-                            mOrder.Uid = data.getKey();
-                            mOrder.address = (String)orderHashMap.get("address");
-                            mOrder.price = (String)orderHashMap.get("price");
-                            mOrder.description = (String)orderHashMap.get("description");
-                            mOrder.CustomerId = (String)orderHashMap.get("CustomerId");
-                            mOrder.time = (String)orderHashMap.get("time");
-                            mOrder.ServiceProviderName = (String)orderHashMap.get("ServiceProviderName");
-                            mOrder.ServiceProviderId = (String)orderHashMap.get("ServiceProviderId");
-                            mOrder.ServiceProviderType = (String)orderHashMap.get("ServiceProviderType");
-                            mOrder.status = (String)orderHashMap.get("status");
+                            Order mOrder = prepareOrder(data.getValue(), data.getKey());
 
                             if(Objects.equals(mOrder.status, String.valueOf(Common.OrderStatus.OnGoing)))
                                 DbUtil.customerOnGoingOrders.add(mOrder);
@@ -121,6 +107,8 @@ public class customer_cancelled_fragment extends Fragment {
                         pendingAdapter = new PendingAdapter(DbUtil.customerCancelledOrders,getContext());
                         recyclerView.setAdapter(pendingAdapter);
                         pendingAdapter.notifyDataSetChanged();
+                        if (refreshLayout.isRefreshing()) {
+                            refreshLayout.setRefreshing(false);}
                     }
                 }
 
@@ -135,6 +123,8 @@ public class customer_cancelled_fragment extends Fragment {
             pendingAdapter = new PendingAdapter(DbUtil.customerCancelledOrders,getContext());
             recyclerView.setAdapter(pendingAdapter);
             pendingAdapter.notifyDataSetChanged();
+            if (refreshLayout.isRefreshing()) {
+                refreshLayout.setRefreshing(false);}
         }
     }
 

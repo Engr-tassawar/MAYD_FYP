@@ -30,6 +30,7 @@ import java.util.HashMap;
 import Model.Order;
 import Model.serviceProviderRecord;
 import Utils.Common;
+import Utils.DbUtil;
 import adapters.PendingAdapter;
 import simpleActivity.ServiceProviderOrderStatus;
 import simpleActivity.booking_summary;
@@ -70,25 +71,13 @@ public class on_going_fragment extends Fragment {
                     if (dataSnapshot.exists()) {
                         for (DataSnapshot data : dataSnapshot.getChildren()) {
 
-                            HashMap<String,Object> orderHashMap;
-                            orderHashMap =(HashMap<String,Object>) data.getValue();
-                            Order mOrder = new Order();
-                            mOrder.date = (String)orderHashMap.get("date");
-                            mOrder.address = (String)orderHashMap.get("address");
-                            mOrder.price = (String)orderHashMap.get("price");
-                            mOrder.description = (String)orderHashMap.get("description");
-                            mOrder.CustomerId = (String)orderHashMap.get("CustomerId");
-                            mOrder.time = (String)orderHashMap.get("time");
-                            mOrder.ServiceProviderName = (String)orderHashMap.get("ServiceProviderName");
-                            mOrder.ServiceProviderId = (String)orderHashMap.get("ServiceProviderId");
-                            mOrder.ServiceProviderType = (String)orderHashMap.get("ServiceProviderType");
-
-                            ordersList.add(mOrder);
+                            Order sOrder = DbUtil.prepareOrder(data.getValue(), data.getKey());
+                            ordersList.add(sOrder);
                         }
 
 
                         serviceProviderPendingAdapter = new PendingAdapter(ordersList,getContext(), data -> {
-                            Toast.makeText(getContext(), "You Clicked Card", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Please confirm", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(requireActivity(),ServiceProviderOrderStatus.class);
                             Common.sendOrderObjectToNextActivity(intent,(Order)data);
                             startActivity(intent);
