@@ -119,7 +119,9 @@ PhoneAuthProvider.getInstance().verifyPhoneNumber(
                                           }
                                           else {
                                               Intent intent = new Intent(manage_otp.this, add_provider_detail.class);
+                                              intent.putExtra("PhoneNumber",phoneNumber);
                                               startActivity(intent);
+
                                               finish();
                                           }
                                         }

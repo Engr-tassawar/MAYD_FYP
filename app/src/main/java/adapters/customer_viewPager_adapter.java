@@ -23,7 +23,6 @@ public class customer_viewPager_adapter extends FragmentPagerAdapter {
             case 1:return new customer_completed_fragment();
             case 2:return new customer_cancelled_fragment();
             default:return new customer_on_going_fragment();
-
         }
 
     }

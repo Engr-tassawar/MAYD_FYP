@@ -20,6 +20,7 @@ public class Order implements Serializable {
     public String ServiceProviderType;
     public String ServiceDescription;
     public String status = String.valueOf(Common.OrderStatus.OnGoing);
+    public boolean isStarted = false;
 
     public transient String Uid ;
 

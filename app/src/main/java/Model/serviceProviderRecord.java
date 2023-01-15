@@ -35,15 +35,16 @@ public class serviceProviderRecord {
     String serviceProviderProfile;
 
 
-    public serviceProviderRecord(String firstName, String lastName, String city, String services, String dateOfBirth, String ppp) {
+    public serviceProviderRecord(String firstName, String lastName, String city, String services, String dateOfBirth, String ppp,String Phone) {
     }
 
-    public serviceProviderRecord(String firstName, String lastName, String city, String serviceProviderService, String serviceProviderProfile) {
+    public serviceProviderRecord(String firstName, String lastName, String city, String serviceProviderService, String serviceProviderProfile,String Phone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
         this.serviceProviderService = serviceProviderService;
         this.serviceProviderProfile = serviceProviderProfile;
+        this.phone = Phone;
     }
 
     public String getFirstName() {

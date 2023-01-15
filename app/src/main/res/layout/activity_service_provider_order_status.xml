@@ -40,7 +40,6 @@
         android:textAllCaps="false"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="12dp"
-
         android:backgroundTint="@color/green"
         android:text="End Order"
         android:textSize="20sp"

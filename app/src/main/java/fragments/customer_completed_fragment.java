@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.mayd.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -51,6 +52,7 @@ public class customer_completed_fragment extends Fragment {
     FirebaseAuth auth;
     FirebaseDatabase database;
     SwipeRefreshLayout refreshLayout;
+    BottomNavigationView bottom_navigation;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,6 +64,7 @@ public class customer_completed_fragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        bottom_navigation=requireActivity().findViewById(R.id.bottomNavigation);
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
@@ -74,6 +77,23 @@ public class customer_completed_fragment extends Fragment {
             RefreshData();
 
         });
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0 && bottom_navigation.isShown()) {
+                    bottom_navigation.setVisibility(View.GONE);
+                } else if (dy < 0 ) {
+                    bottom_navigation.setVisibility(View.VISIBLE);
+
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
         RefreshData();
     }
 
@@ -81,7 +101,7 @@ public class customer_completed_fragment extends Fragment {
         String userId = FirebaseAuth.getInstance().getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Orders");
         Query query = reference.orderByChild("CustomerId").equalTo(userId);
-        pendingAdapter = new PendingAdapter(DbUtil.customerOnGoingOrders,getContext());
+        pendingAdapter = new PendingAdapter(true,DbUtil.customerOnGoingOrders,getContext());
         //pendingAdapter.clear();
         recyclerView.setAdapter(pendingAdapter);
         pendingAdapter.notifyDataSetChanged();
@@ -104,7 +124,7 @@ public class customer_completed_fragment extends Fragment {
                                 DbUtil.customerCancelledOrders.add(mOrder);
                         }
 
-                        pendingAdapter = new PendingAdapter(DbUtil.customerCompletedOrders,getContext());
+                        pendingAdapter = new PendingAdapter(true,DbUtil.customerCompletedOrders,getContext());
                         recyclerView.setAdapter(pendingAdapter);
                         pendingAdapter.notifyDataSetChanged();
                         if (refreshLayout.isRefreshing()) {
@@ -120,7 +140,7 @@ public class customer_completed_fragment extends Fragment {
             });
         }
         else{
-            pendingAdapter = new PendingAdapter(DbUtil.customerOnGoingOrders,getContext());
+            pendingAdapter = new PendingAdapter(true,DbUtil.customerOnGoingOrders,getContext());
             recyclerView.setAdapter(pendingAdapter);
             pendingAdapter.notifyDataSetChanged();
             if (refreshLayout.isRefreshing()) {

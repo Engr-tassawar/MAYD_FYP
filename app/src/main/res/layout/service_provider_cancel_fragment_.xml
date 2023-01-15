@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context="fragments.on_going_fragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fragments.service_provider_cancel_fragment_">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/serviceProviderOnGoingOrders_refreshLayout"
+        android:id="@+id/serviceProviderCancelOrders_refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
@@ -14,7 +13,7 @@ tools:context="fragments.on_going_fragment">
         >
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/providerOngoing_recyclerView"
+            android:id="@+id/providerCancel_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"

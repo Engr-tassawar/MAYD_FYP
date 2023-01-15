@@ -88,9 +88,6 @@ FirebaseDatabase database;
 
 
         });
-
-
-
         database.getReference().child("ServiceProviderUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -135,24 +132,21 @@ FirebaseDatabase database;
                         service_provider_profile.setImageURI(uri);
                         final StorageReference reference = storage.getReference().child("Provider_Profile_Photo")
                                 .child(FirebaseAuth.getInstance().getUid());
-                        reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                Toast.makeText(getContext(),
-                                        "Profile photo saved", Toast.LENGTH_SHORT).show();
-                                reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                    @Override
-                                    public void onSuccess(Uri uri) {
-                                        database.getReference().child("ServiceProviderUsers").child(auth.getUid()).child("serviceProviderProfile").setValue(uri.toString());
-                                               /* .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                    @Override
-                                                    public void onSuccess(Void unused) {
+                        reference.putFile(uri).addOnSuccessListener(taskSnapshot -> {
+                            Toast.makeText(getContext(),
+                                    "Profile photo saved", Toast.LENGTH_SHORT).show();
+                            reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri1) {
+                                    database.getReference().child("ServiceProviderUsers").child(auth.getUid()).child("serviceProviderProfile").setValue(uri1.toString());
+                                           /* .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void unused) {
 
-                                                    }
-                                                });*/
-                                    }
-                                });
-                            }
+                                                }
+                                            });*/
+                                }
+                            });
                         });
                     }
                 });

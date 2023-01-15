@@ -54,7 +54,7 @@
         android:layout_height="50dp"
         android:id="@+id/putNumberEdt"
         android:inputType="phone"
-        android:text="3048394314"
+        android:text="3406887081"
         android:layout_marginStart="16dp"/>
 </LinearLayout>
 
@@ -68,31 +68,5 @@
         android:text="Send OTP"
         android:textAllCaps="false"
         android:textSize="15dp" />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        >
-        <TextView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Do not have any account?"
-            android:layout_marginLeft="40dp"
-            android:textColor="@color/lightBlue"
-            android:textSize="16sp"
-            />
-        <TextView
-            android:id="@+id/tvRegister_serviceProvider"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="Register"
-            android:textSize="16sp"
-            android:textColor="@color/lightBlue"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
 
 </LinearLayout>

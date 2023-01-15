@@ -22,16 +22,19 @@ import Model.serviceProviderRecord;
 public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.viewHolder>{
     ArrayList<Order> list;
     Context context;
+    Boolean isCustomer;
     PendingAdapter.ItemClickListener itemClickListener;
 
-    public PendingAdapter(ArrayList<Order> list, Context context,PendingAdapter.ItemClickListener listener) {
+    public PendingAdapter(Boolean isCustomer,ArrayList<Order> list, Context context,PendingAdapter.ItemClickListener listener) {
+        this.isCustomer = isCustomer;
         this.list = list;
         this.context = context;
         this.itemClickListener = listener;
 
     }
 
-    public PendingAdapter(ArrayList<Order> list, Context context) {
+    public PendingAdapter(Boolean isCustomer,ArrayList<Order> list, Context context) {
+        this.isCustomer = isCustomer;
         this.list = list;
         this.context = context;
     }
@@ -55,7 +58,10 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.viewHold
      holder.pending_time.setText(order.time);
      holder.pending_providerName.setText(order.ServiceProviderName);
      holder.pending_address.setText(order.address);
-     holder.pending_contact.setText(order.CustomerContact);
+     if(isCustomer)
+        holder.pending_contact.setText(order.ServiceProviderContact);
+     else
+         holder.pending_contact.setText(order.CustomerContact);
 
      try{
          if(itemClickListener != null){

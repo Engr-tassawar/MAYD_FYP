@@ -3,14 +3,18 @@ package Utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.Toast;
 
 import Model.DriverClass;
 import Model.Order;
 
 public class Common {
+    public static Order TempOrder;
     public static Order getOrderObject(Activity context){
         Intent intent = context.getIntent();
         return (Order) intent.getExtras().getSerializable("orderObject");
+
+
     }
 
     public static void sendOrderObjectToNextActivity(Intent intent,Order order){

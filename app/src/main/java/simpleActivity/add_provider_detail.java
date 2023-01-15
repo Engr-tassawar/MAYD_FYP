@@ -80,9 +80,9 @@ public class add_provider_detail extends AppCompatActivity {
                     String lastName = ServiceProvider_edtLastName.getText().toString();
                     String city = ServiceProvider_edtCity.getText().toString();
                     String services = selectService_edt.getText().toString();
+                    String Phone = getIntent().getStringExtra("PhoneNumber").toString();
 
-                    serviceProviderRecord serviceUser=new serviceProviderRecord(firstName,lastName
-                            ,city,services,"ppp");
+                    serviceProviderRecord serviceUser=new serviceProviderRecord(firstName,lastName,city,services,"ppp",Phone);
 
                     FirebaseDatabase.getInstance().getReference("ServiceProviderUsers")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(serviceUser)

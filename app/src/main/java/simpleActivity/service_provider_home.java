@@ -57,27 +57,35 @@ public class service_provider_home extends AppCompatActivity {
                                 .replace(R.id.service_provider_FrameLayout,new service_provider_profile_fragment())
                                 .commit();
 
-                        break;
+                        return true;
+                        //break;
                     case R.id.booking:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.service_provider_FrameLayout,new booking_fragment())
                                 .commit();
-                        break;
+                        return true;
+                    //break;
 
                     case R.id.support:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.service_provider_FrameLayout,new support_fragment())
                                 .commit();
-                        break;
+                        return true;
+
+                    //break;
                     case R.id.terms:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.service_provider_FrameLayout,new terms_fragment())
                                 .commit();
-                        break;
+                        return true;
+
+                    //break;
                     case R.id.logOut:
                         FirebaseAuth.getInstance().signOut();
                         finish();
-                        break;
+                        return true;
+
+                    //break;
 
                 }
                 service_provider_drawerLayout.closeDrawer(GravityCompat.START);
@@ -99,16 +107,9 @@ public class service_provider_home extends AppCompatActivity {
                     return true;
 
                 }
-                else if(item.getItemId()==R.id.booking_icon){
+               /* else if(item.getItemId()==R.id.booking_icon){
                     getSupportFragmentManager().beginTransaction().replace(R.id.service_provider_FrameLayout,new booking_fragment()).commit();
                     return true;
-
-                }
-
-
-               /* switch (item.getItemId())
-                {
-                    case R.id.home_icon:
                 }*/
                 return false;
             }

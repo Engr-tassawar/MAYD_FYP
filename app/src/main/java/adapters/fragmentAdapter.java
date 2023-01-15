@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import fragments.on_going_fragment;
 import fragments.pending_fragment;
+import fragments.service_provider_cancel_fragment_;
 
 public class fragmentAdapter extends FragmentPagerAdapter {
 
@@ -21,17 +22,16 @@ public class fragmentAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
 
         switch (position){
-            case 0:return new pending_fragment();
-            case 1:return new on_going_fragment();
+            case 0: return new on_going_fragment();
+            case 1: return new pending_fragment();
+            case 2: return new service_provider_cancel_fragment_();
             default:return new pending_fragment();
-
         }
     }
 
     @Override
     public int getCount() {
-
-        return 2;
+        return 3;
     }
 
     @Nullable
@@ -39,10 +39,13 @@ public class fragmentAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         String title = null;
         if (position==0){
-             title="Pending";
+             title="OnGoing";
         }
         else if (position==1) {
-           title = "On-going";
+           title = "Completed";
+        }
+        else if (position==2) {
+            title = "Cancelled";
         }
         return title;
 

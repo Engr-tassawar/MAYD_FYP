@@ -12,6 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAYD">
         <activity
+            android:name="simpleActivity.bill_for_s_p"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name="simpleActivity.ServiceProviderOrderStatus"
             android:exported="false">
             <meta-data
@@ -23,14 +30,13 @@
             android:exported="false" />
         <activity
             android:name=".editCustomerProfile"
-            android:exported="true">
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name="simpleActivity.splash_screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

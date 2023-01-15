@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.mayd.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -58,30 +59,18 @@ public class customer_on_going_fragment extends Fragment {
     FirebaseAuth auth;
     FirebaseDatabase database;
     SwipeRefreshLayout refreshLayout;
+    BottomNavigationView bottom_navigation;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-  /*
-  //Implementing backPressed button in fragment
-  OnBackPressedCallback callback;
-        callback = new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                Toast.makeText(requireContext(), "backPressed", Toast.LENGTH_SHORT).show();
-                ordersList = new ArrayList<>();
-
-            }
-        };
-       requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);*/
-
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_customer_on_going_fragment, container, false);
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        bottom_navigation=requireActivity().findViewById(R.id.bottomNavigation);
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
@@ -90,12 +79,26 @@ public class customer_on_going_fragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         refreshLayout = view.findViewById(R.id.customerOnGoingOrders_refreshLayout);
 
-        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                DbUtil.customerOnGoingOrders.clear();
-                RefreshData();
+        refreshLayout.setOnRefreshListener(() -> {
+            DbUtil.customerOnGoingOrders.clear();
+            RefreshData();
 
+        });
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0 && bottom_navigation.isShown()) {
+                    bottom_navigation.setVisibility(View.GONE);
+                } else if (dy < 0 ) {
+                    bottom_navigation.setVisibility(View.VISIBLE);
+
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+
+                super.onScrollStateChanged(recyclerView, newState);
             }
         });
         RefreshData();
@@ -106,7 +109,7 @@ public class customer_on_going_fragment extends Fragment {
         String userId = FirebaseAuth.getInstance().getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Orders");
         Query query = reference.orderByChild("CustomerId").equalTo(userId);
-        pendingAdapter = new PendingAdapter(DbUtil.customerOnGoingOrders,getContext(),data -> {
+        pendingAdapter = new PendingAdapter(true,DbUtil.customerOnGoingOrders,getContext(),data -> {
             ClickOrder(data);
         });
         //pendingAdapter.clear();
@@ -132,7 +135,7 @@ public class customer_on_going_fragment extends Fragment {
                                 DbUtil.customerCancelledOrders.add(mOrder);
                         }
 
-                        pendingAdapter = new PendingAdapter(DbUtil.customerOnGoingOrders,getContext(),data -> {
+                        pendingAdapter = new PendingAdapter(true,DbUtil.customerOnGoingOrders,getContext(),data -> {
                             ClickOrder(data);
                         });
                         recyclerView.setAdapter(pendingAdapter);
@@ -152,7 +155,7 @@ public class customer_on_going_fragment extends Fragment {
         }
 
         else{
-            pendingAdapter = new PendingAdapter(DbUtil.customerOnGoingOrders,getContext(),data->{
+            pendingAdapter = new PendingAdapter(true,DbUtil.customerOnGoingOrders,getContext(),data->{
                 ClickOrder(data);
             });
             recyclerView.setAdapter(pendingAdapter);

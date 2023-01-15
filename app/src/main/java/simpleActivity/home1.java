@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mayd.R;
 
@@ -114,6 +115,7 @@ public class home1 extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.myFrameLayout,new booking_fragment())
                                 .commit();
+
                         break;
 
                     case R.id.support:
@@ -155,9 +157,8 @@ public class home1 extends AppCompatActivity {
                 }
                 else if(item.getItemId()==R.id.booking_icon){
                     getSupportFragmentManager().beginTransaction().replace(R.id.myFrameLayout,new booking_fragment()).commit();
-                    return true;
+                    return true;}
 
-                }
                 return false;
             }
         });

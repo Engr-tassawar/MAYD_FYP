@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/navigations_items" />
+        app:menu="@menu/service_provider_navigations_items" />
     </RelativeLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/service_provider_navigationView"

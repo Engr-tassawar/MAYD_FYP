@@ -19,7 +19,6 @@ import com.hbb20.CountryCodePicker;
 public class register_number extends AppCompatActivity {
     CountryCodePicker ccp;
     EditText putNumberEdt;
-    TextView tvRegister_serviceProvider;
     Button ServiceProvider_getOtp,btnCustomer;
     FirebaseAuth mAuth;
 
@@ -36,7 +35,6 @@ public class register_number extends AppCompatActivity {
 
         ccp=findViewById(R.id.ccp);
         btnCustomer=findViewById(R.id.btnCustomer);
-        tvRegister_serviceProvider=findViewById(R.id.tvRegister_serviceProvider);
         putNumberEdt=findViewById(R.id.putNumberEdt);
         ServiceProvider_getOtp=findViewById(R.id.ServiceProvider_getOtp);
         ccp.registerCarrierNumberEditText(putNumberEdt);
@@ -44,13 +42,7 @@ public class register_number extends AppCompatActivity {
         ccp.resetToDefaultCountry();
 
 
-        tvRegister_serviceProvider.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(register_number.this, register_service_provider_number.class);
-                startActivity(intent);
-            }
-        });
+
         btnCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

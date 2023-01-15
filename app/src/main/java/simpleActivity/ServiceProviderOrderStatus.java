@@ -1,11 +1,13 @@
 package simpleActivity;
 
 import static Utils.DbUtil.ChangeOrderStatus;
+import static Utils.DbUtil.startOrder;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,9 +42,24 @@ public class ServiceProviderOrderStatus extends AppCompatActivity {
         startOrder = findViewById(R.id.btnStartOrder);
         endOrder = findViewById(R.id.btnEndOrder);
         cancelOrder = findViewById(R.id.btnCancelOrder);
+       // mOrder = Common.getOrderObject(ServiceProviderOrderStatus.this);
+        mOrder = Common.TempOrder;
+        Toast.makeText(this, "order status is"+mOrder.isStarted, Toast.LENGTH_SHORT).show();
 
-        mOrder = Common.getOrderObject(ServiceProviderOrderStatus.this);
+        if(mOrder.isStarted) {
+            endOrder.setEnabled(true);
+            Toast.makeText(this, "started", Toast.LENGTH_SHORT).show();
+            endOrder.setClickable(true);
+            endOrder.setClickable(false);
+            startOrder.setEnabled(false);
+        }
+        else {
+            endOrder.setEnabled(false);
 
+            endOrder.setClickable(false);
+            endOrder.setClickable(true);
+            startOrder.setEnabled(true);
+        }
         startOrder.setOnClickListener(view -> {
 
             new AlertDialog.Builder(this)
@@ -55,6 +72,7 @@ public class ServiceProviderOrderStatus extends AppCompatActivity {
                         public void onClick(DialogInterface dialogInterface, int i) {
 
                             ChangeOrderStatus(mOrder.Uid, Common.OrderStatus.OnGoing);
+                            startOrder(mOrder.Uid, true);
                             finish();
                         }
                     })
@@ -76,6 +94,9 @@ public class ServiceProviderOrderStatus extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             ChangeOrderStatus(mOrder.Uid, Common.OrderStatus.Completed);
+                            Intent intent = new Intent(ServiceProviderOrderStatus.this,bill_for_s_p.class);
+                            Common.sendOrderObjectToNextActivity(intent, mOrder);
+                            startActivity(intent);
                             finish();
                         }
                     })
@@ -86,6 +107,7 @@ public class ServiceProviderOrderStatus extends AppCompatActivity {
         });
 
         cancelOrder.setOnClickListener(view -> {
+
 
             new AlertDialog.Builder(this)
                     .setIcon(R.drawable.ic_baseline_warning_24)

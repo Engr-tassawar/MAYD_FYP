@@ -36,6 +36,10 @@ public class  DbUtil {
     public static ArrayList<Order> customerCompletedOrders = new ArrayList<>();
     public static ArrayList<Order> customerCancelledOrders = new ArrayList<>();
 
+    public static ArrayList<Order> serviceProviderOnGoingOrders = new ArrayList<>();
+    public static ArrayList<Order> serviceProviderCompletedOrders = new ArrayList<>();
+    public static ArrayList<Order> serviceProviderCancelledOrders = new ArrayList<>();
+
     public static void AddOrder(Order order, Context context) {
 
        SetContactInfo(order,context);
@@ -61,7 +65,7 @@ public class  DbUtil {
 
                             if(Objects.equals(id, userId)){
                                 order.CustomerContact = (String)customers.get("customerPhone");
-                                saveOrderInDB(order, context);
+                                setServiceProvidercontact(order, context);
                                 break;
                             }
 
@@ -71,34 +75,37 @@ public class  DbUtil {
 
                     }
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
                 }
             });
 
-        /*userId = FirebaseAuth.getInstance().getUid();
-        reference = FirebaseDatabase.getInstance().getReference("Orders");
-        query = reference.orderByChild("CustomerId").equalTo(userId);
+
+    }
+
+    private static void setServiceProvidercontact(Order order, Context context){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("ServiceProviderUsers");
+        Query query = reference.orderByChild("phone");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot data : dataSnapshot.getChildren()) {
 
-                        HashMap<String,Object> customers;
-                        customers =(HashMap<String,Object>) data.getValue();
-                        Order mOrder = new Order();
+                        HashMap<String,Object> provider;
+                        provider =(HashMap<String,Object>) data.getValue();
 
-                        mOrder.CustomerContact = (String)customers.get("customerPhone");
+                        String key = data.getKey();
 
-                        Toast.makeText(context,
-                                "Phone Number is "+ mOrder.CustomerContact, Toast.LENGTH_SHORT).show();
+                        if(Objects.equals(key, order.ServiceProviderId)){
+                            order.ServiceProviderContact = (String)provider.get("phone");
+                            saveOrderInDB(order, context);
+
+                            break;
+                        }
 
                     }
-
-
                 }
             }
 
@@ -106,10 +113,7 @@ public class  DbUtil {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
-
-
-
+        });
     }
 
     private static void saveOrderInDB(Order order, Context context){
@@ -136,6 +140,11 @@ public class  DbUtil {
         customerCompletedOrders.clear();
         customerCancelledOrders.clear();
     }
+    public static void ClearServiceProviderFetchedOrders() {
+        serviceProviderOnGoingOrders.clear();
+        serviceProviderCompletedOrders.clear();
+        serviceProviderCancelledOrders.clear();
+    }
 
     public static Order prepareOrder(Object order,String UiD) {
         HashMap<String,Object> orderHashMap;
@@ -153,6 +162,8 @@ public class  DbUtil {
         mOrder.ServiceProviderType = (String)orderHashMap.get("ServiceProviderType");
         mOrder.status = (String)orderHashMap.get("status");
         mOrder.CustomerContact = (String)orderHashMap.get("CustomerContact");
+        mOrder.isStarted = (Boolean)orderHashMap.get("isStarted");
+        mOrder.ServiceProviderContact = (String) orderHashMap.get("ServiceProviderContact");
         return mOrder;
     }
 
@@ -161,5 +172,11 @@ public class  DbUtil {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Orders");
         String orderStatus = String.valueOf(status);
         reference.child(Uid).child("status").setValue(orderStatus);
+    }
+
+    public static void startOrder(String Uid , boolean isStarted) {
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Orders");
+        reference.child(Uid).child("isStarted").setValue(isStarted);
     }
 }
