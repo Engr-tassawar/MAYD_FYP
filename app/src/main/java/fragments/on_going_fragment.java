@@ -174,7 +174,6 @@ public class on_going_fragment extends Fragment {
 
             Toast.makeText(getContext(), "Please confirm Your Order Request", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(requireActivity(),ServiceProviderOrderStatus.class);
-            Toast.makeText(requireContext(), "jawad" + order.isStarted, Toast.LENGTH_SHORT).show();
             Common.sendOrderObjectToNextActivity(intent,order);
             Common.TempOrder =  order; //todo: solve it
 

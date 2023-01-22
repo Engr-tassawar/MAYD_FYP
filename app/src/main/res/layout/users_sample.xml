@@ -43,13 +43,13 @@
             android:id="@+id/nameTv"
             android:textStyle="bold"
             android:layout_marginTop="5dp"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Person Name"
             />
         <TextView
             android:id="@+id/serviceTv"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Person Phone"
 

@@ -62,6 +62,16 @@ public class ServiceProviderOrderStatus extends AppCompatActivity {
         }
         startOrder.setOnClickListener(view -> {
 
+            for(int i=0;i<DbUtil.serviceProviderOnGoingOrders.size();i++)
+            {
+                Order morder=DbUtil.serviceProviderOnGoingOrders.get(i);
+                if (mOrder.Uid == morder.Uid)
+                {
+                    DbUtil.serviceProviderOnGoingOrders.remove(i);
+                    morder.status = String.valueOf(Common.OrderStatus.OnGoing);
+                    DbUtil.serviceProviderOnGoingOrders.add(morder);
+                }
+            }
             new AlertDialog.Builder(this)
                     .setIcon(R.drawable.ic_baseline_warning_24)
                     .setTitle("Start Order")
@@ -84,7 +94,17 @@ public class ServiceProviderOrderStatus extends AppCompatActivity {
 
         endOrder.setOnClickListener(view -> {
 
-            Toast.makeText(this, "id:" + mOrder.Uid + " type "+mOrder.ServiceProviderType, Toast.LENGTH_SHORT).show();
+            for(int i=0;i<DbUtil.serviceProviderOnGoingOrders.size();i++)
+            {
+                Order morder=DbUtil.serviceProviderOnGoingOrders.get(i);
+                if (mOrder.Uid == morder.Uid)
+                {
+                    DbUtil.serviceProviderOnGoingOrders.remove(i);
+                    morder.status = String.valueOf(Common.OrderStatus.Completed);
+                    DbUtil.serviceProviderCompletedOrders.add(morder);
+                }
+            }
+
             new AlertDialog.Builder(this)
                     .setIcon(R.drawable.ic_baseline_warning_24)
                     .setTitle("Complete Order")
@@ -108,7 +128,17 @@ public class ServiceProviderOrderStatus extends AppCompatActivity {
 
         cancelOrder.setOnClickListener(view -> {
 
+            for(int i=0;i<DbUtil.serviceProviderOnGoingOrders.size();i++)
+            {
+                Order morder=DbUtil.serviceProviderOnGoingOrders.get(i);
+                if (mOrder.Uid == morder.Uid)
+                {
+                    DbUtil.serviceProviderOnGoingOrders.remove(i);
+                    morder.status = String.valueOf(Common.OrderStatus.Cancelled);
+                    DbUtil.serviceProviderCancelledOrders.add(morder);
+                }
 
+            }
             new AlertDialog.Builder(this)
                     .setIcon(R.drawable.ic_baseline_warning_24)
                     .setTitle("Cancel Order")

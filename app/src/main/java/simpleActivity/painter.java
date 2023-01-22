@@ -30,7 +30,8 @@ public class painter extends AppCompatActivity {
         painterPerDay_CheckBox=findViewById(R.id.painterPerDay_CheckBox);
         painterPerMonth_CheckBox=findViewById(R.id.painterPerMonth_CheckBox);
         painterPackage=findViewById(R.id.painterPackage);
-        order.ServiceDescription = ServiceTypes.Painter;
+
+        order.ServiceProviderType = ServiceTypes.Painter;
 
         painterPerDay_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

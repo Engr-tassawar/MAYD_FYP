@@ -54,8 +54,7 @@ public class graphic_designer extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     logoDesign_CheckBox.setChecked(false);
-                    order.ServiceDescription
- = "Monthly Posts Design";
+                    order.ServiceDescription = "Monthly Posts Design";
                     order.price="15000";
                     graphicPackage.setEnabled(true);
                 }
