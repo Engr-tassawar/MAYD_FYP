@@ -36,6 +36,7 @@ public class painter extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
+                    painterPerMonth_CheckBox.setChecked(false);
                     order.ServiceDescription = "Painter Per Day Charges (Sketch etc.)";
                     order.price="2000";
                     painterPackage.setEnabled(true);
@@ -50,6 +51,7 @@ public class painter extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
+                    painterPerDay_CheckBox.setChecked(false);
                     order.ServiceDescription = "Painting Home Tuition (Monthly)";
                     order.price="25000";
                     painterPackage.setEnabled(true);

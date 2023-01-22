@@ -31,7 +31,6 @@ import simpleActivity.driver;
 
 public class customer_profile extends Fragment {
     TextView C_email,C_phone,C_fulName,C_MainProfileName;
-    Button btn_editCustomerProfile;
     ImageView circleImageView;
     FirebaseAuth auth;
     FirebaseStorage storage;
@@ -69,18 +68,18 @@ public class customer_profile extends Fragment {
         C_MainProfileName=getView().findViewById(R.id.C_MainProfileName);
         circleImageView=getView().findViewById(R.id.circleImageView);
         C_fulName=getView().findViewById(R.id.C_fulName);
-        btn_editCustomerProfile=getView().findViewById(R.id.btn_editCustomerProfile);
+      /*  btn_editCustomerProfile=getView().findViewById(R.id.btn_editCustomerProfile);
         btn_editCustomerProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), editCustomerProfile.class);
                 startActivity(intent);
-               /* Fragment fragment=new edit_customer_profile();
+               *//* Fragment fragment=new edit_customer_profile();
                 FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.customerProfile,fragment).commit();*/
+                transaction.replace(R.id.customerProfile,fragment).commit();*//*
             }
-        });
-        database.getReference().child("CustomerUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
+        });*/
+        /*database.getReference().child("CustomerUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
@@ -100,7 +99,7 @@ public class customer_profile extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });*/
 
     }
 

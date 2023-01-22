@@ -104,20 +104,6 @@ FirebaseDatabase database;
 
 
                 }
-
-               /* if (snapshot.exists()) {
-                    String profile_photo = snapshot.getValue(String.class);
-                    Picasso.get()
-                            .load(profile_photo)
-                            .placeholder(R.drawable.profile_image_b)
-
-                            .into(service_provider_profile);
-                }*/
-                /*if (snapshot.exists()) {
-
-                User user=snapshot.getValue(User.class);
-                service_provider_number.setText(user.getFullname());
-                }*/
             }
 
             @Override

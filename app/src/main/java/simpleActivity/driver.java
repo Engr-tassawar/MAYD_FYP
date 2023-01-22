@@ -41,6 +41,10 @@ public class driver extends AppCompatActivity {
         setContentView(R.layout.activity_driver);
         driverClass=new DriverClass();
         auth=FirebaseAuth.getInstance();
+/*
+getSupportActionBar().setTitle("Driver");
+*/
+        /*getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
         hireDriver_CheckBox=findViewById(R.id.hireDriver_CheckBox);
         chauffeur_CheckBox=findViewById(R.id.chauffeur_CheckBox);
@@ -129,6 +133,11 @@ public class driver extends AppCompatActivity {
                 finish();
             }
         });
-
     }
+
+   /* @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }*/
 }

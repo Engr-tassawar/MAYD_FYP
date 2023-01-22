@@ -9,10 +9,10 @@
         android:icon="@drawable/ic_baseline_perm_identity_24"
         android:title="Your Profile"
         />
-    <item android:id="@+id/wallet"
+    <!--<item android:id="@+id/wallet"
         android:icon="@drawable/wallet"
         android:title="Wallet"
-        />
+        />-->
     <item android:id="@+id/support"
         android:icon="@drawable/ic_baseline_support_agent_24"
         android:title="Support"
@@ -25,13 +25,13 @@
         android:icon="@drawable/ic_baseline_call_to_action_24"
         android:title="Terms And Conditions"
         />
-    <item android:id="@+id/share"
+    <!--<item android:id="@+id/share"
         android:icon="@drawable/share"
         android:title="Share"
 
-        />
+        />-->
     <item android:id="@+id/logOut"
         android:icon="@drawable/login"
-        android:title="Log Out"
+        android:title="Sign Out"
         />
 </menu>

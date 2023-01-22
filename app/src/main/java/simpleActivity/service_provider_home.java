@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.mayd.R;
+import com.example.mayd.service_provider_drawer_profile_fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -57,35 +58,43 @@ public class service_provider_home extends AppCompatActivity {
                                 .replace(R.id.service_provider_FrameLayout,new service_provider_profile_fragment())
                                 .commit();
 
-                        return true;
-                        //break;
+                       /* return true;*/
+                        break;
                     case R.id.booking:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.service_provider_FrameLayout,new booking_fragment())
                                 .commit();
-                        return true;
-                    //break;
+                        /*return true;*/
+                    break;
+                    /*case R.id.C_Profile:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.service_provider_FrameLayout,new service_provider_drawer_profile_fragment())
+                                .commit();
+                        *//*return true;*//*
+                        break;*/
 
                     case R.id.support:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.service_provider_FrameLayout,new support_fragment())
                                 .commit();
-                        return true;
+                        /*return true;*/
 
-                    //break;
+                    break;
                     case R.id.terms:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.service_provider_FrameLayout,new terms_fragment())
                                 .commit();
-                        return true;
+                        /*return true;*/
 
-                    //break;
+                    break;
                     case R.id.logOut:
                         FirebaseAuth.getInstance().signOut();
                         finish();
+/*
                         return true;
+*/
 
-                    //break;
+                    break;
 
                 }
                 service_provider_drawerLayout.closeDrawer(GravityCompat.START);

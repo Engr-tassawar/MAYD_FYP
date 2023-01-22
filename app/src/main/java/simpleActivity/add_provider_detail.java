@@ -29,7 +29,7 @@ public class add_provider_detail extends AppCompatActivity {
     FirebaseStorage storage;
     String userID;
     AutoCompleteTextView selectService_edt;
-    String[] services={"Driver","Electrician","Plumber","HVCR","Graphics","Cook","Painter","Sweeper"};
+    String[] services={"Driver","Electrician","Plumber","HVACR","Graphics","Cook","Painter","House Keeping"};
     ArrayAdapter<String> adapter;
 
     @Override
