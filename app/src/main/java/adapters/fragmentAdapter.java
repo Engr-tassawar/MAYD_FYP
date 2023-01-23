@@ -39,7 +39,7 @@ public class fragmentAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         String title = null;
         if (position==0){
-             title="OnGoing";
+             title="On-Going";
         }
         else if (position==1) {
            title = "Completed";

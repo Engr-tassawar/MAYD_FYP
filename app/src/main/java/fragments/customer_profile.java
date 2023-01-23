@@ -79,7 +79,7 @@ public class customer_profile extends Fragment {
                 transaction.replace(R.id.customerProfile,fragment).commit();*//*
             }
         });*/
-        /*database.getReference().child("CustomerUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
+        database.getReference().child("CustomerUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
@@ -99,7 +99,7 @@ public class customer_profile extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
 
     }
 

@@ -34,6 +34,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Price:"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Contact:"
             android:textStyle="bold"
             android:textSize="15sp" />
@@ -75,6 +81,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Service:"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/pending_price"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price:"
             android:textSize="15sp" />
         <TextView
             android:id="@+id/pending_contact"

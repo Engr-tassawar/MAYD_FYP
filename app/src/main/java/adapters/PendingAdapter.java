@@ -54,6 +54,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.viewHold
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
      Order order=list.get(position);
      holder.pending_date.setText(order.date);
+     holder.pending_price.setText(order.price);
      holder.pending_service.setText(order.ServiceProviderType);
      holder.pending_time.setText(order.time);
      holder.pending_providerName.setText(order.ServiceProviderName);
@@ -86,11 +87,12 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.viewHold
     }
 
     public class viewHolder extends RecyclerView.ViewHolder {
-        TextView pending_date,pending_service,pending_contact,pending_time,pending_providerName,
+        TextView pending_price,pending_date,pending_service,pending_contact,pending_time,pending_providerName,
                 pending_address;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             pending_date=itemView.findViewById(R.id.pending_date);
+            pending_price=itemView.findViewById(R.id.pending_price);
             pending_service=itemView.findViewById(R.id.pending_service);
             pending_contact=itemView.findViewById(R.id.pending_contact);
             pending_time=itemView.findViewById(R.id.pending_time);

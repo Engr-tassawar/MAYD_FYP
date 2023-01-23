@@ -22,13 +22,14 @@
         />
     <ImageView
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/profile" />
+        android:layout_gravity="center"
+        android:src="@drawable/maydlogo" />
 
     <TextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign In As Service Provider"
