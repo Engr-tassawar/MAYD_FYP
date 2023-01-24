@@ -7,12 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mayd.R;
-import com.example.mayd.register_service_provider_number;
-import com.example.mayd.sign_in_ForCustomer;
 import com.google.firebase.auth.FirebaseAuth;
 import com.hbb20.CountryCodePicker;
 
@@ -46,7 +43,7 @@ public class register_number extends AppCompatActivity {
         btnCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(register_number.this, sign_in_ForCustomer.class);
+                Intent intent = new Intent(register_number.this, customer_login.class);
                 startActivity(intent);
             }
         });

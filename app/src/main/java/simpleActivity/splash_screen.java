@@ -23,7 +23,7 @@ ImageView imgLogo;
                 super.run();
                 try {
                     sleep(2000);
-                  Intent intent=new Intent(splash_screen.this, customer_login.class);
+                  Intent intent=new Intent(splash_screen.this, home1.class);
                     startActivity(intent);
                     finish();
 

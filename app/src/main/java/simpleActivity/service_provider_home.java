@@ -53,41 +53,41 @@ public class service_provider_home extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.home:
+                    case R.id.S_home:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.service_provider_FrameLayout,new service_provider_profile_fragment())
                                 .commit();
 
                        /* return true;*/
                         break;
-                    case R.id.booking:
+                   /* case R.id.S_booking:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.service_provider_FrameLayout,new booking_fragment())
                                 .commit();
-                        /*return true;*/
-                    break;
-                    /*case R.id.C_Profile:
+                        *//*return true;*//*
+                    break;*/
+                    case R.id.C_Profile:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.service_provider_FrameLayout,new service_provider_drawer_profile_fragment())
                                 .commit();
-                        *//*return true;*//*
-                        break;*/
+                       /* return true;*/
+                        break;
 
-                    case R.id.support:
+                    case R.id.S_support:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.service_provider_FrameLayout,new support_fragment())
                                 .commit();
                         /*return true;*/
 
                     break;
-                    case R.id.terms:
+                    case R.id.S_terms:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.service_provider_FrameLayout,new terms_fragment())
                                 .commit();
                         /*return true;*/
 
                     break;
-                    case R.id.logOut:
+                    case R.id.S_logOut:
                         FirebaseAuth.getInstance().signOut();
                         finish();
 /*

@@ -4,10 +4,17 @@
     android:layout_height="250dp"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/green"
+
     >
 
-    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <ImageView
+
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+
+        android:src="@drawable/maydlogo" />
+    <!--<de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="45dp"
@@ -16,14 +23,11 @@
         android:id="@+id/drawerCustomerProfile"
         app:civ_border_width="2dp" />
 
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile"
-        android:id="@+id/drawerCustomerProfileName"
-        android:textSize="25dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        />
+        />-->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        android:layout_marginTop="30dp"/>
 </androidx.appcompat.widget.LinearLayoutCompat>

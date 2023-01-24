@@ -59,8 +59,8 @@ public class home1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home1);
         bottomNavigationView=findViewById(R.id.bottomNavigation);
-        drawerCustomerProfileName=findViewById(R.id.drawerCustomerProfileName);
-        drawerCircleImage=findViewById(R.id.drawerCustomerProfile);
+        /*drawerCustomerProfileName=findViewById(R.id.drawerCustomerProfileName);
+        drawerCircleImage=findViewById(R.id.drawerCustomerProfile);*/
         toolbar = findViewById(R.id.toolbar);
         storage=FirebaseStorage.getInstance();
         database=FirebaseDatabase.getInstance();
@@ -164,7 +164,7 @@ public class home1 extends AppCompatActivity {
         });
     }
 
-    @Override
+   @Override
     public void onBackPressed() {
         new AlertDialog.Builder(home1.this)
                 .setTitle("Exit")

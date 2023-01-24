@@ -47,5 +47,5 @@
         android:layout_gravity="start"
         android:background="@color/white"
         app:headerLayout="@layout/navigation_header"
-        app:menu="@menu/threedot" />
+        app:menu="@menu/service_provider_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>

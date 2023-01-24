@@ -50,9 +50,6 @@
         <activity
             android:name="simpleActivity.add_provider_detail"
             android:exported="false" />
-        <activity
-            android:name=".register_service_provider_number"
-            android:exported="false" />
         <!--
 <activity
             android:name=".ui.login.register_service_provider"
@@ -111,19 +108,10 @@
             android:name="simpleActivity.Forget_password_customer"
             android:exported="false" />
         <activity
-            android:name=".sign_in_ForCustomer"
-            android:exported="false" />
-        <activity
             android:name="simpleActivity.customer_login"
             android:exported="false" />
         <activity
             android:name="simpleActivity.customer_registration"
-            android:exported="false" />
-        <activity
-            android:name="simpleActivity.select_preference"
-            android:exported="false" />
-        <activity
-            android:name="simpleActivity.customerSignUp"
             android:exported="false" />
         <activity
             android:name="simpleActivity.home1"

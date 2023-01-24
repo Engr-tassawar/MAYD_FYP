@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/S_home"
+        android:icon="@drawable/home"
+        android:title="Home"
+        />
+    <item android:id="@+id/S_Profile"
+        android:icon="@drawable/ic_baseline_perm_identity_24"
+        android:title="Your Profile"
+        />
+    <!--<item android:id="@+id/wallet"
+        android:icon="@drawable/wallet"
+        android:title="Wallet"
+        />-->
+    <item android:id="@+id/S_support"
+        android:icon="@drawable/ic_baseline_support_agent_24"
+        android:title="Support"
+        />
+
+    <item android:id="@+id/S_terms"
+        android:icon="@drawable/ic_baseline_call_to_action_24"
+        android:title="Terms And Conditions"
+        />
+
+    <item android:id="@+id/S_logOut"
+        android:icon="@drawable/login"
+        android:title="Sign Out"
+        />
+</menu>

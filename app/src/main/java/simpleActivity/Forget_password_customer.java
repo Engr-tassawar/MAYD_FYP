@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.mayd.R;
-import com.example.mayd.sign_in_ForCustomer;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,7 +39,7 @@ public class Forget_password_customer extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ValidateData();
-                Intent intent=new Intent(Forget_password_customer .this, sign_in_ForCustomer.class);
+                Intent intent=new Intent(Forget_password_customer .this, customer_login.class);
                 startActivity(intent);
 
             }
