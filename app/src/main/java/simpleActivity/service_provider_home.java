@@ -66,7 +66,7 @@ public class service_provider_home extends AppCompatActivity {
                                 .commit();
                         *//*return true;*//*
                     break;*/
-                    case R.id.C_Profile:
+                    case R.id.S_Profile:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.service_provider_FrameLayout,new service_provider_drawer_profile_fragment())
                                 .commit();

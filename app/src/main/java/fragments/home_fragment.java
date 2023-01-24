@@ -48,7 +48,9 @@ import simpleActivity.plumber_properties;
 
 public class home_fragment extends Fragment {
 
+/*
     Button btnSignOut;
+*/
     /*ImageView customer_profile,add_customer_image;*/
     ImageView imgElectric,imgPlum,imgGraphic,imgAc,imgCook,imgDrive;
     TextView tvElectric,tvPlum,tvGraphic,tvAc,tvCook,tvDrive,tvName,tvId;
@@ -74,7 +76,9 @@ public class home_fragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+/*
+Button btnSignOut;
+*/
         imgElectric=getView().findViewById(R.id.imgElectric);
         imgPlum=getView().findViewById(R.id.imgPlum);
         imgGraphic=getView().findViewById(R.id.imgGraphic);
@@ -87,7 +91,9 @@ public class home_fragment extends Fragment {
         tvAc=getView().findViewById(R.id.tvAc);
         tvCook=getView().findViewById(R.id.tvCook);
         tvDrive=getView().findViewById(R.id.tvDrive);
-        /*btnSignOut=getView().findViewById(R.id.btnSignOut);*/
+/*
+        btnSignOut=getView().findViewById(R.id.btnSignOut);
+*/
 
         driverCardView=getView().findViewById(R.id.driverCardView);
         houseKeepingCardView=getView().findViewById(R.id.houseKeepingCardView);
@@ -99,11 +105,22 @@ public class home_fragment extends Fragment {
         graphicCardView=getView().findViewById(R.id.graphicCardView);
         plumberCardView=getView().findViewById(R.id.plumberCardView);
         babyCareCardView=getView().findViewById(R.id.babyCareCardView);
-       /* btnSignOut.setOnClickListener(new View.OnClickListener() {
+      /*  btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
             auth.signOut();
             }
+        });*/
+        /*btnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                try{
+                    requireActivity().finish();
+                }catch(Exception e){}
+            }
+
+
         });*/
 
         driverCardView.setOnClickListener(new View.OnClickListener() {
