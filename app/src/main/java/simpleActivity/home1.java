@@ -69,10 +69,11 @@ public class home1 extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.myFrameLayout,new home_fragment()).commit();
         //navigationView.setCheckedItem(R.id.home);
-
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView=findViewById(R.id.navigationView);
+/*
         setSupportActionBar(toolbar);
+*/
         toggle = new ActionBarDrawerToggle(home1.this, drawerLayout, toolbar, R.string.navigation_open, R.string.navigation_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();

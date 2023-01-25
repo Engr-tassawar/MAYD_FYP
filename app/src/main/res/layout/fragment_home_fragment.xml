@@ -64,18 +64,17 @@
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
-            <!--    <androidx.appcompat.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnSignOut"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="270dp"
+                    android:layout_marginLeft="250dp"
                     android:layout_marginTop="60dp"
                     android:background="@drawable/round_button"
                     android:text="Sign Out"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
                     android:textSize="10sp" />
--->
             </androidx.cardview.widget.CardView>
         </LinearLayout>
         <!--<RelativeLayout

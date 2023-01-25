@@ -48,9 +48,7 @@ import simpleActivity.plumber_properties;
 
 public class home_fragment extends Fragment {
 
-/*
     Button btnSignOut;
-*/
     /*ImageView customer_profile,add_customer_image;*/
     ImageView imgElectric,imgPlum,imgGraphic,imgAc,imgCook,imgDrive;
     TextView tvElectric,tvPlum,tvGraphic,tvAc,tvCook,tvDrive,tvName,tvId;
@@ -76,9 +74,6 @@ public class home_fragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-/*
-Button btnSignOut;
-*/
         imgElectric=getView().findViewById(R.id.imgElectric);
         imgPlum=getView().findViewById(R.id.imgPlum);
         imgGraphic=getView().findViewById(R.id.imgGraphic);
@@ -91,9 +86,7 @@ Button btnSignOut;
         tvAc=getView().findViewById(R.id.tvAc);
         tvCook=getView().findViewById(R.id.tvCook);
         tvDrive=getView().findViewById(R.id.tvDrive);
-/*
         btnSignOut=getView().findViewById(R.id.btnSignOut);
-*/
 
         driverCardView=getView().findViewById(R.id.driverCardView);
         houseKeepingCardView=getView().findViewById(R.id.houseKeepingCardView);
@@ -105,13 +98,15 @@ Button btnSignOut;
         graphicCardView=getView().findViewById(R.id.graphicCardView);
         plumberCardView=getView().findViewById(R.id.plumberCardView);
         babyCareCardView=getView().findViewById(R.id.babyCareCardView);
-      /*  btnSignOut.setOnClickListener(new View.OnClickListener() {
+
+        /*btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            auth.signOut();
+                FirebaseAuth.getInstance().signOut();
             }
         });*/
-        /*btnSignOut.setOnClickListener(new View.OnClickListener() {
+
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
@@ -119,9 +114,7 @@ Button btnSignOut;
                     requireActivity().finish();
                 }catch(Exception e){}
             }
-
-
-        });*/
+        });
 
         driverCardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -271,17 +264,17 @@ Button btnSignOut;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home_fragment, container, false);
-
 
         return view;
     }
 
 
- /* @Override
-    public void onBackPressed() {
-      new AlertDialog.Builder(this)
+
+    /*public void onBackPressed() {
+      new AlertDialog.Builder(getActivity())
               .setIcon(R.drawable.ic_baseline_warning_24)
               .setTitle("Exit")
               .setMessage(("Are you sure to want exit?"))
@@ -289,11 +282,10 @@ Button btnSignOut;
               .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                   @Override
                   public void onClick(DialogInterface dialogInterface, int i) {
-                      finish();
+                     getActivity().finishAffinity();
                   }
               })
               .setNegativeButton("No",null)
         .show();
     }*/
-
 }

@@ -1,6 +1,7 @@
 package simpleActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -39,12 +40,16 @@ public class driver extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver);
+
         driverClass=new DriverClass();
         auth=FirebaseAuth.getInstance();
+
+
 /*
 getSupportActionBar().setTitle("Driver");
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 */
-        /*getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
         hireDriver_CheckBox=findViewById(R.id.hireDriver_CheckBox);
         chauffeur_CheckBox=findViewById(R.id.chauffeur_CheckBox);

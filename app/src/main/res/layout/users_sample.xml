@@ -54,6 +54,13 @@
             android:text="Person Phone"
 
             />
+        <TextView
+            android:id="@+id/cityTv"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Person Phone"
+
+            />
     </LinearLayout>
 <!--<RelativeLayout
     android:layout_width="match_parent"

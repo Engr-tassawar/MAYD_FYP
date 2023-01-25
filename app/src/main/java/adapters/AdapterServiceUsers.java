@@ -47,6 +47,7 @@ public class AdapterServiceUsers extends RecyclerView.Adapter<AdapterServiceUser
         .into(holder.binding.AllServiceProviderImgV);
        holder.binding.nameTv.setText(users.getFirstName()+users.getLastName());
        holder.binding.serviceTv.setText(users.getServiceProviderService());
+       holder.binding.cityTv.setText(users.getCity());
 
        holder.itemView.setOnClickListener(view ->{
            itemClickListener.onItemClick(users);

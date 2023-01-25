@@ -72,7 +72,7 @@ public class service_provider_drawer_profile_fragment extends Fragment {
         service_circleImageView=getView().findViewById(R.id.circleImageView);
         S_fulName=getView().findViewById(R.id.C_fulName);
 
-     /*   database.getReference().child("ServiceProviderUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
+     /*database.getReference().child("ServiceProviderUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
