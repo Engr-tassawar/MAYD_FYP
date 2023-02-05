@@ -5,11 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
     android:weightSum="9"
     tools:context="simpleActivity.booking_schedule"
     >
-
+    <!--<androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        />-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,14 +40,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Booking Time:"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="0.2"
+        android:layout_marginLeft="15dp"
+
         />
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_weight="1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -55,13 +65,17 @@
         android:layout_height="wrap_content"
         android:text="Select Date:"
         android:layout_weight="0.2"
+        android:layout_marginLeft="15dp"
 
         />
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_weight="1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -78,12 +92,15 @@
         android:layout_height="wrap_content"
         android:text="Enter Address:"
         android:layout_weight="0.2"
+        android:layout_marginLeft="15dp"
         />
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_weight="1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -96,13 +113,16 @@
         android:layout_height="wrap_content"
         android:text="Description:"
         android:layout_weight="0.2"
+        android:layout_marginLeft="15dp"
 
         />
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_weight="1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
 
         >
         <com.google.android.material.textfield.TextInputEditText
@@ -113,8 +133,8 @@
     </com.google.android.material.textfield.TextInputLayout>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_proceed_schedule"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_width="350dp"
+        android:layout_height="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/round_button3"
         android:textColor="@color/white"

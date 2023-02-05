@@ -5,9 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
     tools:context="simpleActivity.driver"
     >
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_driver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,6 +29,8 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:background="@color/grey"
         android:layout_marginTop="10dp"/>
     <TextView
@@ -40,6 +49,7 @@
         android:checkedButton="1"
         android:gravity="center_horizontal"
         android:orientation="vertical"
+        android:padding="20dp"
         >
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,7 +57,6 @@
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:weightSum="5"
-
         >
 
         <CheckBox
@@ -73,6 +82,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="5"
+
 
         >
         <CheckBox
@@ -142,7 +152,7 @@
 </RadioGroup>
 <Button
     android:id="@+id/driverPackage"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="55dp"
         android:text="Proceed with Package"
         android:layout_gravity="center"

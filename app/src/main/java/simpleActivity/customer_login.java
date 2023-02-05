@@ -44,9 +44,9 @@ public class customer_login extends AppCompatActivity {
             //getSupportActionBar().hide();
 
             auth = FirebaseAuth.getInstance();
-/*
+
         currentUser=auth.getCurrentUser();
-*/
+
             reset_alert = new AlertDialog.Builder(this);
             inflater = this.getLayoutInflater();
             customer_edtEmail_SignIn = findViewById(R.id.customer_edtEmail_SignIn);
@@ -227,5 +227,14 @@ public class customer_login extends AppCompatActivity {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    @Override
+    protected void onStart() {
+        if(currentUser!=null) {
+        Intent intent=new Intent(customer_login.this,home1.class);
+        startActivity(intent);
+        }
+        super.onStart();
     }
 }

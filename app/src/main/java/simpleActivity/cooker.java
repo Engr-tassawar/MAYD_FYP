@@ -1,6 +1,7 @@
 package simpleActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,6 +43,11 @@ public class cooker extends AppCompatActivity {
         tv_partTime=findViewById(R.id.tv_partTime);
 
         order.ServiceProviderType = ServiceTypes.Cook;
+
+        Toolbar toolbar=findViewById(R.id.toolbar_cook);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Cooker Services");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         monthlyCook_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -159,5 +165,11 @@ public class cooker extends AppCompatActivity {
             }
 
         });*/
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        onBackPressed();
+        return true;
     }
 }

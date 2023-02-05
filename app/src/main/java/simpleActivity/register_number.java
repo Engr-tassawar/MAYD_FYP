@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.mayd.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.hbb20.CountryCodePicker;
 
 public class register_number extends AppCompatActivity {
@@ -18,14 +19,11 @@ public class register_number extends AppCompatActivity {
     EditText putNumberEdt;
     Button ServiceProvider_getOtp,btnCustomer;
     FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_number);
         mAuth=FirebaseAuth.getInstance();
-
-
         /*String _fullName=getIntent().getStringExtra("fullName");
         String _city=getIntent().getStringExtra("city");
         String _phoneNumber=getIntent().getStringExtra("phoneNumber");*/
@@ -68,4 +66,5 @@ public class register_number extends AppCompatActivity {
             }
         });
     }
+
 }

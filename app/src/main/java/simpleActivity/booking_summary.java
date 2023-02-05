@@ -51,7 +51,6 @@ public class booking_summary extends AppCompatActivity {
         bookingSummaryServiceProviderName.setText(order.ServiceProviderName);
         bookingSummaryServiceDescription.setText(order.ServiceDescription);
 
-
         btn_confirmBookSummary.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -100,6 +99,7 @@ public class booking_summary extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         finish();
+                        ;
                     }
                 })
                 .setNegativeButton("No", null)

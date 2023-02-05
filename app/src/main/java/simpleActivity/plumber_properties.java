@@ -1,6 +1,7 @@
 package simpleActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,6 +33,10 @@ public class plumber_properties extends AppCompatActivity {
 
         order.ServiceProviderType = ServiceTypes.Plumber;
 
+        Toolbar toolbar=findViewById(R.id.toolbar_plumber);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Plumber Services");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         bathroomCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -110,5 +115,11 @@ public class plumber_properties extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        onBackPressed();
+        return true;
     }
 }

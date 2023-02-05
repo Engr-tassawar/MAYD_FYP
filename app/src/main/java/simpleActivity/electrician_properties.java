@@ -1,6 +1,7 @@
 package simpleActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,7 +35,10 @@ public class electrician_properties extends AppCompatActivity {
         electricianPackage=findViewById(R.id.electricianPackage);
         electricianPackage.setEnabled(false);
         order.ServiceProviderType= ServiceTypes.Electrician;
-
+        Toolbar toolbar=findViewById(R.id.toolbar_electrician);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Electrician Services");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         generator_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -77,5 +81,10 @@ public class electrician_properties extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public boolean onSupportNavigateUp() {
 
+        onBackPressed();
+        return true;
+    }
 }

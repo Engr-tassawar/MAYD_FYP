@@ -5,6 +5,7 @@ import static Utils.DbUtil.startOrder;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -42,6 +43,10 @@ public class ServiceProviderOrderStatus extends AppCompatActivity {
         startOrder = findViewById(R.id.btnStartOrder);
         endOrder = findViewById(R.id.btnEndOrder);
         cancelOrder = findViewById(R.id.btnCancelOrder);
+        Toolbar toolbar=findViewById(R.id.toolbar_orderStatus);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Bill Status");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
        // mOrder = Common.getOrderObject(ServiceProviderOrderStatus.this);
         mOrder = Common.TempOrder;
         Toast.makeText(this, "order status is"+mOrder.isStarted, Toast.LENGTH_SHORT).show();
@@ -158,5 +163,10 @@ public class ServiceProviderOrderStatus extends AppCompatActivity {
 
         });
 
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

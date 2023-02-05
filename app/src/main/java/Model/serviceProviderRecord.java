@@ -35,7 +35,7 @@ public class serviceProviderRecord {
     String serviceProviderProfile;
 
 
-    public serviceProviderRecord(String firstName, String lastName, String city, String services, String dateOfBirth, String ppp,String Phone) {
+   public serviceProviderRecord(String firstName, String lastName, String city, String services, String dateOfBirth, String ppp,String Phone) {
     }
 
     public serviceProviderRecord(String firstName, String lastName, String city, String serviceProviderService, String serviceProviderProfile,String Phone) {

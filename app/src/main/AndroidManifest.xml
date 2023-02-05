@@ -99,9 +99,6 @@
             android:name="simpleActivity.electrician_properties"
             android:exported="false" />
         <activity
-            android:name="simpleActivity.book_your_service"
-            android:exported="false" />
-        <activity
             android:name="simpleActivity.plumber_properties"
             android:exported="false" />
         <activity

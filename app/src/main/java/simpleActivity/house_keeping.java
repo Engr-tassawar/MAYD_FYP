@@ -1,6 +1,7 @@
 package simpleActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,6 +40,11 @@ public class house_keeping extends AppCompatActivity {
         laundry_CheckBox=findViewById(R.id.laundry_CheckBox);
 
         houseKeepingPackage=findViewById(R.id.houseKeepingPackage);
+
+        Toolbar toolbar=findViewById(R.id.toolbar_houseKeeping);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Driver Services");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         order.ServiceProviderType= ServiceTypes.HouseKeeping;
         houseKeeping_allRoundMonthly_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -139,5 +145,11 @@ public class house_keeping extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        onBackPressed();
+        return true;
     }
 }

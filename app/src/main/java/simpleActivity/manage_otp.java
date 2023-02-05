@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mayd.R;
@@ -17,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DataSnapshot;
@@ -38,6 +40,7 @@ public class manage_otp extends AppCompatActivity {
         setContentView(R.layout.activity_manage_otp);
         putOtpEdt = findViewById(R.id.putOtpEdt);
         ServiceProvider_putOtp_btn = findViewById(R.id.ServiceProvider_putOtp_btn);
+
 
        phoneNumber = getIntent().getStringExtra("mobile".toString());
         /*_city = getIntent().getStringExtra("city".toString());
@@ -138,7 +141,6 @@ PhoneAuthProvider.getInstance().verifyPhoneNumber(
                     }
                 });
     }
-
     /*private void storeNewUserData() {
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference reference=database.getReference("ServiceProviderUsers");

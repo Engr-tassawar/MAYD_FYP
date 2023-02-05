@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,9 +34,12 @@ import java.util.Objects;
 import Model.Order;
 import Model.serviceProviderRecord;
 import adapters.AdapterServiceUsers;
+import simpleActivity.booking_schedule;
 import simpleActivity.booking_summary;
+import simpleActivity.driver;
 
 public class search_fragment extends Fragment {
+    Toolbar toolbar;
     RecyclerView recyclerView;
     AdapterServiceUsers adapterServiceUsers;
     Order order;
@@ -72,11 +78,22 @@ public class search_fragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+       /* Toolbar toolbar=findViewById(R.id.toolbar_schedule);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Add Detail");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
+
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.search_fragment, container, false);
+
         AdapterServiceUsers adapterServiceUsers = new AdapterServiceUsers(getContext(), list, data -> {
             serviceProviderRecord user = (serviceProviderRecord) data;
             order.ServiceProviderId = user.getUid();
@@ -89,10 +106,15 @@ public class search_fragment extends Fragment {
             getActivity().finish();
         });
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-
+         toolbar=view.findViewById(R.id.toolbar_selectProvider);
+       /*  AppCompatActivity activity=(AppCompatActivity)getActivity();
+         activity.setSupportActionBar(toolbar);
+         activity.getSupportActionBar().setTitle("Select Service Provider");
+         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
         recyclerView = view.findViewById(R.id.users_recyclerView);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapterServiceUsers);
+
         database.getReference().child("ServiceProviderUsers").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -113,5 +135,10 @@ public class search_fragment extends Fragment {
 
         return view;
     }
+   /* public boolean onSupportNavigateUp() {
+        Intent intent = new Intent(getContext(), driver.class);
+        startActivity(intent);
 
+        return true;
+    }*/
 }

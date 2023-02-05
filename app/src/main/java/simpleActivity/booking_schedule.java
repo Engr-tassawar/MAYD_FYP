@@ -1,11 +1,14 @@
 package simpleActivity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -41,8 +44,11 @@ public class booking_schedule extends AppCompatActivity {
         setContentView(R.layout.activity_booking_schedule);
 
         Order order = Common.getOrderObject(booking_schedule.this);
-
         auth = FirebaseAuth.getInstance();
+       /* Toolbar toolbar=findViewById(R.id.toolbar_schedule);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Add Detail");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
         btn_proceed_schedule = findViewById(R.id.btn_proceed_schedule);
         edtSelectDate = findViewById(R.id.edtSelectDate);
@@ -132,4 +138,12 @@ public class booking_schedule extends AppCompatActivity {
         });
 
     }
+  /* @Override
+   public boolean onSupportNavigateUp() {
+
+       Intent intent = new Intent(booking_schedule.this, driver.class);
+       startActivity(intent);
+       onBackPressed();
+       return true;
+   }*/
 }

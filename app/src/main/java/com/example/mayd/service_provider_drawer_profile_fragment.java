@@ -47,15 +47,7 @@ public class service_provider_drawer_profile_fragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment service_provider_drawer_profile_fragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static service_provider_drawer_profile_fragment newInstance(String param1, String param2) {
         service_provider_drawer_profile_fragment fragment = new service_provider_drawer_profile_fragment();
         Bundle args = new Bundle();
@@ -72,7 +64,7 @@ public class service_provider_drawer_profile_fragment extends Fragment {
         service_circleImageView=getView().findViewById(R.id.circleImageView);
         S_fulName=getView().findViewById(R.id.C_fulName);
 
-     /*database.getReference().child("ServiceProviderUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
+     database.getReference().child("ServiceProviderUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
@@ -81,35 +73,12 @@ public class service_provider_drawer_profile_fragment extends Fragment {
                             .load(ServiceProviderRecord.getServiceProviderProfile())
                             .placeholder(R.drawable.profile_image_b)
                             .into(service_circleImageView);
-                    S_phone.setText(auth.getCurrentUser().getPhoneNumber());
                     S_service.setText(ServiceProviderRecord.getServiceProviderService());
+                    S_phone.setText(auth.getCurrentUser().getPhoneNumber());
                     S_fulName.setText(ServiceProviderRecord.getFirstName()+" "+ServiceProviderRecord.getLastName());
                     S_MainProfileName.setText(ServiceProviderRecord.getFirstName()+" "+ServiceProviderRecord.getLastName());
                 }
 
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });*/
-       /* database.getReference().child("ServiceProviderUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    serviceProviderRecord ServiceProviderRecord = snapshot.getValue(serviceProviderRecord.class);
-                    Picasso.get()
-                            .load(ServiceProviderRecord.getServiceProviderProfile())
-                            .placeholder(R.drawable.profile_image_b)
-                            .into(service_circleImageView);
-
-                    S_phone.setText(auth.getCurrentUser().getPhoneNumber());
-                    S_fulName.setText(ServiceProviderRecord.getFirstName()+" "+ServiceProviderRecord.getLastName());
-                    S_MainProfileName.setText(ServiceProviderRecord.getFirstName()+" "+ServiceProviderRecord.getLastName());
-                    S_service.setText(ServiceProviderRecord.getServiceProviderService());
-
-                }
             }
 
             @Override
@@ -117,7 +86,7 @@ public class service_provider_drawer_profile_fragment extends Fragment {
 
             }
         });
-*/
+
     }
 
 

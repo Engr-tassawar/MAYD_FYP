@@ -1,5 +1,6 @@
 package fragments;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -23,6 +24,9 @@ import com.example.mayd.R;
 
 import Model.serviceProviderRecord;
 import adapters.fragmentAdapter;
+import simpleActivity.customer_login;
+import simpleActivity.register_number;
+
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -76,8 +80,14 @@ FirebaseDatabase database;
         service_provider_number = getView().findViewById(R.id.service_provider_number);
         service_provider_profile= getView().findViewById(R.id.service_provider_profile);
         add_provider_image = getView().findViewById(R.id.add_provider_image);
-
         ServiceProvider_btnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signOutUser();
+            }
+        });
+
+       /* ServiceProvider_btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
@@ -87,7 +97,7 @@ FirebaseDatabase database;
             }
 
 
-        });
+        });*/
         database.getReference().child("ServiceProviderUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -173,6 +183,18 @@ FirebaseDatabase database;
 
                }
            });*/
+    }
+
+    private void signOutUser() {
+        auth.signOut();
+
+        Intent intent = new Intent(getContext(), register_number.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        Toast.makeText(getContext(),
+                "User SignOut", Toast.LENGTH_SHORT).show();
+
+        getActivity().finish();
     }
 
     @Override

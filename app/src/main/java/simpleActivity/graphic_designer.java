@@ -1,6 +1,7 @@
 package simpleActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,7 +35,10 @@ public class graphic_designer extends AppCompatActivity {
         graphicPackage=findViewById(R.id.graphicPackage);
 
         order.ServiceProviderType = ServiceTypes.Graphics;
-
+        Toolbar toolbar=findViewById(R.id.toolbar_graphicDesigner);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Graphic Services");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         logoDesign_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -75,5 +79,11 @@ public class graphic_designer extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        onBackPressed();
+        return true;
     }
 }

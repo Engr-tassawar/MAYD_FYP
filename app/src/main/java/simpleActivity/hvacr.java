@@ -1,6 +1,7 @@
 package simpleActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,7 +40,10 @@ public class hvacr extends AppCompatActivity {
         HvacrPackage.setEnabled(false);
 
         order.ServiceProviderType = ServiceTypes.HVAC;
-
+        Toolbar toolbar=findViewById(R.id.toolbar_HVACR);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("HVACR Services");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         gasRefilling_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -117,5 +121,11 @@ public class hvacr extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        onBackPressed();
+        return true;
     }
 }

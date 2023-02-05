@@ -1,6 +1,7 @@
 package simpleActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,7 +33,10 @@ public class painter extends AppCompatActivity {
         painterPackage=findViewById(R.id.painterPackage);
 
         order.ServiceProviderType = ServiceTypes.Painter;
-
+        Toolbar toolbar=findViewById(R.id.toolbar_painter);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Painter Services");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         painterPerDay_CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -73,5 +77,11 @@ public class painter extends AppCompatActivity {
             }
             
         });
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        onBackPressed();
+        return true;
     }
 }

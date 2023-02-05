@@ -37,6 +37,7 @@ import com.squareup.picasso.Picasso;
 
 import Model.CustomerUser;
 import simpleActivity.cooker;
+import simpleActivity.customer_login;
 import simpleActivity.driver;
 import simpleActivity.electrician_properties;
 import simpleActivity.graphic_designer;
@@ -99,14 +100,14 @@ public class home_fragment extends Fragment {
         plumberCardView=getView().findViewById(R.id.plumberCardView);
         babyCareCardView=getView().findViewById(R.id.babyCareCardView);
 
-        /*btnSignOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-            }
-        });*/
-
         btnSignOut.setOnClickListener(new View.OnClickListener() {
+                                          @Override
+                                          public void onClick(View view) {
+                                              signOutUser();
+                                          }
+
+        });
+        /*btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
@@ -115,7 +116,7 @@ public class home_fragment extends Fragment {
                 }catch(Exception e){}
             }
         });
-
+*/
         driverCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -259,6 +260,19 @@ public class home_fragment extends Fragment {
                 launcher.launch("image/*");
             }
         });
+    }
+
+    private void signOutUser() {
+        auth.signOut();
+
+        Intent intent = new Intent(getContext(), customer_login.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        Toast.makeText(getContext(),
+                "User SignOut", Toast.LENGTH_SHORT).show();
+
+        getActivity().finish();
+
     }
 
     @Override

@@ -1,11 +1,13 @@
 package simpleActivity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -43,13 +45,15 @@ public class driver extends AppCompatActivity {
 
         driverClass=new DriverClass();
         auth=FirebaseAuth.getInstance();
-
-
-/*
-getSupportActionBar().setTitle("Driver");
-
+        Toolbar toolbar=findViewById(R.id.toolbar_driver);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Driver Services");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-*/
+
+
+     /*  getSupportActionBar().setTitle("Driver");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
+
 
         hireDriver_CheckBox=findViewById(R.id.hireDriver_CheckBox);
         chauffeur_CheckBox=findViewById(R.id.chauffeur_CheckBox);
@@ -141,8 +145,17 @@ getSupportActionBar().setTitle("Driver");
     }
 
    /* @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==android.R.id.home)
+
+        {
+         finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }*/
+@Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
-    }*/
+    }
 }
