@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.Dialog;
+import android.app.Notification;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.mayd.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import Model.DriverClass;
 import Model.Order;
@@ -33,7 +35,6 @@ public class booking_summary extends AppCompatActivity {
 
         Intent intent = getIntent();
         Order order = (Order) intent.getExtras().getSerializable("orderObject");
-
         btn_confirmBookSummary = findViewById(R.id.btn_confirmBookSummary);
         bookingSummaryDateTV = findViewById(R.id.bookingSummaryDateTV);
         bookingSummaryService = findViewById(R.id.bookingSummaryService);
@@ -80,6 +81,7 @@ public class booking_summary extends AppCompatActivity {
                                 dialog.show();
 
 
+
                             }
                         })
                         .setNegativeButton("No", null)
@@ -87,6 +89,9 @@ public class booking_summary extends AppCompatActivity {
             }
         });
     }
+
+
+
 
     @Override
     public void onBackPressed() {
@@ -99,7 +104,7 @@ public class booking_summary extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         finish();
-                        ;
+
                     }
                 })
                 .setNegativeButton("No", null)

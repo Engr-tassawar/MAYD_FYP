@@ -155,6 +155,7 @@ public class  DbUtil {
         mOrder.address = (String)orderHashMap.get("address");
         mOrder.price = (String)orderHashMap.get("price");
         mOrder.description = (String)orderHashMap.get("description");
+        mOrder.ServiceDescription = (String)orderHashMap.get("ServiceDescription");
         mOrder.CustomerId = (String)orderHashMap.get("CustomerId");
         mOrder.time = (String)orderHashMap.get("time");
         mOrder.ServiceProviderName = (String)orderHashMap.get("ServiceProviderName");

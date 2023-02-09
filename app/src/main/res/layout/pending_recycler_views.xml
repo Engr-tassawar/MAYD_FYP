@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="175dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="20dp"
     android:layout_marginTop="5dp"
@@ -29,6 +29,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Service:"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service Description:"
             android:textStyle="bold"
             android:textSize="15sp" />
         <TextView
@@ -81,6 +87,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Service:"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/pending_description"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description:"
             android:textSize="15sp" />
         <TextView
             android:id="@+id/pending_price"
